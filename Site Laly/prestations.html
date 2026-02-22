@@ -1,0 +1,166 @@
+<!-- prestation.html -->
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Prestations — Cabinet Carol-Anne Haderlé</title>
+  <meta name="description" content="Prestations de chiropraxie : 1ère visite, suivi, consultation douleur aiguë. Durées et tarifs." />
+
+  <!-- Font Awesome (cohérence) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <link rel="stylesheet" href="assets/css/globals.css" />
+  <link rel="stylesheet" href="assets/css/layout.css" />
+  <link rel="stylesheet" href="assets/css/prestations.css" />
+</head>
+
+<body>
+<header class="siteHeader">
+  <div class="siteHeader__inner">
+
+    <a class="siteHeader__brand" href="index.html" style="display:flex;align-items:center;gap:12px;text-decoration:none;">
+      <img src="assets/img/logo.png" alt="Logo Cabinet" style="width:64px;height:auto;display:block;">
+      <span style="display:flex;flex-direction:column;line-height:1.1;">
+        <strong style="font-family:var(--ff-title);font-size:22px;color:var(--c-primary);font-weight:800;">
+          Carol-Anne Haderlé
+        </strong>
+        <span style="font-family:var(--ff-body);font-size:13px;color:var(--c-muted);font-weight:600;">
+          Chiropracteur à Limoges
+        </span>
+      </span>
+    </a>
+
+    <nav class="siteNav" aria-label="Navigation principale">
+       <a href="index.html">Accueil</a>
+      <a href="chiropraxie.html">La Chiropraxie | À quoi s'attendre ?</a>
+      <a  class="is-active"  href="prestations.html">Voir les prestations</a>
+    </nav>
+
+    <a class="siteHeader__cta"
+       href="https://www.fresha.com/book-now/carol-anne-nail-art-ba7022le/all-offer?share=true&pId=1210183"
+       target="_blank" rel="noopener">
+      Prendre rendez-vous
+    </a>
+
+  </div>
+</header>
+
+  <main>
+    <section class="prestations" id="prestations">
+      <div class="prestations__inner">
+
+        <header class="prestations__head">
+          <h1 class="prestations__title">Les prestations</h1>
+          <div class="prestations__step"><span>Choisissez un service</span></div>
+        </header>
+
+        <div class="prestations__grid">
+          <!-- LISTE SERVICES -->
+          <div class="prestations__list" role="list">
+
+            <article class="service" role="listitem" data-service="premiere">
+              <button class="service__top" type="button" aria-expanded="false">
+                <div class="service__main">
+                  <h3 class="service__name">1ère visite</h3>
+                  <p class="service__sub">Découvrir la chiropraxie et réaliser un bilan</p>
+                  <div class="service__meta">
+                    <span>60 min</span><span>•</span><span>60 €</span>
+                  </div>
+                </div>
+                <span class="service__check" aria-hidden="true"></span>
+              </button>
+              <div class="service__body">
+                <p>Comprend : anamnèse, analyse posturale, examen chiropratique, explications et première prise en charge.</p>
+                <ul>
+                  <li>Antécédents, objectifs, habitudes de vie</li>
+                  <li>Analyse d’examens si vous en avez (radio/IRM…)</li>
+                  <li>Plan de soins + conseils</li>
+                </ul>
+              </div>
+            </article>
+
+            <article class="service" role="listitem" data-service="suivi">
+              <button class="service__top" type="button" aria-expanded="false">
+                <div class="service__main">
+                  <h3 class="service__name">Suivi</h3>
+                  <p class="service__sub">Uniquement pour patients réguliers</p>
+                  <div class="service__meta">
+                    <span>40 min</span><span>•</span><span>50 €</span>
+                  </div>
+                </div>
+                <span class="service__check" aria-hidden="true"></span>
+              </button>
+              <div class="service__body">
+                <p>Consultation de suivi adaptée à votre évolution : réévaluation rapide, ajustements, conseils ciblés.</p>
+              </div>
+            </article>
+
+            <article class="service" role="listitem" data-service="urgence">
+              <button class="service__top" type="button" aria-expanded="false">
+                <div class="service__main">
+                  <h3 class="service__name">Consultation douleur aiguë</h3>
+                  <p class="service__sub">Lombalgie, cervicalgie, blocage récent</p>
+                  <div class="service__meta">
+                    <span>30–40 min</span><span>•</span><span>55 €</span>
+                  </div>
+                </div>
+                <span class="service__check" aria-hidden="true"></span>
+              </button>
+              <div class="service__body">
+                <p>Évaluation + prise en charge prioritaire des douleurs récentes, avec conseils de récupération.</p>
+              </div>
+            </article>
+
+          </div>
+
+          <!-- RESUME -->
+          <aside class="prestations__summary" aria-label="Résumé">
+            <div class="summaryCard">
+              <h2 class="summaryCard__title">Résumé</h2>
+
+              <div class="summaryCard__row">
+                <div class="summaryCard__icon" aria-hidden="true">i</div>
+                <div>
+                  <div class="summaryCard__strong">Cabinet Carol-Anne Haderlé</div>
+                  <div class="summaryCard__muted">Chiropracteur à Limoges</div>
+                </div>
+              </div>
+
+              <div class="summaryCard__divider"></div>
+
+              <div class="summaryCard__row">
+                <div class="summaryCard__icon" aria-hidden="true">🗓</div>
+                <div>
+                  <div class="summaryCard__strong" id="sum-service">—</div>
+                  <div class="summaryCard__muted" id="sum-meta">—</div>
+                </div>
+              </div>
+
+              <div class="summaryCard__actions">
+                <a class="summaryCard__btn"
+                   href="https://www.fresha.com/book-now/carol-anne-nail-art-ba7022le/all-offer?share=true&pId=1210183"
+                   target="_blank"
+                   rel="noopener">
+                  Prendre rendez-vous
+                </a>
+                <p class="summaryCard__hint">Après sélection, cliquez sur “Prendre rendez-vous”.</p>
+              </div>
+            </div>
+          </aside>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <footer class="siteFooter">
+    <div class="siteFooter__inner">
+      <p>© <span id="year"></span> Cabinet Carol-Anne Haderlé</p>
+    </div>
+  </footer>
+
+  <script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+  <script src="assets/js/prestations.js" defer></script>
+</body>
+</html>

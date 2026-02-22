@@ -1,0 +1,289 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Cabinet de chiropraxie à Limoges</title>
+  <meta name="description" content="Cabinet de chiropraxie à Limoges. Prise en charge personnalisée, douce et précise. Prenez rendez-vous." />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome (icônes) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="assets/css/globals.css" />
+  <link rel="stylesheet" href="assets/css/layout.css" />
+  <link rel="stylesheet" href="assets/css/index.css" />
+  <link rel="stylesheet" href="assets/css/chiropraxie.css" />
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header class="siteHeader">
+    <div class="siteHeader__inner">
+
+      <a class="siteHeader__brand" href="index.html" style="display:flex;align-items:center;gap:12px;text-decoration:none;">
+        <img src="assets/img/logo.png" alt="Logo Cabinet" style="width:64px;height:auto;display:block;">
+        <span style="display:flex;flex-direction:column;line-height:1.1;">
+          <strong style="font-family:var(--ff-title);font-size:22px;color:var(--c-primary);font-weight:800;">
+            Carol-Anne Haderlé
+          </strong>
+          <span style="font-family:var(--ff-body);font-size:13px;color:var(--c-muted);font-weight:600;">
+            Chiropracteur à Limoges
+          </span>
+        </span>
+      </a>
+
+      <nav class="siteNav" aria-label="Navigation principale">
+        <a class="is-active" href="index.html">Accueil</a>
+        <a href="chiropraxie.html">La Chiropraxie | À quoi s'attendre ?</a>
+        <a href="prestations.html">Voir les prestations</a>
+      </nav>
+
+      <a class="siteHeader__cta"
+         href="https://www.fresha.com/book-now/carol-anne-nail-art-ba7022le/all-offer?share=true&pId=1210183"
+         target="_blank" rel="noopener">
+        Prendre rendez-vous
+      </a>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero" aria-label="Introduction">
+    <div class="hero__bg" role="img" aria-label="Cabinet de chiropraxie"></div>
+
+    <div class="hero-badge">
+      <p class="hero-badge__kicker">CABINET DE CHIROPAXIE</p>
+      <h1 class="hero-badge__title">Soulagez durablement vos douleurs</h1>
+      <p class="hero-badge__text">
+        Prise en charge personnalisée • Douce et précise • À Limoges
+      </p>
+
+      <div class="hero-badge__actions">
+        <a class="hero-badge__btn" href="prestations.html">
+          Prendre rendez-vous
+        </a>
+        <a class="hero-badge__link" href="#contact">Contact</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- BANDE CONTACT -->
+  <section class="contact-band" id="contact" aria-label="Informations de contact">
+    <div class="container contact-band__inner">
+      <div class="contact-band__left">
+        <i class="fa-solid fa-location-dot" aria-hidden="true"></i>
+        <span>1 Rue Encombe Vineuse, 87100 Limoges</span>
+      </div>
+
+      <div class="contact-right">
+        <a class="contact-item" href="mailto:carolanne.chiropraxie@gmail.com">
+          <i class="fa-regular fa-envelope" aria-hidden="true"></i>
+          <span>carolanne.chiropraxie@gmail.com</span>
+        </a>
+
+        <a class="contact-item" href="tel:+33781602221">
+          <i class="fa-solid fa-phone" aria-hidden="true"></i>
+          <span>07&nbsp;81&nbsp;60&nbsp;22&nbsp;21</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <main>
+
+    <!-- WHY-CHIRO -->
+    <section class="why-chiro" id="chiropratique">
+      <div class="why-chiro__inner">
+        <h2 class="why-chiro__title">Ce que la chiropraxie solutionne</h2>
+
+        <div class="why-chiro__grid">
+          <nav class="why-chiro__tabs" aria-label="Motifs de consultation">
+            <button class="why-chiro__tab is-active" type="button" data-tab="tab1" aria-controls="tab1" aria-selected="true">
+              Maux de tête
+            </button>
+            <button class="why-chiro__tab" type="button" data-tab="tab2" aria-controls="tab2" aria-selected="false">
+              Gestion du stress
+            </button>
+            <button class="why-chiro__tab" type="button" data-tab="tab3" aria-controls="tab3" aria-selected="false">
+              Optimisation des performances et blessures sportives
+            </button>
+            <button class="why-chiro__tab" type="button" data-tab="tab4" aria-controls="tab4" aria-selected="false">
+              Troubles digestifs
+            </button>
+            <button class="why-chiro__tab" type="button" data-tab="tab5" aria-controls="tab5" aria-selected="false">
+              Douleurs menstruelles
+            </button>
+            <button class="why-chiro__tab" type="button" data-tab="tab6" aria-controls="tab6" aria-selected="false">
+              Troubles du sommeil
+            </button>
+            <button class="why-chiro__tab" type="button" data-tab="tab7" aria-controls="tab7" aria-selected="false">
+              Douleurs de dos & articulaires
+            </button>
+          </nav>
+
+          <div class="why-chiro__panelWrap">
+            <article class="why-chiro__panel is-active" id="tab1" role="region" aria-labelledby="tab1-label">
+              <div class="why-chiro__media" style="--bg:url('https://images.unsplash.com/photo-1580281657527-47f249e8f4df?auto=format&fit=crop&w=1600&q=80');">
+                <h3 class="why-chiro__mediaTitle" id="tab1-label">Maux de tête et migraines</h3>
+              </div>
+              <div class="why-chiro__text">
+                Migraines, céphalées, sensation de lourdeur… Des tensions cervicales peuvent contribuer à ces douleurs.
+                En consultation, l’objectif est d’identifier les facteurs mécaniques et posturaux, et d’améliorer la mobilité.
+              </div>
+            </article>
+
+            <article class="why-chiro__panel" id="tab2" role="region" aria-labelledby="tab2-label">
+              <div class="why-chiro__media" style="--bg:url('https://images.unsplash.com/photo-1540200049848-5d3b8a4a5f2e?auto=format&fit=crop&w=1600&q=80');">
+                <h3 class="why-chiro__mediaTitle" id="tab2-label">Gestion du stress</h3>
+              </div>
+              <div class="why-chiro__text">
+                Fatigue, tensions, difficultés de récupération… La prise en charge vise à réduire certaines contraintes
+                musculo-articulaires et à accompagner une meilleure régulation au quotidien (posture, respiration, hygiène de vie).
+              </div>
+            </article>
+
+            <article class="why-chiro__panel" id="tab3" role="region" aria-labelledby="tab3-label">
+              <div class="why-chiro__media" style="--bg:url('https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&w=1600&q=80');">
+                <h3 class="why-chiro__mediaTitle" id="tab3-label">Performances & sport</h3>
+              </div>
+              <div class="why-chiro__text">
+                Prévention des blessures, récupération, mobilité… L’objectif est d’optimiser le mouvement et de limiter les
+                compensations, avec des conseils adaptés à ta pratique.
+              </div>
+            </article>
+
+            <article class="why-chiro__panel" id="tab4" role="region" aria-labelledby="tab4-label">
+              <div class="why-chiro__media" style="--bg:url('https://images.unsplash.com/photo-1606206873764-fd15e242df52?auto=format&fit=crop&w=1600&q=80');">
+                <h3 class="why-chiro__mediaTitle" id="tab4-label">Troubles digestifs</h3>
+              </div>
+              <div class="why-chiro__text">
+                Ballonnements, inconfort… Si un suivi médical est déjà en place, la chiropraxie peut compléter par une approche
+                sur la posture, la respiration et certaines tensions mécaniques.
+              </div>
+            </article>
+
+            <article class="why-chiro__panel" id="tab5" role="region" aria-labelledby="tab5-label">
+              <div class="why-chiro__media" style="--bg:url('https://images.unsplash.com/photo-1524253482453-3fed8d2fe12b?auto=format&fit=crop&w=1600&q=80');">
+                <h3 class="why-chiro__mediaTitle" id="tab5-label">Douleurs menstruelles</h3>
+              </div>
+              <div class="why-chiro__text">
+                L’objectif est d’évaluer les contraintes du bassin et du bas du dos, et de proposer une prise en charge
+                complémentaire (mobilité, conseils) en parallèle d’un suivi adapté.
+              </div>
+            </article>
+
+            <article class="why-chiro__panel" id="tab6" role="region" aria-labelledby="tab6-label">
+              <div class="why-chiro__media" style="--bg:url('https://images.unsplash.com/photo-1525097487452-6278ff080c31?auto=format&fit=crop&w=1600&q=80');">
+                <h3 class="why-chiro__mediaTitle" id="tab6-label">Troubles du sommeil</h3>
+              </div>
+              <div class="why-chiro__text">
+                Réveils nocturnes, raideurs, stress… On cherche des facteurs mécaniques (cervicales, thorax, posture)
+                et on donne des pistes simples (oreiller, positions, routine de récupération).
+              </div>
+            </article>
+
+            <article class="why-chiro__panel" id="tab7" role="region" aria-labelledby="tab7-label">
+              <div class="why-chiro__media" style="--bg:url('https://images.unsplash.com/photo-1599447421416-3414985e6928?auto=format&fit=crop&w=1600&q=80');">
+                <h3 class="why-chiro__mediaTitle" id="tab7-label">Dos & articulations</h3>
+              </div>
+              <div class="why-chiro__text">
+                Lombalgies, douleurs cervicales, raideurs… Le bilan permet d’identifier les zones en restriction,
+                de travailler la mobilité et de réduire les compensations.
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- AVIS -->
+    <section class="avis" aria-labelledby="avis-title">
+      <div class="avis__inner">
+        <header class="avis__head">
+          <h2 class="avis__title" id="avis-title">Vos avis</h2>
+        </header>
+
+        <div class="avis__wrap" aria-label="Carrousel d'avis">
+          <button class="avis__nav avis__nav--prev" type="button" aria-label="Avis précédent">‹</button>
+          <button class="avis__nav avis__nav--next" type="button" aria-label="Avis suivant">›</button>
+
+          <div class="avis__viewport" tabindex="0">
+            <div class="avis__track" role="list">
+              <article class="avis__card" role="listitem">
+                <div class="avis__stars" aria-label="5 étoiles">★★★★★</div>
+                <h3 class="avis__quote">"Excellente expérience !"</h3>
+                <p class="avis__text">
+                  Rodrigo se distingue par son écoute attentive et son professionnalisme. J’ai constaté de réels progrès sur ma posture.
+                  Son cabinet est un lieu empreint de calme et de sérénité, où l’on se sent immédiatement en confiance. Je recommande vivement
+                  à chacun de prendre ce temps pour soi : votre corps et votre esprit vous remercieront.
+                </p>
+                <p class="avis__name">Emma</p>
+              </article>
+
+              <article class="avis__card" role="listitem">
+                <div class="avis__stars" aria-label="5 étoiles">★★★★★</div>
+                <h3 class="avis__quote">"J’ai pu reprendre une vie normale"</h3>
+                <p class="avis__text">
+                  J’ai eu la chance de rencontrer Rodrigo pendant une période très compliquée sur le plan de la santé. Dès les premières séances,
+                  j’ai ressenti mon énergie revenir et, durant ces trois mois de suivi, j’ai pu constater que mes douleurs récurrentes avaient disparu.
+                  Je recommande sans hésitation !
+                </p>
+                <p class="avis__name">Nadège</p>
+              </article>
+
+              <article class="avis__card" role="listitem">
+                <div class="avis__stars" aria-label="5 étoiles">★★★★★</div>
+                <h3 class="avis__quote">"Des évolutions remarquables"</h3>
+                <p class="avis__text">
+                  Suivi depuis maintenant 2 mois pour traiter des douleurs sciatiques. Très pédagogue, à l’écoute, et des évolutions remarquables,
+                  je recommande !
+                </p>
+                <p class="avis__name">Jérémy</p>
+              </article>
+            </div>
+          </div>
+
+          <div class="avis__dots" aria-label="Navigation des avis"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MAP -->
+    <section class="map-section" id="acces">
+  <div class="map-wrapper">
+    <iframe
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2779.6519094851174!2d1.2538929412496822!3d45.83825077120294!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47f934b7a55877e1%3A0x21b07c44182e6003!2s1%20Rue%20Encombe%20Vineuse%2C%2087100%20Limoges!5e0!3m2!1sfr!2sfr!4v1771598434837!5m2!1sfr!2sfr"
+      loading="lazy"
+      allowfullscreen
+      referrerpolicy="no-referrer-when-downgrade">
+    </iframe>
+  </div>
+
+  <div class="map-section__cta">
+    <a href="https://www.google.com/maps/dir/?api=1&destination=1+rue+Encombe+Vineuse+87000+Limoges"
+       target="_blank" rel="noopener">
+      CLIQUEZ ICI POUR VENIR AU CABINET
+    </a>
+  </div>
+</section>
+
+  </main>
+
+  <footer class="siteFooter">
+    <div class="siteFooter__inner">
+      <p>© <span id="year"></span> Cabinet Carol-Anne Haderlé</p>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+  <script src="assets/js/index.js" defer></script>
+</body>
+</html>

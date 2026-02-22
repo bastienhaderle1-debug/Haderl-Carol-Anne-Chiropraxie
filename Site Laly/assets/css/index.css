@@ -1,0 +1,291 @@
+/* index.css */
+/* Hero full-bleed */
+.hero{
+  position:relative;
+  min-height:72vh;
+  overflow:hidden;
+}
+.hero__bg{
+  position:absolute;
+  inset:0;
+  background:
+    linear-gradient(90deg, rgba(0,0,0,.20) 0%, rgba(0,0,0,.10) 45%, rgba(0,0,0,0) 100%),
+    url("../img/hero.jpg") center/cover no-repeat;
+  transform:scale(1.02);
+}
+
+/* Bande contact (version full code, pas WP) */
+.contact-band{
+  background:#e9e6e2;
+  padding:10px 0;
+  font-family:var(--ff-body);
+  font-size:14px;
+  color:#2f2f2f;
+}
+.contact-band__inner{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:18px;
+}
+.contact-band__left,
+.contact-band__right{
+  display:flex;
+  align-items:center;
+  gap:14px;
+  flex-wrap:wrap;
+}
+.contact-band__item{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  text-decoration:none;
+  color:#2f2f2f;
+  font-weight:600;
+}
+.contact-band i{
+  color:var(--c-primary);
+  transform:translateY(1px);
+}
+
+@media (max-width:768px){
+  .contact-band__inner{ flex-direction:column; align-items:flex-start; }
+}
+
+/* Map title */
+.map-section__title{
+  text-align:center;
+  margin:0 0 40px;
+  font-size:42px;
+}
+@media (max-width:520px){
+  .map-section__title{ font-size:30px; }
+}
+
+/* Fix hero badge mobile (évite bottom:-200px) */
+@media (max-width:768px){
+  .hero{ min-height:70vh; }
+  .hero-badge{
+    position:relative;
+    left:auto; right:auto; bottom:auto;
+    margin:-40px 16px 0;
+  }
+}
+/* =========================
+   HERO BADGE (encadré WP)
+   ========================= */
+
+.hero{
+  position:relative;
+  min-height:72vh;
+  overflow:hidden;
+}
+
+.hero-badge{
+  position:absolute;
+  left:clamp(16px, 5vw, 70px);
+  bottom:clamp(18px, 7vh, 70px);
+  width:min(560px, calc(100% - 32px));
+  background:rgba(255,255,255,.78);
+  border:1px solid rgba(0,0,0,.06);
+  border-radius:16px;
+  padding:22px 22px 18px;
+  box-shadow:0 20px 60px rgba(0,0,0,.12);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.hero-badge__kicker{
+  margin:0 0 10px;
+  font-family:var(--ff-body);
+  font-size:12px;
+  letter-spacing:.12em;
+  font-weight:800;
+  color:rgba(31,45,39,.65);
+  text-transform:uppercase;
+}
+
+.hero-badge__title{
+  margin:0 0 10px;
+  font-family:var(--ff-title);
+  font-size:34px;
+  line-height:1.05;
+  font-weight:800;
+  color:var(--c-primary);
+}
+
+.hero-badge__text{
+  margin:0 0 16px;
+  font-family:var(--ff-body);
+  font-size:14px;
+  line-height:1.6;
+  color:rgba(31,45,39,.8);
+  font-weight:600;
+}
+
+.hero-badge__actions{
+  display:flex;
+  align-items:center;
+  gap:14px;
+  flex-wrap:wrap;
+}
+
+.hero-badge__btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding:10px 14px;
+  border-radius:10px;
+  background:var(--c-accent);
+  color:#fff;
+  text-decoration:none;
+  font-family:var(--ff-body);
+  font-weight:800;
+  font-size:14px;
+  box-shadow:0 10px 22px rgba(42,167,184,.25);
+}
+
+.hero-badge__btn:hover{ filter:brightness(.97); }
+
+.hero-badge__link{
+  font-family:var(--ff-body);
+  font-weight:800;
+  font-size:14px;
+  color:var(--c-primary);
+  text-decoration:none;
+  position:relative;
+  padding-bottom:2px;
+}
+
+.hero-badge__link::after{
+  content:"";
+  position:absolute;
+  left:0;
+  bottom:0;
+  width:100%;
+  height:2px;
+  background:rgba(30,107,58,.35);
+  border-radius:999px;
+}
+
+@media (max-width:768px){
+  .hero{ min-height:70vh; }
+
+  .hero-badge{
+    position:relative;
+    left:auto;
+    bottom:auto;
+    margin:-40px 16px 0;
+    width:auto;
+  }
+
+  .hero-badge__title{ font-size:26px; }
+}
+/* SECTION */
+.avis{
+  padding: 70px 0;
+}
+
+.avis__inner{
+  width: min(1180px, 92%);
+  margin: 0 auto;
+}
+
+.avis__head{
+  text-align: center;
+  margin-bottom: 26px;
+}
+
+/* WRAP */
+.avis__wrap{
+  position: relative;
+}
+
+/* VIEWPORT = fenêtre */
+.avis__viewport{
+  width: 100%;
+  overflow: hidden;          /* IMPORTANT: pas de débordement visible */
+}
+
+/* TRACK = bande qui bouge */
+.avis__track{
+  display: flex;
+  gap: 26px;
+  transition: transform .45s ease;
+  will-change: transform;
+}
+
+/* CARD = 1 carte par écran */
+.avis__card{
+  flex: 0 0 calc(50% - 13px);          
+  max-width: 100%;
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 10px 35px rgba(0,0,0,.08);
+  padding: 38px 34px;
+}
+.avis{
+  background: var(--c-bg);   /* #f4f7f6 */
+  padding: 70px 0;
+}
+/* NAV */
+.avis__nav{
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 5;
+  width: 44px;
+  height: 44px;
+  border-radius: 999px;
+  border: 1px solid rgba(0,0,0,.10);
+  background: #fff;
+  cursor: pointer;
+}
+
+.avis__nav--prev{ left: -12px; }
+.avis__nav--next{ right: -12px; }
+
+/* Sur petits écrans, évite que les boutons sortent */
+@media (max-width: 720px){
+  .avis__nav--prev{ left: 8px; }
+  .avis__nav--next{ right: 8px; }
+}
+.map-section{
+  padding: 80px 0;
+  background: var(--c-bg);   /* #f4f7f6 */
+}
+.map-wrapper{
+  width: min(1180px, 92%);
+  margin: 0 auto;
+  border-radius: 28px;        /* ← Contours doux */
+  overflow: hidden;           /* ← Coupe proprement les coins */
+  box-shadow: 0 25px 70px rgba(0,0,0,.08); /* Ombre élégante */
+}
+
+.map-wrapper iframe{
+  width: 100%;
+  height: 520px;
+  border: 0;
+  display: block;
+}
+.map-wrapper{
+  background: #fff;
+  padding: 6px; /* léger effet cadre */
+}
+.map-section__cta{
+  width: min(1180px, 92%);
+  margin: 40px auto 0;
+  text-align: center;
+}
+
+.map-section__cta a{
+  display: inline-block;
+  font-family: var(--ff-body);
+  font-weight: 700;
+  letter-spacing: .15em;
+  font-size: 13px;
+  text-decoration: none;
+  color: var(--c-text);
+  border-bottom: 1px solid rgba(0,0,0,.3);
+  padding-bottom: 4px;
+}

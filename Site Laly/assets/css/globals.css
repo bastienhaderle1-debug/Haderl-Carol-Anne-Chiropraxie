@@ -1,0 +1,28 @@
+/* globals.css */
+:root{
+  --c-primary:#1E6B3A;
+  --c-accent:#2AA7B8;
+  --c-hero:#1F5E4B;
+
+  --c-bg:#f4f7f6;
+  --c-surface:#ffffff;
+  --c-line:#d7e3dd;
+
+  --c-text:#1f2d27;
+  --c-muted:#6b7b75;
+
+  --r-sm:10px;
+  --r-md:16px;
+  --r-lg:26px;
+
+  --shadow-soft:0 14px 40px rgba(30,107,58,.10);
+
+  --ff-title:"Playfair Display", serif;
+  --ff-body:"Montserrat", sans-serif;
+}
+
+/* reset simple */
+*{ box-sizing:border-box; }
+html,body{ margin:0; padding:0; }
+img{ max-width:100%; height:auto; display:block; }
+a{ color:inherit; }
