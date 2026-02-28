@@ -11,15 +11,6 @@ h1,h2,h3,h4{
   color:var(--c-primary);
 }
 
-.siteHeader{
-  position:sticky;
-  top:0;
-  z-index:50;
-  background:rgba(255,255,255,.9);
-  backdrop-filter:blur(10px);
-  border-bottom:1px solid rgba(0,0,0,.06);
-}
-
 .siteHeader__inner{
   width:min(1180px, 92%);
   margin:0 auto;
@@ -325,194 +316,58 @@ body.page-prestations .siteHeader__cta{
     box-shadow:0 14px 34px rgba(0,0,0,.14);
   }
 }
-/* ===== HEADER STRUCTURE FIX ===== */
-
-.siteHeader {
-  position: relative;
-  z-index: 1000;
-}
-
-.siteHeader__inner {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  height: 80px;
-  width: min(1180px, 92%);
-  margin: 0 auto;
-}
-
-/* Burger */
-.siteHeader__burger {
-  display: none; /* caché desktop */
-  background: none;
-  border: none;
-  padding: 0;
-  cursor: pointer;
-}
-
-/* ===== Mobile (téléphone uniquement) ===== */
-@media (max-width:600px){
-
-  /* Burger visible sur téléphone (toutes pages) */
-  .siteHeader__burger{
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    width:40px;
-    height:40px;
-  }
-
-  /* Nav desktop cachée (toutes pages) */
-  .siteNav{
-    display:none;
-  }
-
-  /* CTA : caché UNIQUEMENT sur la home */
-  body.home .siteHeader__cta{
-    display:none;
-  }
-
-  /* CTA : visible sur les autres pages (ex: chiropraxie) */
-  body:not(.home):not(.page-prestations) .siteHeader__cta{
-    display:inline-flex;
-  }
-}
-/* =========================
-   Chiropraxie : burger sous CTA
-   Téléphone uniquement (<=600px)
-   ========================= */
-
-@media (max-width:600px){
-
-  body.page-chiropraxie .siteHeader__inner{
-    flex-wrap:wrap;          /* autorise retour à la ligne */
-    align-items:center;
-    gap:10px;
-  }
-
-  /* Logo prend toute la largeur en haut */
-  body.page-chiropraxie .siteHeader__brand{
-    flex: 0 0 100%;
-  }
-
-  /* CTA sur sa ligne */
-  body.page-chiropraxie .siteHeader__cta{
-    order:2;
-  }
-
-  /* Burger sous le CTA */
-  body.page-chiropraxie .siteHeader__burger{
-    order:3;
-    margin-top:-2px;         /* petit ajustement optionnel */
-  }
-
-  /* Nav toujours gérée par is-menu-open (ton système actuel) */
-  body.page-chiropraxie .siteHeader.is-menu-open .siteNav{
-    display:flex;
-  }
-}
-/* =========================
-   Chiropraxie : burger sous le CTA
-   Mobile uniquement
-   ========================= */
-@media (max-width:600px){
-
-  body.page-chiropraxie .siteHeader__inner{
-    flex-wrap:wrap;             /* autorise retour à la ligne */
-    align-items:center;
-    gap:10px;
-  }
-
-  /* Ligne 1 : logo plein largeur */
-  body.page-chiropraxie .siteHeader__brand{
-    flex: 0 0 100%;
-    order: 1;
-  }
-
-  /* Ligne 2 : CTA plein largeur */
-  body.page-chiropraxie .siteHeader__cta{
-    flex: 0 0 100%;
-    order: 2;
-    justify-content:center;     /* optionnel : centre le bouton */
-  }
-
-  /* Ligne 3 : burger sous le CTA, aligné à droite (ou gauche) */
-  body.page-chiropraxie .siteHeader__burger{
-    order: 3;
-    margin-left:auto;           /* à droite */
-    /* si tu le veux à gauche : supprime margin-left:auto */
-  }
-
-  /* Le dropdown nav : reste géré par is-menu-open */
-  body.page-chiropraxie .siteHeader.is-menu-open .siteNav{
-    display:flex;
-  }
-}
-/* =========================
-   Chiropraxie : burger plus haut
-   Mobile uniquement
-   ========================= */
-@media (max-width:600px){
-
-  body.page-chiropraxie .siteHeader__burger{
-    position: relative;
-    top: -8px;   /* ajuste entre -6px et -14px selon le rendu */
-  }
-
-}
 /* =========================================================
-   1) Header NON-sticky sur toutes les pages
-   => le header (et donc le burger) descend avec le scroll
+   HEADER (scroll avec la page) + base stable
    ========================================================= */
 .siteHeader{
-  position: static;   /* ou relative, mais surtout pas sticky/fixed */
-  top: auto;
+  position: relative;                 /* pas sticky => il scroll */
+  z-index: 1000;                      /* menu au-dessus du contenu */
+  background: rgba(255,255,255,.9);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(0,0,0,.06);
 }
-
-/* Ton bloc "HEADER STRUCTURE FIX" impose une hauteur fixe :
-   on la neutralise pour éviter des effets bizarres */
-.siteHeader__inner{
-  height: auto;
-}
-
 
 /* =========================================================
-   2) Page CHIROPraxie (mobile) :
-   - burger au-dessus
-   - CTA "Prendre RDV" en dessous, plus petit
-   - les 2 scrollent avec la page (car header non-sticky)
+   MENU MOBILE : assure l’ouverture même si un autre media cache la nav
+   ========================================================= */
+@media (max-width:768px){
+  .siteHeader.is-menu-open .siteNav{
+    display:flex !important;
+  }
+}
+
+/* =========================================================
+   CHIROPraxie (mobile <=600px) :
+   burger au-dessus, RDV en dessous + plus petit
    ========================================================= */
 @media (max-width:600px){
-
   body.page-chiropraxie .siteHeader__inner{
     flex-wrap: wrap;
     gap: 10px;
   }
 
-  /* Ligne 1 : logo plein largeur */
   body.page-chiropraxie .siteHeader__brand{
     flex: 0 0 100%;
     order: 1;
   }
 
-  /* Ligne 2 : burger plein largeur (aligné à droite) */
   body.page-chiropraxie .siteHeader__burger{
     flex: 0 0 100%;
     order: 2;
     justify-content: flex-end;
   }
 
-  /* Ligne 3 : bouton RDV plein largeur, plus petit */
   body.page-chiropraxie .siteHeader__cta{
     flex: 0 0 100%;
     order: 3;
 
-    /* réduction taille */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
     padding: 8px 12px;
     font-size: 13px;
     border-radius: 12px;
-
-    /* optionnel : centré */
-    justify-content: center;
   }
 }
