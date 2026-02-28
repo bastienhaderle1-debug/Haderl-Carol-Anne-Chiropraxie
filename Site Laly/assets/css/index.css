@@ -71,7 +71,7 @@
     position:absolute;     /* ← on garde absolute */
     left:16px;
     right:16px;
-    bottom:20px;           /* ← c’est ici que tu règles la hauteur */
+    bottom:40px;           /* ← c’est ici que tu règles la hauteur */
     width:auto;
   }
 
@@ -95,7 +95,7 @@
   left:clamp(16px, 5vw, 70px);
   bottom:clamp(18px, 7vh, 70px);
   width:min(560px, calc(100% - 32px));
-  background:rgba(255,255,255,.65);
+  background:rgba(255,255,255,.50);
   border:1px solid rgba(0,0,0,.06);
   border-radius:16px;
   padding:22px 22px 18px;
@@ -175,20 +175,6 @@
   height:2px;
   background:rgba(30,107,58,.35);
   border-radius:999px;
-}
-
-@media (max-width:768px){
-  .hero{ min-height:70vh; }
-
-  .hero-badge{
-    position:relative;
-    left:auto;
-    bottom:auto;
-    margin:-40px 16px 0;
-    width:auto;
-  }
-
-  .hero-badge__title{ font-size:26px; }
 }
 /* =========================
    AVIS
