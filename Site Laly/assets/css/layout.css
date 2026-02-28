@@ -326,3 +326,51 @@ body.page-prestations .siteHeader__cta{
     box-shadow:0 14px 34px rgba(0,0,0,.14);
   }
 }
+/* ===== HEADER STRUCTURE FIX ===== */
+
+.siteHeader {
+  position: relative;
+  z-index: 1000;
+}
+
+.siteHeader__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 80px;
+  width: min(1180px, 92%);
+  margin: 0 auto;
+}
+
+/* Burger */
+.siteHeader__burger {
+  display: none; /* caché desktop */
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+/* TELEPHONE uniquement */
+@media (max-width:768px){
+
+  .siteNav {
+    display: none; /* menu caché */
+  }
+
+  .siteHeader__cta {
+    display: none; /* cache le bouton RDV */
+  }
+
+  .siteHeader__burger {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+  }
+
+  .siteHeader__inner {
+    height: 70px;
+  }
+}
