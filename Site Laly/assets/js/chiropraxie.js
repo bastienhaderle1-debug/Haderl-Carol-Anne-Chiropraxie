@@ -32,11 +32,11 @@
 
       panels.forEach(p => p.classList.toggle('is-active', p.id === id));
 
-      if (isMobile() && panel) {
-        setTimeout(() => {
-          panel.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }, 50);
-      }
+if (toggle && isMobile() && panel) {
+  setTimeout(() => {
+    panel.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }, 50);
+}
     }
 
     tabs.forEach(btn => {

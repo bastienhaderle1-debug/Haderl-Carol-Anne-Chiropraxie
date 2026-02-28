@@ -95,7 +95,7 @@
   left:clamp(16px, 5vw, 70px);
   bottom:clamp(18px, 7vh, 70px);
   width:min(560px, calc(100% - 32px));
-  background:rgba(255,255,255,.50);
+  background:rgba(255,255,255,.40);
   border:1px solid rgba(0,0,0,.06);
   border-radius:16px;
   padding:22px 22px 18px;
