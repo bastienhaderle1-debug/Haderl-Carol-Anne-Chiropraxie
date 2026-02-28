@@ -1,27 +1,29 @@
 <!doctype html>
 <html lang="fr">
-  <script type="application/ld+json">
-{
-  "@context":"https://schema.org",
-  "@type":"LocalBusiness",
-  "name":"Cabinet Carol-Anne Haderlé",
-  "address":{
-    "@type":"PostalAddress",
-    "streetAddress":"1 Rue Encombe Vineuse",
-    "postalCode":"87100",
-    "addressLocality":"Limoges",
-    "addressCountry":"FR"
-  },
-  "telephone":"+33781602221",
-  "url":"https://TON-DOMAINE.fr"
-}
-</script>
-<script src="assets/js/header.js" defer></script>
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+
   <title>Cabinet de chiropraxie à Limoges</title>
   <meta name="description" content="Cabinet de chiropraxie à Limoges. Prise en charge personnalisée, douce et précise. Prenez rendez-vous." />
+
+  <!-- LocalBusiness schema -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"LocalBusiness",
+    "name":"Cabinet Carol-Anne Haderlé",
+    "address":{
+      "@type":"PostalAddress",
+      "streetAddress":"1 Rue Encombe Vineuse",
+      "postalCode":"87100",
+      "addressLocality":"Limoges",
+      "addressCountry":"FR"
+    },
+    "telephone":"+33781602221",
+    "url":"https://TON-DOMAINE.fr"
+  }
+  </script>
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -36,8 +38,10 @@
   <link rel="stylesheet" href="assets/css/layout.css" />
   <link rel="stylesheet" href="assets/css/index.css" />
   <link rel="stylesheet" href="assets/css/chiropraxie.css" />
-</head>
 
+  <!-- JS header (burger) -->
+  <script src="assets/js/header.js" defer></script>
+</head>
 
 <body class="home">
 
@@ -57,15 +61,16 @@
         </span>
       </a>
 
-<button class="siteHeader__burger"
-        type="button"
-        aria-label="Ouvrir le menu"
-        aria-expanded="false"
-        aria-controls="mobileNav">
-  <span class="siteHeader__burgerLines" aria-hidden="true"></span>
-</button>
+      <!-- Burger (mobile) -->
+      <button class="siteHeader__burger"
+              type="button"
+              aria-label="Ouvrir le menu"
+              aria-expanded="false"
+              aria-controls="mobileNav">
+        <span class="siteHeader__burgerLines" aria-hidden="true"></span>
+      </button>
 
-     <nav class="siteNav" id="mobileNav" aria-label="Navigation principale">
+      <nav class="siteNav" id="mobileNav" aria-label="Navigation principale">
         <a class="is-active" href="index.html">Accueil</a>
         <a href="chiropraxie.html">La Chiropraxie | À quoi s'attendre ?</a>
         <a href="prestations.html">Voir les prestations</a>
@@ -91,35 +96,84 @@
       </p>
 
       <div class="hero-badge__actions">
-        <a class="hero-badge__btn" href="prestations.html">
-          Prendre rendez-vous
-        </a>
-        <a class="hero-badge__link" href="#contact">Contact</a>
+        <a class="hero-badge__btn" href="prestations.html">Prendre rendez-vous</a>
+
+        <button class="hero-badge__link hero-contact-trigger" type="button" aria-expanded="false">
+          Contact
+        </button>
+
+        <!-- POPUP CONTACT (unique, seulement ici) -->
+        <div class="hero-contact-panel" aria-hidden="true">
+          <button class="hero-contact-close" type="button" aria-label="Fermer">✕</button>
+
+         <div class="hero-contact-content">
+
+  <a href="tel:+33781602221">
+    <i class="fa-solid fa-phone"></i>
+    <span>07 81 60 22 21</span>
+  </a>
+
+  <a href="mailto:carolanne.chiropraxie@gmail.com">
+    <i class="fa-regular fa-envelope"></i>
+    <span>carolanne.chiropraxie@gmail.com</span>
+  </a>
+
+  <a href="https://www.google.com/maps/dir/?api=1&destination=1+rue+Encombe+Vineuse+87100+Limoges"
+     target="_blank" rel="noopener">
+    <i class="fa-solid fa-location-dot"></i>
+    <span>Venir au cabinet</span>
+  </a>
+
+  <!-- INSTAGRAM -->
+  <a href="https://www.instagram.com/TON_PSEUDO/"
+     target="_blank" rel="noopener">
+    <i class="fa-brands fa-instagram"></i>
+    <span>Instagram</span>
+  </a>
+
+</div>
+        </div>
       </div>
+
     </div>
   </section>
 
-  <!-- BANDE CONTACT -->
+  <!-- BANDE CONTACT (normale, pas le popup) -->
   <section class="contact-band" id="contact" aria-label="Informations de contact">
-    <div class="container contact-band__inner">
-      <div class="contact-band__left">
-        <i class="fa-solid fa-location-dot" aria-hidden="true"></i>
-        <span>1 Rue Encombe Vineuse, 87100 Limoges</span>
-      </div>
+  <div class="container contact-band__inner">
 
-      <div class="contact-right">
-        <a class="contact-item" href="mailto:carolanne.chiropraxie@gmail.com">
-          <i class="fa-regular fa-envelope" aria-hidden="true"></i>
-          <span>carolanne.chiropraxie@gmail.com</span>
-        </a>
+    <!-- Adresse -->
+    <a class="contact-item"
+       href="https://www.google.com/maps/dir/?api=1&destination=1+rue+Encombe+Vineuse+87100+Limoges"
+       target="_blank" rel="noopener">
+      <i class="fa-solid fa-location-dot" aria-hidden="true"></i>
+      <span>1 Rue Encombe Vineuse, 87100 Limoges</span>
+    </a>
 
-        <a class="contact-item" href="tel:+33781602221">
-          <i class="fa-solid fa-phone" aria-hidden="true"></i>
-          <span>07&nbsp;81&nbsp;60&nbsp;22&nbsp;21</span>
-        </a>
-      </div>
-    </div>
-  </section>
+    <a class="contact-item"
+   href="https://www.instagram.com/TON_PSEUDO/"
+   target="_blank"
+   rel="noopener">
+   <i class="fa-brands fa-instagram"></i>
+   <span>Instagram</span>
+    </a>
+
+    <!-- Email -->
+    <a class="contact-item"
+       href="mailto:carolanne.chiropraxie@gmail.com">
+      <i class="fa-regular fa-envelope" aria-hidden="true"></i>
+      <span>carolanne.chiropraxie@gmail.com</span>
+    </a>
+
+    <!-- Téléphone -->
+    <a class="contact-item"
+       href="tel:+33781602221">
+      <i class="fa-solid fa-phone" aria-hidden="true"></i>
+      <span>07&nbsp;81&nbsp;60&nbsp;22&nbsp;21</span>
+    </a>
+
+  </div>
+</section>
 
   <main>
 
@@ -130,27 +184,13 @@
 
         <div class="chiro-soluces__grid">
           <nav class="chiro-soluces__tabs" aria-label="Motifs de consultation">
-            <button class="chiro-soluces__tab is-active" type="button" data-tab="tab1" aria-controls="tab1" aria-selected="true">
-              Maux de tête
-            </button>
-            <button class="chiro-soluces__tab" type="button" data-tab="tab2" aria-controls="tab2" aria-selected="false">
-              Gestion du stress
-            </button>
-            <button class="chiro-soluces__tab" type="button" data-tab="tab3" aria-controls="tab3" aria-selected="false">
-              Optimisation des performances et blessures sportives
-            </button>
-            <button class="chiro-soluces__tab" type="button" data-tab="tab4" aria-controls="tab4" aria-selected="false">
-              Troubles digestifs
-            </button>
-            <button class="chiro-soluces__tab" type="button" data-tab="tab5" aria-controls="tab5" aria-selected="false">
-              Douleurs menstruelles
-            </button>
-            <button class="chiro-soluces__tab" type="button" data-tab="tab6" aria-controls="tab6" aria-selected="false">
-              Troubles du sommeil
-            </button>
-            <button class="chiro-soluces__tab" type="button" data-tab="tab7" aria-controls="tab7" aria-selected="false">
-              Douleurs de dos & articulaires
-            </button>
+            <button class="chiro-soluces__tab is-active" type="button" data-tab="tab1" aria-controls="tab1" aria-selected="true">Maux de tête</button>
+            <button class="chiro-soluces__tab" type="button" data-tab="tab2" aria-controls="tab2" aria-selected="false">Gestion du stress</button>
+            <button class="chiro-soluces__tab" type="button" data-tab="tab3" aria-controls="tab3" aria-selected="false">Optimisation des performances et blessures sportives</button>
+            <button class="chiro-soluces__tab" type="button" data-tab="tab4" aria-controls="tab4" aria-selected="false">Troubles digestifs</button>
+            <button class="chiro-soluces__tab" type="button" data-tab="tab5" aria-controls="tab5" aria-selected="false">Douleurs menstruelles</button>
+            <button class="chiro-soluces__tab" type="button" data-tab="tab6" aria-controls="tab6" aria-selected="false">Troubles du sommeil</button>
+            <button class="chiro-soluces__tab" type="button" data-tab="tab7" aria-controls="tab7" aria-selected="false">Douleurs de dos & articulaires</button>
           </nav>
 
           <div class="chiro-soluces__panelWrap">
@@ -282,22 +322,22 @@
 
     <!-- MAP -->
     <section class="map-section" id="acces">
-  <div class="map-wrapper">
-    <iframe
-      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2779.6519094851174!2d1.2538929412496822!3d45.83825077120294!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47f934b7a55877e1%3A0x21b07c44182e6003!2s1%20Rue%20Encombe%20Vineuse%2C%2087100%20Limoges!5e0!3m2!1sfr!2sfr!4v1771598434837!5m2!1sfr!2sfr"
-      loading="lazy"
-      allowfullscreen
-      referrerpolicy="no-referrer-when-downgrade">
-    </iframe>
-  </div>
+      <div class="map-wrapper">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2779.6519094851174!2d1.2538929412496822!3d45.83825077120294!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47f934b7a55877e1%3A0x21b07c44182e6003!2s1%20Rue%20Encombe%20Vineuse%2C%2087100%20Limoges!5e0!3m2!1sfr!2sfr!4v1771598434837!5m2!1sfr!2sfr"
+          loading="lazy"
+          allowfullscreen
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+      </div>
 
-  <div class="map-section__cta">
-    <a href="https://www.google.com/maps/dir/?api=1&destination=1+rue+Encombe+Vineuse+87000+Limoges"
-       target="_blank" rel="noopener">
-      CLIQUEZ ICI POUR VENIR AU CABINET
-    </a>
-  </div>
-</section>
+      <div class="map-section__cta">
+        <a href="https://www.google.com/maps/dir/?api=1&destination=1+rue+Encombe+Vineuse+87000+Limoges"
+           target="_blank" rel="noopener">
+          CLIQUEZ ICI POUR VENIR AU CABINET
+        </a>
+      </div>
+    </section>
 
   </main>
 
@@ -310,6 +350,7 @@
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
   </script>
+
   <script src="assets/js/index.js" defer></script>
 </body>
 </html>

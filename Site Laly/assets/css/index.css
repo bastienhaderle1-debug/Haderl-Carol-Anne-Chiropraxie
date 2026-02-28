@@ -14,42 +14,53 @@
   transform:scale(1.02);
 }
 
-/* Bande contact (version full code, pas WP) */
+/* ===== CONTACT BAND CLIQUABLE ===== */
+
 .contact-band{
   background:#e9e6e2;
-  padding:10px 0;
+  padding:12px 0;
   font-family:var(--ff-body);
   font-size:14px;
-  color:#2f2f2f;
-}
-.contact-band__inner{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:18px;
-}
-.contact-band__left,
-.contact-band__right{
-  display:flex;
-  align-items:center;
-  gap:14px;
-  flex-wrap:wrap;
-}
-.contact-band__item{
-  display:inline-flex;
-  align-items:center;
-  gap:8px;
-  text-decoration:none;
-  color:#2f2f2f;
-  font-weight:600;
-}
-.contact-band i{
-  color:var(--c-primary);
-  transform:translateY(1px);
 }
 
+.contact-band__inner{
+  width:min(1180px,92%);
+  margin:0 auto;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:28px;
+  flex-wrap:wrap;
+}
+
+.contact-item{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  text-decoration:none;
+  color:var(--c-text);
+  font-weight:600;
+  transition:opacity .2s ease, transform .2s ease;
+}
+
+.contact-item:hover{
+  opacity:.7;
+  transform:translateY(-1px);
+}
+
+.contact-item i{
+  width:20px;
+  text-align:center;
+  color:var(--c-primary);
+}
+
+/* Mobile */
 @media (max-width:768px){
-  .contact-band__inner{ flex-direction:column; align-items:flex-start; }
+  .contact-band__inner{
+    flex-direction:column;
+    align-items:flex-start;
+    gap:10px;
+  }
 }
 
 /* Map title */
@@ -498,5 +509,141 @@
   .contact-item{
     width:100%;
     justify-content:flex-start;
+  }
+}
+/* ===== HERO CONTACT PANEL PREMIUM ===== */
+
+.hero-badge__actions{
+  position:relative; /* conteneur pour position:absolute du panel */
+}
+
+.hero-contact-panel{
+  position:absolute;
+  bottom:120%;
+  right:0;
+  width:280px;
+
+  background:rgba(255,255,255,.92);
+  backdrop-filter:blur(18px);
+  -webkit-backdrop-filter:blur(18px);
+
+  border-radius:18px;
+  padding:22px 20px;
+  box-shadow:0 30px 80px rgba(0,0,0,.18);
+
+  opacity:0;
+  pointer-events:none;
+  transform:translateY(12px) scale(.98);
+  transition:opacity .22s ease, transform .22s ease;
+
+  z-index:40;
+}
+
+.hero-contact-panel.is-open{
+  opacity:1;
+  pointer-events:auto;
+  transform:translateY(0) scale(1);
+}
+
+/* Petite flèche */
+.hero-contact-panel::after{
+  content:"";
+  position:absolute;
+  bottom:-10px;
+  right:20px;
+  width:20px;
+  height:20px;
+  background:rgba(255,255,255,.92);
+  transform:rotate(45deg);
+  border-radius:4px;
+}
+
+.hero-contact-content{
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+  font-family:var(--ff-body);
+}
+
+/* Liens premium */
+.hero-contact-content a{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  text-decoration:none;
+  color:var(--c-text);
+  font-weight:700;
+  font-size:14px;
+
+  padding:10px 12px;
+  border-radius:12px;
+  transition:background .18s ease, transform .18s ease;
+}
+
+.hero-contact-content a:hover{
+  background:var(--c-bg);
+  transform:translateY(-1px);
+}
+
+/* Icônes rondes */
+.hero-contact-content i{
+  width:32px;
+  height:32px;
+  border-radius:50%;
+  background:var(--c-bg);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:14px;
+  color:var(--c-primary);
+}
+
+.hero-contact-close{
+  position:absolute;
+  top:10px;
+  right:14px;
+  border:none;
+  background:none;
+  font-size:14px;
+  cursor:pointer;
+  opacity:.65;
+}
+
+.hero-contact-close:hover{
+  opacity:1;
+}
+
+/* Mobile : panel plein largeur sous le badge, sans déborder */
+@media (max-width:768px){
+  .hero-contact-panel{
+    left:0;
+    right:0;
+    width:auto;
+    bottom:130%;
+  }
+  .hero-contact-panel::after{
+    right:70px; /* ajuste si tu veux que la flèche pointe vers "Contact" */
+  }
+}
+/* Empêche le mail de dépasser */
+.hero-contact-content a{
+  width:100%;
+  box-sizing:border-box;
+  min-width:0;              /* important en flex */
+}
+
+.hero-contact-content a span{
+  min-width:0;
+  overflow:hidden;
+  text-overflow:ellipsis;   /* si trop long, coupe avec "..." */
+  white-space:nowrap;       /* 1 ligne */
+}
+
+/* Option: sur mobile, autorise le retour à la ligne au lieu de "..." */
+@media (max-width:420px){
+  .hero-contact-content a span{
+    white-space:normal;     /* retour à la ligne */
+    word-break:break-word;  /* casse proprement */
+    text-overflow:clip;
   }
 }

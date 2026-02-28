@@ -1,4 +1,5 @@
 /* index.js */
+
 /* chiro-soluces tabs */
 (function () {
   const root = document.querySelector('.chiro-soluces');
@@ -14,7 +15,10 @@
     const alreadyOpen = panel && panel.classList.contains('is-active');
 
     if (toggle && isMobile() && alreadyOpen) {
-      tabs.forEach(btn => { btn.classList.remove('is-active'); btn.setAttribute('aria-selected', 'false'); });
+      tabs.forEach(btn => {
+        btn.classList.remove('is-active');
+        btn.setAttribute('aria-selected', 'false');
+      });
       panels.forEach(p => p.classList.remove('is-active'));
       return;
     }
@@ -27,12 +31,16 @@
 
     panels.forEach(p => p.classList.toggle('is-active', p.id === id));
 
-    if (isMobile() && panel) {
+    // Scroll uniquement si clic utilisateur (évite de descendre tout seul)
+    if (toggle && isMobile() && panel) {
       setTimeout(() => panel.scrollIntoView({ behavior: 'smooth', block: 'start' }), 50);
     }
   }
 
   tabs.forEach(btn => btn.addEventListener('click', () => activate(btn.dataset.tab, { toggle: true })));
+
+  const activeBtn = tabs.find(b => b.classList.contains('is-active')) || tabs[0];
+  if (activeBtn) activate(activeBtn.dataset.tab, { toggle: false });
 })();
 
 /* AVIS carousel: flèches + dots */
@@ -41,15 +49,13 @@
   if (!wrap) return;
 
   const viewport = wrap.querySelector('.avis__viewport');
-  const track = wrap.querySelector('.avis__track');
   const cards = [...wrap.querySelectorAll('.avis__card')];
   const dotsWrap = wrap.querySelector('.avis__dots');
   const prevBtn = wrap.querySelector('.avis__nav--prev');
   const nextBtn = wrap.querySelector('.avis__nav--next');
 
-  if (!viewport || !track || cards.length === 0 || !dotsWrap) return;
+  if (!viewport || cards.length === 0 || !dotsWrap) return;
 
-  // build dots
   dotsWrap.innerHTML = '';
   const dots = cards.map((_, i) => {
     const b = document.createElement('button');
@@ -70,12 +76,10 @@
   }
 
   function scrollToIndex(i) {
-    const left = cardCenterLeft(cards[i]);
-    viewport.scrollTo({ left, behavior: 'smooth' });
+    viewport.scrollTo({ left: cardCenterLeft(cards[i]), behavior: 'smooth' });
   }
 
   function getActiveIndex() {
-    // index du plus proche du centre
     const center = viewport.scrollLeft + viewport.clientWidth / 2;
     let best = 0;
     let bestDist = Infinity;
@@ -97,21 +101,20 @@
     const i = getActiveIndex();
     scrollToIndex(Math.max(0, i - 1));
   });
+
   nextBtn?.addEventListener('click', () => {
     const i = getActiveIndex();
     scrollToIndex(Math.min(cards.length - 1, i + 1));
   });
 
-  viewport.addEventListener('scroll', () => {
-    window.requestAnimationFrame(updateDots);
-  });
+  viewport.addEventListener('scroll', () => requestAnimationFrame(updateDots));
 
-  // init
   updateDots();
+})();
 
-  (function(){
+/* Tracking clics tel / booking */
+(function(){
   function track(name, data){
-    // remplace par GA4 plus tard ; pour l’instant log/Debug
     console.log("[track]", name, data || {});
   }
 
@@ -123,4 +126,45 @@
     if(a.href.includes("fresha.com")) track("click_booking", { href: a.href });
   });
 })();
+
+/* HERO CONTACT PANEL */
+(function(){
+  const trigger = document.querySelector('.hero-contact-trigger');
+  const panel = document.querySelector('.hero-contact-panel');
+  const closeBtn = document.querySelector('.hero-contact-close');
+
+  if(!trigger || !panel) return;
+
+  function closePanel(){
+    panel.classList.remove('is-open');
+    panel.setAttribute('aria-hidden','true');
+    trigger.setAttribute('aria-expanded','false');
+  }
+
+  function openPanel(){
+    panel.classList.add('is-open');
+    panel.setAttribute('aria-hidden','false');
+    trigger.setAttribute('aria-expanded','true');
+  }
+
+  trigger.addEventListener('click', (e) => {
+    e.preventDefault();
+    panel.classList.contains('is-open') ? closePanel() : openPanel();
+  });
+
+  closeBtn?.addEventListener('click', (e) => {
+    e.preventDefault();
+    closePanel();
+  });
+
+  document.addEventListener('click', (e) => {
+    if(!panel.classList.contains('is-open')) return;
+    if(e.target.closest('.hero-contact-panel')) return;
+    if(e.target.closest('.hero-contact-trigger')) return;
+    closePanel();
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if(e.key === 'Escape') closePanel();
+  });
 })();
