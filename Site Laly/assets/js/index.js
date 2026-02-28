@@ -1,11 +1,11 @@
 /* index.js */
-/* WHY-CHIRO tabs */
+/* chiro-soluces tabs */
 (function () {
-  const root = document.querySelector('.why-chiro');
+  const root = document.querySelector('.chiro-soluces');
   if (!root) return;
 
-  const tabs = [...root.querySelectorAll('.why-chiro__tab')];
-  const panels = [...root.querySelectorAll('.why-chiro__panel')];
+  const tabs = [...root.querySelectorAll('.chiro-soluces__tab')];
+  const panels = [...root.querySelectorAll('.chiro-soluces__panel')];
 
   const isMobile = () => window.matchMedia('(max-width:980px)').matches;
 

@@ -1,6 +1,6 @@
 /* chiropraxie.js */
 (function () {
-  const roots = document.querySelectorAll('.why-chiro');
+  const roots = document.querySelectorAll('.chiro-methodes');
   if (!roots.length) return;
 
   function isMobile() {
@@ -8,8 +8,8 @@
   }
 
   roots.forEach(root => {
-    const tabs = Array.from(root.querySelectorAll('.why-chiro__tab'));
-    const panels = Array.from(root.querySelectorAll('.why-chiro__panel'));
+    const tabs = Array.from(root.querySelectorAll('.chiro-methodes__tab'));
+    const panels = Array.from(root.querySelectorAll('.chiro-methodes__panel'));
 
     function activate(id, { toggle = false } = {}) {
       const panel = panels.find(p => p.id === id);
