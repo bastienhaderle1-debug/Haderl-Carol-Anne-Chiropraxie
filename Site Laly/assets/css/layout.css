@@ -377,3 +377,74 @@ body.page-prestations .siteHeader__cta{
     display:inline-flex;
   }
 }
+/* =========================
+   Chiropraxie : burger sous CTA
+   Téléphone uniquement (<=600px)
+   ========================= */
+
+@media (max-width:600px){
+
+  body.page-chiropraxie .siteHeader__inner{
+    flex-wrap:wrap;          /* autorise retour à la ligne */
+    align-items:center;
+    gap:10px;
+  }
+
+  /* Logo prend toute la largeur en haut */
+  body.page-chiropraxie .siteHeader__brand{
+    flex: 0 0 100%;
+  }
+
+  /* CTA sur sa ligne */
+  body.page-chiropraxie .siteHeader__cta{
+    order:2;
+  }
+
+  /* Burger sous le CTA */
+  body.page-chiropraxie .siteHeader__burger{
+    order:3;
+    margin-top:-2px;         /* petit ajustement optionnel */
+  }
+
+  /* Nav toujours gérée par is-menu-open (ton système actuel) */
+  body.page-chiropraxie .siteHeader.is-menu-open .siteNav{
+    display:flex;
+  }
+}
+/* =========================
+   Chiropraxie : burger sous le CTA
+   Mobile uniquement
+   ========================= */
+@media (max-width:600px){
+
+  body.page-chiropraxie .siteHeader__inner{
+    flex-wrap:wrap;             /* autorise retour à la ligne */
+    align-items:center;
+    gap:10px;
+  }
+
+  /* Ligne 1 : logo plein largeur */
+  body.page-chiropraxie .siteHeader__brand{
+    flex: 0 0 100%;
+    order: 1;
+  }
+
+  /* Ligne 2 : CTA plein largeur */
+  body.page-chiropraxie .siteHeader__cta{
+    flex: 0 0 100%;
+    order: 2;
+    justify-content:center;     /* optionnel : centre le bouton */
+  }
+
+  /* Ligne 3 : burger sous le CTA, aligné à droite (ou gauche) */
+  body.page-chiropraxie .siteHeader__burger{
+    order: 3;
+    margin-left:auto;           /* à droite */
+    /* si tu le veux à gauche : supprime margin-left:auto */
+  }
+
+  /* Le dropdown nav : reste géré par is-menu-open */
+  body.page-chiropraxie .siteHeader.is-menu-open .siteNav{
+    display:flex;
+  }
+}
