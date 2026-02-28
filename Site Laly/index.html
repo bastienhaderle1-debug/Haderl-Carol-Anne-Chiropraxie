@@ -1,5 +1,22 @@
 <!doctype html>
 <html lang="fr">
+  <script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"LocalBusiness",
+  "name":"Cabinet Carol-Anne Haderlé",
+  "address":{
+    "@type":"PostalAddress",
+    "streetAddress":"1 Rue Encombe Vineuse",
+    "postalCode":"87100",
+    "addressLocality":"Limoges",
+    "addressCountry":"FR"
+  },
+  "telephone":"+33781602221",
+  "url":"https://TON-DOMAINE.fr"
+}
+</script>
+<script src="assets/js/header.js" defer></script>
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -21,6 +38,7 @@
   <link rel="stylesheet" href="assets/css/chiropraxie.css" />
 </head>
 
+
 <body>
 
   <!-- HEADER -->
@@ -39,7 +57,15 @@
         </span>
       </a>
 
-      <nav class="siteNav" aria-label="Navigation principale">
+<button class="siteHeader__burger"
+        type="button"
+        aria-label="Ouvrir le menu"
+        aria-expanded="false"
+        aria-controls="mobileNav">
+  <span></span><span></span><span></span>
+</button>
+
+     <nav class="siteNav" id="mobileNav" aria-label="Navigation principale">
         <a class="is-active" href="index.html">Accueil</a>
         <a href="chiropraxie.html">La Chiropraxie | À quoi s'attendre ?</a>
         <a href="prestations.html">Voir les prestations</a>

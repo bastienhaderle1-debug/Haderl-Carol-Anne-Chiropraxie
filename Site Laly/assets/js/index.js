@@ -108,4 +108,19 @@
 
   // init
   updateDots();
+
+  (function(){
+  function track(name, data){
+    // remplace par GA4 plus tard ; pour l’instant log/Debug
+    console.log("[track]", name, data || {});
+  }
+
+  document.addEventListener("click", (e) => {
+    const a = e.target.closest("a");
+    if(!a) return;
+
+    if(a.href.startsWith("tel:")) track("click_call", { href: a.href });
+    if(a.href.includes("fresha.com")) track("click_booking", { href: a.href });
+  });
+})();
 })();

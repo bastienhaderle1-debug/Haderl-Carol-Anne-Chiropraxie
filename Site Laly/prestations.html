@@ -14,7 +14,7 @@
   <link rel="stylesheet" href="assets/css/layout.css" />
   <link rel="stylesheet" href="assets/css/prestations.css" />
 </head>
-
+<script src="assets/js/header.js" defer></script>
 <body class="page-prestations">
 <header class="siteHeader">
   <div class="siteHeader__inner">
@@ -31,7 +31,15 @@
       </span>
     </a>
 
-    <nav class="siteNav" aria-label="Navigation principale">
+<button class="siteHeader__burger"
+        type="button"
+        aria-label="Ouvrir le menu"
+        aria-expanded="false"
+        aria-controls="mobileNav">
+  <span></span><span></span><span></span>
+</button>
+
+<nav class="siteNav" id="mobileNav" aria-label="Navigation principale">
        <a href="index.html">Accueil</a>
       <a href="chiropraxie.html">La Chiropraxie | À quoi s'attendre ?</a>
       <a  class="is-active"  href="prestations.html">Voir les prestations</a>
