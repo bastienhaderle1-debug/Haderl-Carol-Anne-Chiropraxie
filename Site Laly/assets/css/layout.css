@@ -351,26 +351,30 @@ body.page-prestations .siteHeader__cta{
   cursor: pointer;
 }
 
-/* TELEPHONE uniquement */
-@media (max-width:768px){
+/* ===== Mobile (téléphone uniquement) ===== */
+@media (max-width:600px){
 
-  .siteNav {
-    display: none; /* menu caché */
+  /* Burger visible sur téléphone (toutes pages) */
+  .siteHeader__burger{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    width:40px;
+    height:40px;
   }
 
-  .siteHeader__cta {
-    display: none; /* cache le bouton RDV */
+  /* Nav desktop cachée (toutes pages) */
+  .siteNav{
+    display:none;
   }
 
-  .siteHeader__burger {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 40px;
-    height: 40px;
+  /* CTA : caché UNIQUEMENT sur la home */
+  body.home .siteHeader__cta{
+    display:none;
   }
 
-  .siteHeader__inner {
-    height: 70px;
+  /* CTA : visible sur les autres pages (ex: chiropraxie) */
+  body:not(.home):not(.page-prestations) .siteHeader__cta{
+    display:inline-flex;
   }
 }
