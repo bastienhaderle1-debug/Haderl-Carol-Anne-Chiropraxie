@@ -460,3 +460,59 @@ body.page-prestations .siteHeader__cta{
   }
 
 }
+/* =========================================================
+   1) Header NON-sticky sur toutes les pages
+   => le header (et donc le burger) descend avec le scroll
+   ========================================================= */
+.siteHeader{
+  position: static;   /* ou relative, mais surtout pas sticky/fixed */
+  top: auto;
+}
+
+/* Ton bloc "HEADER STRUCTURE FIX" impose une hauteur fixe :
+   on la neutralise pour éviter des effets bizarres */
+.siteHeader__inner{
+  height: auto;
+}
+
+
+/* =========================================================
+   2) Page CHIROPraxie (mobile) :
+   - burger au-dessus
+   - CTA "Prendre RDV" en dessous, plus petit
+   - les 2 scrollent avec la page (car header non-sticky)
+   ========================================================= */
+@media (max-width:600px){
+
+  body.page-chiropraxie .siteHeader__inner{
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  /* Ligne 1 : logo plein largeur */
+  body.page-chiropraxie .siteHeader__brand{
+    flex: 0 0 100%;
+    order: 1;
+  }
+
+  /* Ligne 2 : burger plein largeur (aligné à droite) */
+  body.page-chiropraxie .siteHeader__burger{
+    flex: 0 0 100%;
+    order: 2;
+    justify-content: flex-end;
+  }
+
+  /* Ligne 3 : bouton RDV plein largeur, plus petit */
+  body.page-chiropraxie .siteHeader__cta{
+    flex: 0 0 100%;
+    order: 3;
+
+    /* réduction taille */
+    padding: 8px 12px;
+    font-size: 13px;
+    border-radius: 12px;
+
+    /* optionnel : centré */
+    justify-content: center;
+  }
+}
