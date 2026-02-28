@@ -448,3 +448,15 @@ body.page-prestations .siteHeader__cta{
     display:flex;
   }
 }
+/* =========================
+   Chiropraxie : burger plus haut
+   Mobile uniquement
+   ========================= */
+@media (max-width:600px){
+
+  body.page-chiropraxie .siteHeader__burger{
+    position: relative;
+    top: -8px;   /* ajuste entre -6px et -14px selon le rendu */
+  }
+
+}
