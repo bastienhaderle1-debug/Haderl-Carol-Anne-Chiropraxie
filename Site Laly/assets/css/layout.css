@@ -195,10 +195,9 @@ h1,h2,h3,h4{
 }
 .contact-item i{ color:var(--c-primary); }
 
-/* Prestations : cacher le CTA sans casser l'alignement du header */
+/* Prestations : on enlève le CTA */
 body.page-prestations .siteHeader__cta{
-  visibility: hidden;     /* invisible */
-  pointer-events: none;   /* pas cliquable */
+  display:none;
 }
 .mobile-cta{ display:none; }
 
