@@ -80,20 +80,22 @@
   .chiro-poster__focus{ padding:14px 14px; }
 }
 
+
+
 /* =========================
-   WHY-CHIRO (Mes méthodes)
+   CHIRO-méthodes
    ========================= */
-.why-chiro{
+.chiro-methodes{
   background:var(--c-bg);
   padding:70px 0;
 }
 
-.why-chiro__inner{
+.chiro-methodes__inner{
   width:min(1180px, 92%);
   margin:0 auto;
 }
 
-.why-chiro__title{
+.chiro-methodes__title{
   margin:0 0 36px;
   text-align:center;
   font-family:var(--ff-title);
@@ -103,20 +105,20 @@
   font-size:44px;
 }
 
-.why-chiro__grid{
+.chiro-methodes__grid{
   display:grid;
   grid-template-columns:300px 1fr;
   gap:28px;
   align-items:start;
 }
 
-.why-chiro__tabs{
+.chiro-methodes__tabs{
   display:flex;
   flex-direction:column;
   gap:12px;
 }
 
-.why-chiro__tab{
+.chiro-methodes__tab{
   width:100%;
   background:var(--c-surface);
   border:1px solid var(--c-line);
@@ -130,24 +132,24 @@
   cursor:pointer;
   transition:background .15s ease, color .15s ease, border-color .15s ease;
 }
-.why-chiro__tab:hover{ background:#eef6f3; }
+.chiro-methodes__tab:hover{ background:#eef6f3; }
 
-.why-chiro__tab.is-active{
+.chiro-methodes__tab.is-active{
   background:var(--c-accent);
   border-color:var(--c-accent);
   color:#fff;
 }
 
-.why-chiro__panel{
+.chiro-methodes__panel{
   display:none;
   border-radius:var(--r-lg);
   overflow:hidden;
   background:var(--c-surface);
   box-shadow:var(--shadow-soft);
 }
-.why-chiro__panel.is-active{ display:block; }
+.chiro-methodes__panel.is-active{ display:block; }
 
-.why-chiro__media{
+.chiro-methodes__media{
   height:320px;
   position:relative;
   background-color: var(--c-bg);
@@ -156,7 +158,7 @@
   background-position: center;
   background-repeat: no-repeat;
 }
-.why-chiro__media::after{
+.chiro-methodes__media::after{
   content:"";
   position:absolute; inset:0;
   background:linear-gradient(
@@ -167,7 +169,7 @@
   );
 }
 
-.why-chiro__mediaTitle{
+.chiro-methodes__mediaTitle{
   position:absolute;
   left:26px; bottom:22px;
   margin:0;
@@ -177,7 +179,7 @@
   font-size:36px;
   z-index:1;
 }
-.why-chiro__mediaTitle::after{
+.chiro-methodes__mediaTitle::after{
   content:"";
   display:block;
   width:64px;
@@ -187,7 +189,7 @@
   border-radius:999px;
 }
 
-.why-chiro__text{
+.chiro-methodes__text{
   padding:26px 28px 30px;
   font-family:var(--ff-body);
   color:var(--c-muted);
@@ -196,9 +198,9 @@
 }
 
 @media (max-width:980px){
-  .why-chiro__grid{ grid-template-columns:1fr; gap:14px; }
+  .chiro-methodes__grid{ grid-template-columns:1fr; gap:14px; }
 
-  .why-chiro__tab{
+  .chiro-methodes__tab{
     width:100%;
     border-radius:10px;
     padding:16px 14px;
@@ -206,18 +208,18 @@
     text-align:left;
   }
 
-  .why-chiro__media{ height:320px; }
-  .why-chiro__mediaTitle{
+  .chiro-methodes__media{ height:320px; }
+  .chiro-methodes__mediaTitle{
     font-size:22px;
     left:16px;
     bottom:16px;
     max-width:92%;
   }
-  .why-chiro__text{ padding:18px 18px 22px; font-size:14px; }
+  .chiro-methodes__text{ padding:18px 18px 22px; font-size:14px; }
 }
 
 @media (max-width:520px){
-  .why-chiro__title{ font-size:30px; }
+  .chiro-methodes__title{ font-size:30px; }
 }
 
 /* =========================
