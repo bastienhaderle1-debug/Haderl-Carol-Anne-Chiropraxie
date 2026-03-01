@@ -205,6 +205,11 @@ body.page-prestations .siteHeader__cta{
 
 /* Burger (clean) */
 @media (max-width:768px){
+  .siteHeader{
+    -webkit-backdrop-filter:none;
+    backdrop-filter:none;
+  }
+
   .siteHeader__inner{
     padding:10px 0;
     align-items:center;
@@ -217,9 +222,10 @@ body.page-prestations .siteHeader__cta{
   .siteHeader__burger{
     display:inline-grid;
     place-items:center;
-    position:fixed;
+    position:fixed !important;
     top:12px;
     right:12px;
+    left:auto;
     width:44px;
     height:44px;
     border-radius:14px;
@@ -339,6 +345,10 @@ body.page-prestations .siteHeader__cta{
   }
 
   body.page-chiropraxie .siteHeader__burger{
+    position:fixed !important;
+    top:12px;
+    right:12px;
+    left:auto;
     flex: 0 0 100%;
     order: 2;
     justify-content: flex-end;
