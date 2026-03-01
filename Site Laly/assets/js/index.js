@@ -175,73 +175,162 @@
   const root = document.querySelector('[data-bodymap]');
   if(!root) return;
 
+  const figure = root.querySelector('.bodymap__figure');
   const tags = [...root.querySelectorAll('.bodymap__tag')];
-  const titleEl = root.querySelector('[data-bodymap-title]');
-  const textEl = root.querySelector('[data-bodymap-text]');
-  if(!tags.length || !titleEl || !textEl) return;
+  if(!figure || !tags.length) return;
 
-  const defaultTitle = titleEl.textContent.trim();
-  const defaultText = textEl.textContent.trim();
+  const mobileMq = window.matchMedia('(max-width:980px)');
+  const popups = new Map();
+  let activeTag = null;
   let lockedTag = null;
 
-  function render(tag){
-    titleEl.textContent = tag.dataset.title || defaultTitle;
-    textEl.textContent = tag.dataset.text || defaultText;
+  function hidePopup(tag){
+    const popup = popups.get(tag);
+    if(!popup) return;
+    popup.hidden = true;
+    popup.setAttribute('aria-hidden', 'true');
+    popup.classList.remove('is-left');
+    popup.style.left = '';
+    popup.style.top = '';
+  }
+
+  function placePopup(tag, popup){
+    if(mobileMq.matches){
+      popup.classList.remove('is-left');
+      popup.style.left = '';
+      popup.style.top = '';
+      return;
+    }
+
+    const figureRect = figure.getBoundingClientRect();
+    const tagRect = tag.getBoundingClientRect();
+    const isRightSide = (tagRect.left + tagRect.width / 2) >= (figureRect.left + figureRect.width / 2);
+
+    popup.classList.toggle('is-left', isRightSide);
+    popup.style.top = `${(tagRect.top - figureRect.top) + (tagRect.height / 2)}px`;
+    popup.style.left = isRightSide
+      ? `${tagRect.left - figureRect.left - 12}px`
+      : `${tagRect.right - figureRect.left + 12}px`;
+  }
+
+  function showPopup(tag){
+    const popup = popups.get(tag);
+    if(!popup) return;
+    popup.hidden = false;
+    popup.setAttribute('aria-hidden', 'false');
+    placePopup(tag, popup);
+  }
+
+  function setActive(tag){
+    activeTag = tag;
     tags.forEach((item) => {
-      const on = item === tag;
-      item.classList.toggle('is-active', on);
-      item.setAttribute('aria-pressed', on ? 'true' : 'false');
+      const isCurrent = item === tag;
+      item.classList.toggle('is-active', isCurrent);
+      item.setAttribute('aria-pressed', isCurrent ? 'true' : 'false');
+      item.setAttribute('aria-expanded', isCurrent ? 'true' : 'false');
+      if(isCurrent) showPopup(item);
+      else hidePopup(item);
     });
   }
 
-  function reset(){
-    titleEl.textContent = defaultTitle;
-    textEl.textContent = defaultText;
-    tags.forEach((item) => {
-      item.classList.remove('is-active');
-      item.setAttribute('aria-pressed', 'false');
-    });
-  }
+  function createPopup(tag, index){
+    const popup = document.createElement('div');
+    popup.className = 'bodymap__tagPopup';
+    popup.hidden = true;
+    popup.setAttribute('aria-hidden', 'true');
+    popup.id = `bodymap-popup-${index + 1}`;
 
-  tags.forEach((tag) => {
+    const close = document.createElement('button');
+    close.className = 'bodymap__tagPopupClose';
+    close.type = 'button';
+    close.setAttribute('aria-label', 'Fermer');
+    close.innerHTML = '&times;';
+
+    const eyebrow = document.createElement('p');
+    eyebrow.className = 'bodymap__eyebrow';
+    eyebrow.textContent = 'Indication frequente';
+
+    const title = document.createElement('h3');
+    title.className = 'bodymap__panelTitle';
+    title.textContent = tag.dataset.title || tag.textContent.trim();
+
+    const text = document.createElement('p');
+    text.className = 'bodymap__panelText';
+    text.textContent = tag.dataset.text || '';
+
+    close.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      lockedTag = null;
+      setActive(null);
+    });
+
+    popup.addEventListener('click', (e) => e.stopPropagation());
+
+    popup.append(close, eyebrow, title, text);
+    tag.insertAdjacentElement('afterend', popup);
+    popups.set(tag, popup);
+
     tag.setAttribute('aria-pressed', 'false');
+    tag.setAttribute('aria-expanded', 'false');
+    tag.setAttribute('aria-controls', popup.id);
+  }
+
+  tags.forEach((tag, index) => {
+    createPopup(tag, index);
 
     tag.addEventListener('mouseenter', () => {
-      render(tag);
+      if(lockedTag) return;
+      setActive(tag);
     });
 
     tag.addEventListener('focus', () => {
-      render(tag);
+      if(lockedTag) return;
+      setActive(tag);
     });
 
     tag.addEventListener('mouseleave', () => {
-      if(lockedTag) render(lockedTag);
-      else reset();
+      if(lockedTag) setActive(lockedTag);
+      else setActive(null);
     });
 
     tag.addEventListener('blur', () => {
-      if(lockedTag) render(lockedTag);
-      else reset();
+      if(lockedTag) setActive(lockedTag);
+      else setActive(null);
     });
 
-    tag.addEventListener('click', () => {
+    tag.addEventListener('click', (e) => {
+      e.stopPropagation();
       if(lockedTag === tag){
         lockedTag = null;
-        reset();
+        setActive(null);
         return;
       }
 
       lockedTag = tag;
-      render(lockedTag);
+      setActive(tag);
     });
+  });
+
+  document.addEventListener('click', (e) => {
+    if(root.contains(e.target)) return;
+    if(!activeTag && !lockedTag) return;
+    lockedTag = null;
+    setActive(null);
   });
 
   document.addEventListener('keydown', (e) => {
     if(e.key !== 'Escape') return;
-    if(!lockedTag) return;
-
+    if(!activeTag && !lockedTag) return;
     lockedTag = null;
-    reset();
+    setActive(null);
+  });
+
+  window.addEventListener('resize', () => {
+    if(!activeTag) return;
+    const popup = popups.get(activeTag);
+    if(!popup || popup.hidden) return;
+    placePopup(activeTag, popup);
   });
 })();
 

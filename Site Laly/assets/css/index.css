@@ -758,8 +758,53 @@
 .bodymap__tag--mobilite{ top:66%; left:10%; font-size:clamp(24px, 2.15vw, 44px); }
 .bodymap__tag--cheville{ top:73%; right:28%; }
 
-.bodymap__panel{
+.bodymap__tagPopup{
+  position:absolute;
+  z-index:25;
+  width:min(320px, 42vw);
+  background:rgba(255, 255, 255, .96);
+  border:1px solid rgba(20, 54, 44, .12);
+  border-radius:14px;
+  box-shadow:0 18px 36px rgba(20, 44, 36, .14);
+  padding:12px 38px 12px 14px;
+  transform:translateY(-50%);
+}
+
+.bodymap__tagPopup[hidden]{
   display:none;
+}
+
+.bodymap__tagPopup.is-left{
+  transform:translate(-100%, -50%);
+}
+
+.bodymap__tagPopupClose{
+  position:absolute;
+  top:8px;
+  right:10px;
+  width:24px;
+  height:24px;
+  border:none;
+  border-radius:999px;
+  background:rgba(30, 107, 58, .10);
+  color:var(--c-text);
+  font-size:16px;
+  line-height:1;
+  cursor:pointer;
+}
+
+.bodymap__tagPopupClose:hover{
+  background:rgba(30, 107, 58, .18);
+}
+
+.bodymap__tagPopup .bodymap__panelTitle{
+  margin:8px 0 8px;
+  font-size:20px;
+}
+
+.bodymap__tagPopup .bodymap__panelText{
+  font-size:14px;
+  line-height:1.55;
 }
 
 .bodymap__eyebrow{
@@ -812,13 +857,6 @@
     gap:16px;
   }
 
-  .bodymap__panel{
-    position:relative;
-    top:auto;
-    order:3;
-    padding:18px 16px;
-  }
-
   .bodymap__panelTitle{
     font-size:24px;
   }
@@ -850,6 +888,21 @@
     color:var(--c-text);
     box-shadow:0 8px 16px rgba(17, 37, 31, .08);
     justify-self:start;
+  }
+
+  .bodymap__tagPopup{
+    position:relative;
+    top:auto !important;
+    left:auto !important;
+    right:auto !important;
+    width:100%;
+    margin:8px 0 2px;
+    transform:none !important;
+    padding:12px 34px 12px 12px;
+  }
+
+  .bodymap__tagPopup .bodymap__panelTitle{
+    font-size:19px;
   }
 
   .bodymap__tag--lombalgie,
