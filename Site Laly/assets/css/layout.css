@@ -354,45 +354,47 @@ body.page-prestations .siteHeader__cta{
 }
 
 /* =========================================================
-   CHIROPraxie (mobile <=600px) :
-   burger au-dessus, RDV en dessous + plus petit
+   CHIROPraxie mobile:
+   1) marque sur une ligne
+   2) RDV + burger sur la ligne dessous
    ========================================================= */
-@media (max-width:600px){
+@media (max-width:768px){
   body.page-chiropraxie{
-    padding-top:132px;
+    padding-top:140px;
   }
 
   body.page-chiropraxie .siteHeader__inner{
-    flex-wrap: wrap;
-    gap: 10px;
+    display:grid;
+    grid-template-columns:minmax(0, 1fr) auto;
+    grid-template-areas:
+      "brand brand"
+      "cta burger";
+    align-items:center;
+    column-gap:10px;
+    row-gap:10px;
   }
 
   body.page-chiropraxie .siteHeader__brand{
-    flex: 0 0 100%;
-    order: 1;
-  }
-
-  body.page-chiropraxie .siteHeader__burger{
-    position:relative;
-    top:auto;
-    right:auto;
-    left:auto;
-    margin-left:auto;
-    flex: 0 0 100%;
-    order: 2;
-    justify-content: flex-end;
+    grid-area:brand;
+    min-width:0;
   }
 
   body.page-chiropraxie .siteHeader__cta{
-    flex: 0 0 100%;
-    order: 3;
+    grid-area:cta;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    min-height:44px;
+    width:100%;
+    padding:10px 12px;
+    font-size:13px;
+    border-radius:12px;
+  }
 
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-
-    padding: 8px 12px;
-    font-size: 13px;
-    border-radius: 12px;
+  body.page-chiropraxie .siteHeader__burger{
+    grid-area:burger;
+    margin-left:0;
+    justify-self:end;
+    flex:0 0 auto;
   }
 }
