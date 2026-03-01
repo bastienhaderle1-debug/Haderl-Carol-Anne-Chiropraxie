@@ -179,7 +179,6 @@
   const tags = [...root.querySelectorAll('.bodymap__tag')];
   if(!figure || !tags.length) return;
 
-  const mobileMq = window.matchMedia('(max-width:980px)');
   const popups = new Map();
   let activeTag = null;
   let lockedTag = null;
@@ -189,28 +188,38 @@
     if(!popup) return;
     popup.hidden = true;
     popup.setAttribute('aria-hidden', 'true');
-    popup.classList.remove('is-left');
     popup.style.left = '';
     popup.style.top = '';
   }
 
   function placePopup(tag, popup){
-    if(mobileMq.matches){
-      popup.classList.remove('is-left');
-      popup.style.left = '';
-      popup.style.top = '';
-      return;
-    }
-
+    const gap = window.matchMedia('(max-width:520px)').matches ? 8 : 12;
+    const edge = 8;
     const figureRect = figure.getBoundingClientRect();
     const tagRect = tag.getBoundingClientRect();
     const isRightSide = (tagRect.left + tagRect.width / 2) >= (figureRect.left + figureRect.width / 2);
+    const popupWidth = popup.offsetWidth;
+    const popupHeight = popup.offsetHeight;
 
-    popup.classList.toggle('is-left', isRightSide);
-    popup.style.top = `${(tagRect.top - figureRect.top) + (tagRect.height / 2)}px`;
-    popup.style.left = isRightSide
-      ? `${tagRect.left - figureRect.left - 12}px`
-      : `${tagRect.right - figureRect.left + 12}px`;
+    let left = isRightSide
+      ? (tagRect.left - figureRect.left - popupWidth - gap)
+      : (tagRect.right - figureRect.left + gap);
+
+    const minLeft = edge - figureRect.left;
+    const maxLeft = window.innerWidth - edge - figureRect.left - popupWidth;
+    if(maxLeft >= minLeft){
+      left = Math.min(Math.max(left, minLeft), maxLeft);
+    }
+
+    let top = (tagRect.top - figureRect.top) + (tagRect.height / 2);
+    const minTop = (edge + popupHeight / 2) - figureRect.top;
+    const maxTop = (window.innerHeight - edge - popupHeight / 2) - figureRect.top;
+    if(maxTop >= minTop){
+      top = Math.min(Math.max(top, minTop), maxTop);
+    }
+
+    popup.style.top = `${top}px`;
+    popup.style.left = `${left}px`;
   }
 
   function showPopup(tag){

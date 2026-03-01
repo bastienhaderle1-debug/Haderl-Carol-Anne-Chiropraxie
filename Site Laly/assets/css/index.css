@@ -774,10 +774,6 @@
   display:none;
 }
 
-.bodymap__tagPopup.is-left{
-  transform:translate(-100%, -50%);
-}
-
 .bodymap__tagPopupClose{
   position:absolute;
   top:8px;
@@ -864,8 +860,6 @@
   .bodymap__figure{
     width:min(620px, 100%);
     padding:4px 0 0;
-    display:grid;
-    gap:14px;
     transform:none;
   }
 
@@ -873,42 +867,19 @@
     border-radius:14px;
   }
 
-  .bodymap__tag{
-    position:relative;
-    top:auto;
-    left:auto;
-    right:auto;
-    bottom:auto;
-    max-width:none;
-    font-size:15px;
-    font-family:var(--ff-body);
-    font-weight:700;
-    padding:10px 14px;
-    background:#fff;
-    color:var(--c-text);
-    box-shadow:0 8px 16px rgba(17, 37, 31, .08);
-    justify-self:start;
-  }
-
   .bodymap__tagPopup{
-    position:relative;
-    top:auto !important;
-    left:auto !important;
-    right:auto !important;
-    width:100%;
-    margin:8px 0 2px;
-    transform:none !important;
-    padding:12px 34px 12px 12px;
+    width:min(300px, 62vw);
+    padding:10px 34px 10px 12px;
   }
 
   .bodymap__tagPopup .bodymap__panelTitle{
-    font-size:19px;
+    font-size:18px;
+    margin:6px 0;
   }
 
-  .bodymap__tag--lombalgie,
-  .bodymap__tag--sciatique,
-  .bodymap__tag--mobilite{
-    font-size:15px;
+  .bodymap__tagPopup .bodymap__panelText{
+    font-size:13px;
+    line-height:1.45;
   }
 }
 
@@ -921,14 +892,9 @@
     font-size:14px;
   }
 
-  .bodymap__figure{
-    gap:10px;
+  .bodymap__tagPopup{
+    width:min(280px, 74vw);
   }
 
-  .bodymap__tag{
-    width:100%;
-    text-align:left;
-    border-radius:12px;
-  }
 }
 
