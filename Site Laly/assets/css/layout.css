@@ -359,6 +359,13 @@ body.page-prestations > main{
   box-shadow:0 8px 22px rgba(16,30,26,.06);
 }
 
+@media (min-width:769px){
+  .siteHeader{
+    position:sticky;
+    top:0;
+  }
+}
+
 /* =========================================================
    MENU MOBILE : assure l’ouverture même si un autre media cache la nav
    ========================================================= */
@@ -436,4 +443,76 @@ body.page-prestations > main{
 
 .siteFooter__inner{
   letter-spacing:.02em;
+}
+
+/* Footer contacts */
+.siteFooter__inner{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  flex-wrap:wrap;
+  gap:12px 18px;
+}
+
+.siteFooter__copy{
+  margin:0;
+  font-family:var(--ff-body);
+  font-size:14px;
+}
+
+.siteFooter__contacts{
+  display:flex;
+  align-items:center;
+  flex-wrap:wrap;
+  gap:10px;
+}
+
+.siteFooter__contact{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  text-decoration:none;
+  color:#fff;
+  font-family:var(--ff-body);
+  font-size:13px;
+  font-weight:600;
+  padding:8px 12px;
+  border-radius:999px;
+  border:1px solid rgba(255,255,255,.24);
+  background:rgba(255,255,255,.08);
+  transition:transform .2s ease, background .2s ease, border-color .2s ease;
+}
+
+.siteFooter__contact span{
+  line-height:1.2;
+  overflow-wrap:anywhere;
+}
+
+.siteFooter__contact:hover{
+  transform:translateY(-1px);
+  background:rgba(255,255,255,.16);
+  border-color:rgba(255,255,255,.45);
+}
+
+@media (max-width:860px){
+  .siteFooter__inner{
+    justify-content:center;
+    text-align:center;
+  }
+
+  .siteFooter__contacts{
+    justify-content:center;
+  }
+}
+
+@media (max-width:560px){
+  .siteFooter__contacts{
+    width:100%;
+    display:grid;
+    grid-template-columns:1fr;
+  }
+
+  .siteFooter__contact{
+    justify-content:center;
+  }
 }
