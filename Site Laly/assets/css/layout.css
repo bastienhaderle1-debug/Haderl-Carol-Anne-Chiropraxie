@@ -253,9 +253,6 @@ body.page-prestations > main{
     gap:10px;
   }
 
-  /* Index : on cache le CTA header, burger visible */
-  body.home .siteHeader__cta{ display:none; }
-
   .siteHeader__burger{
     display:inline-grid;
     place-items:center;
@@ -428,6 +425,52 @@ body.page-prestations > main{
   }
 
   body.page-chiropraxie .siteHeader__burger{
+    grid-area:burger;
+    margin-left:0;
+    justify-self:end;
+    flex:0 0 auto;
+  }
+}
+
+/* =========================================================
+   HOME mobile:
+   1) marque sur une ligne
+   2) RDV + burger sur la ligne dessous
+   ========================================================= */
+@media (max-width:768px){
+  body.home{
+    padding-top:140px;
+  }
+
+  body.home .siteHeader__inner{
+    display:grid;
+    grid-template-columns:minmax(0, 1fr) auto;
+    grid-template-areas:
+      "brand brand"
+      "cta burger";
+    align-items:center;
+    column-gap:10px;
+    row-gap:10px;
+  }
+
+  body.home .siteHeader__brand{
+    grid-area:brand;
+    min-width:0;
+  }
+
+  body.home .siteHeader__cta{
+    grid-area:cta;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    min-height:44px;
+    width:100%;
+    padding:10px 12px;
+    font-size:13px;
+    border-radius:12px;
+  }
+
+  body.home .siteHeader__burger{
     grid-area:burger;
     margin-left:0;
     justify-self:end;
