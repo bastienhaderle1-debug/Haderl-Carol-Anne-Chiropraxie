@@ -98,7 +98,41 @@
       <div class="hero-badge__actions">
         <a class="hero-badge__btn" href="prestations.html">Prendre rendez-vous</a>
 
-        <a class="hero-badge__link" href="#contact">Contact</a>
+        <button
+          class="hero-badge__link hero-contact-trigger"
+          type="button"
+          aria-expanded="false"
+          aria-controls="heroContactPanel">
+          Contact
+        </button>
+
+        <div class="hero-contact-panel" id="heroContactPanel" aria-hidden="true">
+          <button class="hero-contact-close" type="button" aria-label="Fermer">✕</button>
+
+          <div class="hero-contact-content">
+            <a href="tel:+33781602221">
+              <i class="fa-solid fa-phone"></i>
+              <span>07 81 60 22 21</span>
+            </a>
+
+            <a href="mailto:carolanne.chiropraxie@gmail.com">
+              <i class="fa-regular fa-envelope"></i>
+              <span>carolanne.chiropraxie@gmail.com</span>
+            </a>
+
+            <a href="https://www.google.com/maps/dir/?api=1&destination=1+rue+Encombe+Vineuse+87100+Limoges"
+               target="_blank" rel="noopener">
+              <i class="fa-solid fa-location-dot"></i>
+              <span>Venir au cabinet</span>
+            </a>
+
+            <a href="https://www.instagram.com/TON_PSEUDO/"
+               target="_blank" rel="noopener">
+              <i class="fa-brands fa-instagram"></i>
+              <span>Instagram</span>
+            </a>
+          </div>
+        </div>
 
       </div>
 

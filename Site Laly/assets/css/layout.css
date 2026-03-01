@@ -339,6 +339,20 @@ body.page-prestations .siteHeader__cta{
   }
 }
 
+/* Force mobile header behavior after base .siteHeader declaration */
+@media (max-width:768px){
+  .siteHeader{
+    position:fixed;
+    top:0;
+    left:0;
+    right:0;
+    width:100%;
+    z-index:1300;
+    -webkit-backdrop-filter:none;
+    backdrop-filter:none;
+  }
+}
+
 /* =========================================================
    CHIROPraxie (mobile <=600px) :
    burger au-dessus, RDV en dessous + plus petit

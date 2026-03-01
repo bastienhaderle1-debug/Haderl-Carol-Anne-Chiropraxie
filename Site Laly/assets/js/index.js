@@ -127,4 +127,47 @@
   });
 })();
 
+/* HERO CONTACT POPUP */
+(function(){
+  const trigger = document.querySelector('.hero-contact-trigger');
+  const panel = document.querySelector('.hero-contact-panel');
+  const closeBtn = document.querySelector('.hero-contact-close');
+
+  if(!trigger || !panel) return;
+
+  function closePanel(){
+    panel.classList.remove('is-open');
+    panel.setAttribute('aria-hidden', 'true');
+    trigger.setAttribute('aria-expanded', 'false');
+  }
+
+  function openPanel(){
+    panel.classList.add('is-open');
+    panel.setAttribute('aria-hidden', 'false');
+    trigger.setAttribute('aria-expanded', 'true');
+  }
+
+  trigger.addEventListener('click', (e) => {
+    e.preventDefault();
+    if(panel.classList.contains('is-open')) closePanel();
+    else openPanel();
+  });
+
+  closeBtn?.addEventListener('click', (e) => {
+    e.preventDefault();
+    closePanel();
+  });
+
+  document.addEventListener('click', (e) => {
+    if(!panel.classList.contains('is-open')) return;
+    if(e.target.closest('.hero-contact-panel')) return;
+    if(e.target.closest('.hero-contact-trigger')) return;
+    closePanel();
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if(e.key === 'Escape') closePanel();
+  });
+})();
+
 
