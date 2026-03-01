@@ -170,4 +170,79 @@
   });
 })();
 
+/* Body map interactions */
+(function(){
+  const root = document.querySelector('[data-bodymap]');
+  if(!root) return;
+
+  const tags = [...root.querySelectorAll('.bodymap__tag')];
+  const titleEl = root.querySelector('[data-bodymap-title]');
+  const textEl = root.querySelector('[data-bodymap-text]');
+  if(!tags.length || !titleEl || !textEl) return;
+
+  const defaultTitle = titleEl.textContent.trim();
+  const defaultText = textEl.textContent.trim();
+  let lockedTag = null;
+
+  function render(tag){
+    titleEl.textContent = tag.dataset.title || defaultTitle;
+    textEl.textContent = tag.dataset.text || defaultText;
+    tags.forEach((item) => {
+      const on = item === tag;
+      item.classList.toggle('is-active', on);
+      item.setAttribute('aria-pressed', on ? 'true' : 'false');
+    });
+  }
+
+  function reset(){
+    titleEl.textContent = defaultTitle;
+    textEl.textContent = defaultText;
+    tags.forEach((item) => {
+      item.classList.remove('is-active');
+      item.setAttribute('aria-pressed', 'false');
+    });
+  }
+
+  tags.forEach((tag) => {
+    tag.setAttribute('aria-pressed', 'false');
+
+    tag.addEventListener('mouseenter', () => {
+      render(tag);
+    });
+
+    tag.addEventListener('focus', () => {
+      render(tag);
+    });
+
+    tag.addEventListener('mouseleave', () => {
+      if(lockedTag) render(lockedTag);
+      else reset();
+    });
+
+    tag.addEventListener('blur', () => {
+      if(lockedTag) render(lockedTag);
+      else reset();
+    });
+
+    tag.addEventListener('click', () => {
+      if(lockedTag === tag){
+        lockedTag = null;
+        reset();
+        return;
+      }
+
+      lockedTag = tag;
+      render(lockedTag);
+    });
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if(e.key !== 'Escape') return;
+    if(!lockedTag) return;
+
+    lockedTag = null;
+    reset();
+  });
+})();
+
 

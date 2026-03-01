@@ -649,3 +649,250 @@
   opacity:.72;
 }
 
+/* Body map interactive section */
+.bodymap{
+  padding:72px 0 64px;
+  background:linear-gradient(180deg, #f4f1ee 0%, #eeebe7 100%);
+  border-top:1px solid rgba(20, 54, 44, .08);
+  border-bottom:1px solid rgba(20, 54, 44, .08);
+  overflow-x:clip;
+}
+
+.bodymap__inner{
+  width:min(1180px, calc(100% - 48px));
+  margin:0 auto;
+}
+
+.bodymap__head{
+  text-align:center;
+  margin-bottom:30px;
+}
+
+.bodymap__title{
+  margin:0;
+  font-family:var(--ff-title);
+  font-size:clamp(32px, 5vw, 46px);
+  color:var(--c-text);
+  letter-spacing:.01em;
+}
+
+.bodymap__subtitle{
+  margin:12px auto 0;
+  max-width:760px;
+  font-family:var(--ff-body);
+  color:var(--c-muted);
+  line-height:1.7;
+  font-size:16px;
+}
+
+.bodymap__layout{
+  display:grid;
+  grid-template-columns:minmax(560px, 1fr) 340px;
+  gap:26px;
+  align-items:start;
+}
+
+.bodymap__figure{
+  position:relative;
+  width:min(760px, 100%);
+  margin:0 auto;
+  padding:20px 6px 12px;
+}
+
+.bodymap__image{
+  width:100%;
+  display:block;
+  border-radius:18px;
+  box-shadow:0 28px 60px rgba(20, 44, 36, .10);
+}
+
+.bodymap__tag{
+  position:absolute;
+  border:none;
+  border-radius:999px;
+  background:rgba(255, 255, 255, .90);
+  color:#3a100f;
+  font-family:var(--ff-title);
+  font-size:clamp(16px, 1.35vw, 32px);
+  font-weight:700;
+  line-height:1.1;
+  padding:6px 12px;
+  box-shadow:0 10px 20px rgba(17, 37, 31, .15);
+  cursor:pointer;
+  transition:transform .18s ease, box-shadow .18s ease, background .18s ease, color .18s ease;
+  text-align:left;
+}
+
+.bodymap__tag:hover,
+.bodymap__tag:focus-visible{
+  transform:translateY(-2px) scale(1.02);
+  box-shadow:0 16px 24px rgba(17, 37, 31, .20);
+  background:#fff;
+  outline:none;
+}
+
+.bodymap__tag.is-active{
+  background:#2e968a;
+  color:#fff;
+  box-shadow:0 18px 32px rgba(20, 86, 78, .30);
+}
+
+.bodymap__tag--migraines{ top:7%; right:-3%; }
+.bodymap__tag--vertiges{ top:14%; right:-7%; }
+.bodymap__tag--cervicale{ top:17%; left:-22%; max-width:260px; }
+.bodymap__tag--epaule{ top:24%; right:-20%; max-width:260px; }
+.bodymap__tag--dorsalgie{ top:30%; left:-20%; max-width:250px; }
+.bodymap__tag--raideur{ top:34%; right:-20%; max-width:260px; }
+.bodymap__tag--lombalgie{ top:42%; left:-9%; font-size:clamp(24px, 2.2vw, 52px); }
+.bodymap__tag--tendinite{ top:44%; right:-9%; }
+.bodymap__tag--carpien{ top:49%; left:-17%; }
+.bodymap__tag--hanche{ top:52%; right:-17%; }
+.bodymap__tag--genoux{ top:68%; left:-9%; }
+.bodymap__tag--sciatique{ top:61%; right:-16%; font-size:clamp(30px, 2.6vw, 58px); }
+.bodymap__tag--sport{ top:74%; right:-16%; }
+.bodymap__tag--mobilite{ top:87%; left:-3%; font-size:clamp(28px, 2.5vw, 56px); }
+.bodymap__tag--cheville{ top:91%; right:-6%; }
+
+.bodymap__panel{
+  position:sticky;
+  top:120px;
+  border-radius:18px;
+  padding:24px 22px;
+  background:rgba(255, 255, 255, .80);
+  border:1px solid rgba(24, 61, 50, .10);
+  box-shadow:0 18px 46px rgba(20, 44, 36, .08);
+  backdrop-filter:blur(6px);
+  -webkit-backdrop-filter:blur(6px);
+}
+
+.bodymap__eyebrow{
+  margin:0;
+  font-family:var(--ff-body);
+  font-size:12px;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  color:#638278;
+  font-weight:700;
+}
+
+.bodymap__panelTitle{
+  margin:10px 0 10px;
+  font-family:var(--ff-title);
+  color:var(--c-text);
+  font-size:28px;
+  line-height:1.15;
+}
+
+.bodymap__panelText{
+  margin:0;
+  font-family:var(--ff-body);
+  color:var(--c-muted);
+  font-size:15px;
+  line-height:1.7;
+}
+
+.bodymap__note{
+  margin:22px auto 0;
+  max-width:980px;
+  font-family:var(--ff-body);
+  font-size:14px;
+  color:#5a6d65;
+  line-height:1.65;
+  text-align:center;
+}
+
+@media (max-width:1280px){
+  .bodymap__layout{
+    grid-template-columns:minmax(520px, 1fr) 320px;
+    gap:22px;
+  }
+
+  .bodymap__tag{
+    font-size:clamp(15px, 1.25vw, 24px);
+  }
+
+  .bodymap__tag--lombalgie{ font-size:clamp(20px, 2vw, 42px); }
+  .bodymap__tag--sciatique{ font-size:clamp(24px, 2.2vw, 48px); }
+  .bodymap__tag--mobilite{ font-size:clamp(22px, 2.2vw, 46px); }
+}
+
+@media (max-width:980px){
+  .bodymap{
+    padding:62px 0 56px;
+  }
+
+  .bodymap__inner{
+    width:min(980px, calc(100% - 30px));
+  }
+
+  .bodymap__layout{
+    grid-template-columns:1fr;
+    gap:16px;
+  }
+
+  .bodymap__panel{
+    position:relative;
+    top:auto;
+    order:3;
+    padding:18px 16px;
+  }
+
+  .bodymap__panelTitle{
+    font-size:24px;
+  }
+
+  .bodymap__figure{
+    width:min(620px, 100%);
+    padding:4px 0 0;
+    display:grid;
+    gap:14px;
+  }
+
+  .bodymap__image{
+    border-radius:14px;
+  }
+
+  .bodymap__tag{
+    position:relative;
+    top:auto;
+    left:auto;
+    right:auto;
+    bottom:auto;
+    max-width:none;
+    font-size:15px;
+    font-family:var(--ff-body);
+    font-weight:700;
+    padding:10px 14px;
+    background:#fff;
+    color:var(--c-text);
+    box-shadow:0 8px 16px rgba(17, 37, 31, .08);
+    justify-self:start;
+  }
+
+  .bodymap__tag--lombalgie,
+  .bodymap__tag--sciatique,
+  .bodymap__tag--mobilite{
+    font-size:15px;
+  }
+}
+
+@media (max-width:520px){
+  .bodymap__title{
+    font-size:30px;
+  }
+
+  .bodymap__subtitle{
+    font-size:14px;
+  }
+
+  .bodymap__figure{
+    gap:10px;
+  }
+
+  .bodymap__tag{
+    width:100%;
+    text-align:left;
+    border-radius:12px;
+  }
+}
+
