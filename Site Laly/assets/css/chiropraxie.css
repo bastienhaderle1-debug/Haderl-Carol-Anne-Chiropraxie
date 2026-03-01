@@ -360,3 +360,34 @@
   .seance__card{ padding:16px 14px 14px; border-radius:16px; }
   .seance__name{ font-size:16px; }
 }
+/* Premium polish */
+.chiro-poster__inner,
+.chiro-methodes__panel,
+.seance__card{
+  border:1px solid rgba(23,54,45,.10);
+  box-shadow:0 20px 52px rgba(22,53,45,.12);
+}
+
+.chiro-methodes__tab{
+  border-radius:12px;
+  transition:transform .2s ease, box-shadow .2s ease, border-color .2s ease, background .2s ease;
+}
+
+.chiro-methodes__tab:hover{
+  transform:translateY(-1px);
+  box-shadow:0 10px 24px rgba(22,53,45,.10);
+}
+
+.chiro-methodes__tab.is-active{
+  background:var(--grad-accent);
+  border-color:transparent;
+}
+
+.seance__badge{
+  box-shadow:0 12px 30px rgba(20,52,43,.14);
+}
+
+.seance__time{
+  background:rgba(42,167,184,.14);
+  border-color:rgba(42,167,184,.48);
+}

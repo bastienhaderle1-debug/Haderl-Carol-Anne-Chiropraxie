@@ -586,3 +586,66 @@
   }
 }
 
+/* Premium polish */
+.hero__bg{
+  filter:saturate(1.06) contrast(1.03);
+}
+
+.hero-badge{
+  background:rgba(255,255,255,.54);
+  border:1px solid rgba(255,255,255,.52);
+  box-shadow:var(--shadow-lg);
+}
+
+.hero-badge__title{
+  letter-spacing:.2px;
+}
+
+.hero-badge__btn{
+  background:var(--grad-accent);
+  border:1px solid rgba(255,255,255,.35);
+}
+
+.hero-badge__btn:hover{
+  transform:translateY(-1px);
+  box-shadow:0 14px 28px rgba(42,167,184,.32);
+}
+
+.contact-band{
+  background:linear-gradient(180deg, #f0edeb, #e7e3df);
+  border-top:1px solid rgba(28,53,45,.08);
+  border-bottom:1px solid rgba(28,53,45,.10);
+}
+
+.contact-item{
+  padding:7px 10px;
+  border-radius:12px;
+}
+
+.contact-item:hover{
+  background:rgba(255,255,255,.68);
+}
+
+.avis__card{
+  border:1px solid rgba(22,53,45,.08);
+  box-shadow:0 18px 42px rgba(22,53,45,.12);
+}
+
+.avis__nav{
+  box-shadow:0 10px 26px rgba(18,33,28,.14);
+}
+
+.map-wrapper{
+  border:1px solid rgba(23,54,45,.08);
+}
+
+.map-section__cta a{
+  letter-spacing:.14em;
+  border-bottom:1px solid rgba(31,45,39,.4);
+  transition:opacity .2s ease;
+}
+
+.map-section__cta a:hover{
+  opacity:.72;
+}
+

@@ -9,19 +9,41 @@
 .prestations__head{ margin-bottom:26px; }
 .prestations__title{
   margin:0 0 10px;
-  font-family:var(--ff-body);
+  font-family:var(--ff-title);
   font-size:44px;
   letter-spacing:-0.3px;
-  color:var(--c-text);
+  color:var(--c-primary);
   font-weight:700;
 }
 .prestations__step{
-  display:flex;
+  display:inline-flex;
   align-items:center;
   gap:10px;
+  width:fit-content;
+  padding:8px 14px 8px 10px;
+  border-radius:999px;
+  border:1px solid rgba(30,107,58,.18);
+  background:linear-gradient(135deg, rgba(30,107,58,.10) 0%, rgba(42,167,184,.08) 100%);
   font-family:var(--ff-body);
-  color:var(--c-muted);
-  font-size:14px;
+  color:var(--c-primary);
+  font-size:13px;
+  font-weight:700;
+  letter-spacing:.02em;
+  box-shadow:0 8px 20px rgba(30,107,58,.12);
+}
+
+.prestations__step::before{
+  content:"";
+  width:9px;
+  height:9px;
+  border-radius:999px;
+  background:var(--grad-accent);
+  box-shadow:0 0 0 5px rgba(42,167,184,.14);
+  flex:0 0 auto;
+}
+
+.prestations__step span{
+  line-height:1;
 }
 
 .prestations__grid{
@@ -54,9 +76,9 @@
 
 .service__name{
   margin:0;
-  font-family:var(--ff-body);
+  font-family:var(--ff-title);
   font-size:18px;
-  color:var(--c-text);
+  color:var(--c-primary);
   font-weight:700;
 }
 .service__sub{
@@ -126,9 +148,9 @@
 
 .summaryCard__title{
   margin:0 0 14px;
-  font-family:var(--ff-body);
+  font-family:var(--ff-title);
   font-size:16px;
-  color:var(--c-text);
+  color:var(--c-primary);
   font-weight:800;
 }
 
@@ -198,4 +220,38 @@
 }
 @media (max-width:520px){
   .prestations__title{ font-size:30px; }
+  .prestations__step{
+    font-size:12px;
+    padding:7px 12px 7px 9px;
+  }
+}
+/* Premium polish */
+.service,
+.summaryCard{
+  border:1px solid rgba(23,54,45,.10);
+  box-shadow:0 16px 42px rgba(22,53,45,.10);
+}
+
+.service__top{
+  transition:background .2s ease;
+}
+
+.service:hover .service__top{
+  background:rgba(42,167,184,.06);
+}
+
+.service.is-open{
+  border-color:rgba(42,167,184,.48);
+  box-shadow:0 18px 42px rgba(42,167,184,.18);
+}
+
+.summaryCard__btn{
+  background:var(--grad-accent);
+  box-shadow:0 12px 28px rgba(42,167,184,.28);
+  transition:transform .2s ease, box-shadow .2s ease;
+}
+
+.summaryCard__btn:hover{
+  transform:translateY(-1px);
+  box-shadow:0 16px 34px rgba(42,167,184,.34);
 }

@@ -16,6 +16,11 @@
   --r-lg:26px;
 
   --shadow-soft:0 14px 40px rgba(30,107,58,.10);
+  --shadow-md:0 10px 28px rgba(20,38,32,.10);
+  --shadow-lg:0 22px 60px rgba(20,38,32,.14);
+  --shadow-focus:0 0 0 4px rgba(42,167,184,.22);
+  --grad-accent:linear-gradient(135deg, #2db5c7 0%, #1f9cac 100%);
+  --grad-hero:linear-gradient(135deg, #1E6B3A 0%, #2AA7B8 100%);
 
   --ff-title:"Playfair Display", serif;
   --ff-body:"Montserrat", sans-serif;
@@ -24,5 +29,11 @@
 /* reset simple */
 *{ box-sizing:border-box; }
 html,body{ margin:0; padding:0; }
+html{ scroll-behavior:smooth; }
 img{ max-width:100%; height:auto; display:block; }
 a{ color:inherit; }
+
+*::selection{
+  background:rgba(42,167,184,.22);
+  color:#0d2d24;
+}
