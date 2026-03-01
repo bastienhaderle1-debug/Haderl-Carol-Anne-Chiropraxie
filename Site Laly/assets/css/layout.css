@@ -206,6 +206,9 @@ body.page-prestations .siteHeader__cta{
 /* Burger (clean) */
 @media (max-width:768px){
   .siteHeader{
+    position:sticky;
+    top:0;
+    z-index:1300;
     -webkit-backdrop-filter:none;
     backdrop-filter:none;
   }
@@ -222,10 +225,11 @@ body.page-prestations .siteHeader__cta{
   .siteHeader__burger{
     display:inline-grid;
     place-items:center;
-    position:fixed !important;
-    top:12px;
-    right:12px;
+    position:relative;
+    top:auto;
+    right:auto;
     left:auto;
+    margin-left:auto;
     width:44px;
     height:44px;
     border-radius:14px;
@@ -262,10 +266,10 @@ body.page-prestations .siteHeader__cta{
 
   /* Menu dropdown */
   .siteNav{
-    position:fixed;
+    position:absolute;
     left:4%;
     right:4%;
-    top:64px;
+    top:calc(100% + 10px);
     background:rgba(255,255,255,.98);
     border:1px solid rgba(0,0,0,.08);
     border-radius:16px;
@@ -345,10 +349,11 @@ body.page-prestations .siteHeader__cta{
   }
 
   body.page-chiropraxie .siteHeader__burger{
-    position:fixed !important;
-    top:12px;
-    right:12px;
+    position:relative;
+    top:auto;
+    right:auto;
     left:auto;
+    margin-left:auto;
     flex: 0 0 100%;
     order: 2;
     justify-content: flex-end;
