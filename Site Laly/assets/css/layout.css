@@ -175,7 +175,10 @@ body.page-prestations .siteHeader__cta{
 .mobile-cta{ display:none; }
 
 @media (max-width:768px){
-  body{ padding-bottom:72px; }
+  body{
+    padding-top:88px;
+    padding-bottom:72px;
+  }
 
   .mobile-cta{
     display:flex;
@@ -206,8 +209,11 @@ body.page-prestations .siteHeader__cta{
 /* Burger (clean) */
 @media (max-width:768px){
   .siteHeader{
-    position:sticky;
+    position:fixed;
     top:0;
+    left:0;
+    right:0;
+    width:100%;
     z-index:1300;
     -webkit-backdrop-filter:none;
     backdrop-filter:none;
@@ -269,7 +275,7 @@ body.page-prestations .siteHeader__cta{
     position:absolute;
     left:4%;
     right:4%;
-    top:calc(100% + 10px);
+    top:calc(100% + 8px);
     background:rgba(255,255,255,.98);
     border:1px solid rgba(0,0,0,.08);
     border-radius:16px;
@@ -338,6 +344,10 @@ body.page-prestations .siteHeader__cta{
    burger au-dessus, RDV en dessous + plus petit
    ========================================================= */
 @media (max-width:600px){
+  body.page-chiropraxie{
+    padding-top:132px;
+  }
+
   body.page-chiropraxie .siteHeader__inner{
     flex-wrap: wrap;
     gap: 10px;
