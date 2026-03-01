@@ -170,14 +170,15 @@ h1,h2,h3,h4{
 }
 /* Prestations : on enlève le CTA */
 body.page-prestations .siteHeader__cta{
-  display:none;
+  visibility:hidden;
+  pointer-events:none;
 }
 .mobile-cta{ display:none; }
 
 @media (max-width:768px){
   body{
     padding-top:88px;
-    padding-bottom:72px;
+    padding-bottom:0;
   }
 
   .mobile-cta{
