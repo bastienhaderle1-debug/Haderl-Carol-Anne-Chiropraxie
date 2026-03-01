@@ -322,146 +322,6 @@
   border-bottom: 1px solid rgba(0,0,0,.3);
   padding-bottom: 4px;
 }
-/* =========================
-   CHIRO-soluces
-   ========================= */
-.chiro-soluces{
-  background:var(--c-bg);
-  padding:70px 0;
-}
-
-.chiro-soluces__inner{
-  width:min(1180px, 92%);
-  margin:0 auto;
-}
-
-.chiro-soluces__title{
-  margin:0 0 36px;
-  text-align:center;
-  font-family:var(--ff-title);
-  font-weight:600;
-  letter-spacing:0.5px;
-  color:var(--c-primary);
-  font-size:44px;
-}
-
-.chiro-soluces__grid{
-  display:grid;
-  grid-template-columns:300px 1fr;
-  gap:28px;
-  align-items:start;
-}
-
-.chiro-soluces__tabs{
-  display:flex;
-  flex-direction:column;
-  gap:12px;
-}
-
-.chiro-soluces__tab{
-  width:100%;
-  background:var(--c-surface);
-  border:1px solid var(--c-line);
-  color:var(--c-text);
-  padding:14px 14px;
-  text-align:center;
-  font-family:var(--ff-body);
-  font-size:14px;
-  font-weight:600;
-  border-radius:8px;
-  cursor:pointer;
-  transition:background .15s ease, color .15s ease, border-color .15s ease;
-}
-.chiro-soluces__tab:hover{ background:#eef6f3; }
-
-.chiro-soluces__tab.is-active{
-  background:var(--c-accent);
-  border-color:var(--c-accent);
-  color:#fff;
-}
-
-.chiro-soluces__panel{
-  display:none;
-  border-radius:var(--r-lg);
-  overflow:hidden;
-  background:var(--c-surface);
-  box-shadow:var(--shadow-soft);
-}
-.chiro-soluces__panel.is-active{ display:block; }
-
-.chiro-soluces__media{
-  height:320px;
-  position:relative;
-  background-color: var(--c-bg);
-  background-image: var(--bg);
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-}
-.chiro-soluces__media::after{
-  content:"";
-  position:absolute; inset:0;
-  background:linear-gradient(
-    90deg,
-    rgba(30,107,58,.55) 0%,
-    rgba(30,107,58,.20) 55%,
-    rgba(30,107,58,0) 100%
-  );
-}
-
-.chiro-soluces__mediaTitle{
-  position:absolute;
-  left:26px; bottom:22px;
-  margin:0;
-  color:#fff;
-  font-family:var(--ff-body);
-  font-weight:500;
-  font-size:36px;
-  z-index:1;
-}
-.chiro-soluces__mediaTitle::after{
-  content:"";
-  display:block;
-  width:64px;
-  height:4px;
-  margin-top:10px;
-  background:var(--c-accent);
-  border-radius:999px;
-}
-
-.chiro-soluces__text{
-  padding:26px 28px 30px;
-  font-family:var(--ff-body);
-  color:var(--c-muted);
-  font-size:15px;
-  line-height:1.7;
-}
-
-@media (max-width:980px){
-  .chiro-soluces__grid{ grid-template-columns:1fr; gap:14px; }
-
-  .chiro-soluces__tab{
-    width:100%;
-    border-radius:10px;
-    padding:16px 14px;
-    font-size:15px;
-    text-align:left;
-  }
-
-  .chiro-soluces__media{ height:320px; }
-  .chiro-soluces__mediaTitle{
-    font-size:22px;
-    left:16px;
-    bottom:16px;
-    max-width:92%;
-  }
-  .chiro-soluces__text{ padding:18px 18px 22px; font-size:14px; }
-}
-
-@media (max-width:520px){
-  .chiro-soluces__title{ font-size:30px; }
-}
-
 /* Hero contact popup */
 .hero-badge__actions{
   position:relative;
@@ -714,32 +574,33 @@
 .bodymap__tag{
   position:absolute;
   border:none;
-  border-radius:999px;
-  background:rgba(255, 255, 255, .90);
+  border-radius:0;
+  background:transparent;
   color:#3a100f;
   font-family:var(--ff-title);
   font-size:clamp(16px, 1.35vw, 32px);
   font-weight:700;
-  line-height:1.1;
-  padding:6px 12px;
-  box-shadow:0 10px 20px rgba(17, 37, 31, .15);
+  line-height:1.2;
+  padding:0;
+  max-width:260px;
+  white-space:normal;
+  overflow-wrap:anywhere;
+  word-break:normal;
+  box-shadow:none;
   cursor:pointer;
-  transition:transform .18s ease, box-shadow .18s ease, background .18s ease, color .18s ease;
+  transition:transform .18s ease, color .18s ease, opacity .18s ease;
   text-align:left;
 }
 
 .bodymap__tag:hover,
 .bodymap__tag:focus-visible{
-  transform:translateY(-2px) scale(1.02);
-  box-shadow:0 16px 24px rgba(17, 37, 31, .20);
-  background:#fff;
+  transform:translateY(-1px);
+  opacity:.84;
   outline:none;
 }
 
 .bodymap__tag.is-active{
-  background:#2e968a;
-  color:#fff;
-  box-shadow:0 18px 32px rgba(20, 86, 78, .30);
+  color:var(--c-accent);
 }
 
 .bodymap__tag--migraines{ top:11%; right:30%; }
@@ -748,14 +609,14 @@
 .bodymap__tag--epaule{ top:24%; right:9%; max-width:300px; }
 .bodymap__tag--dorsalgie{ top:27%; left:-7%; max-width:300px; }
 .bodymap__tag--raideur{ top:30%; right:10%; max-width:300px; }
-.bodymap__tag--lombalgie{ top:36%; left:-4%; font-size:clamp(22px, 2vw, 42px); }
+.bodymap__tag--lombalgie{ top:36%; left:-4%; }
 .bodymap__tag--tendinite{ top:36%; right:15%; }
 .bodymap__tag--carpien{ top:44%; left:5%; }
 .bodymap__tag--hanche{ top:46%; right:5%; }
 .bodymap__tag--genoux{ top:59%; left:18%; }
-.bodymap__tag--sciatique{ top:55%; right:16%; font-size:clamp(28px, 2.35vw, 48px); }
+.bodymap__tag--sciatique{ top:55%; right:16%; }
 .bodymap__tag--sport{ top:63%; right:13%; }
-.bodymap__tag--mobilite{ top:66%; left:10%; font-size:clamp(24px, 2.15vw, 44px); }
+.bodymap__tag--mobilite{ top:66%; left:10%; }
 .bodymap__tag--cheville{ top:73%; right:28%; }
 
 .bodymap__tagPopup{
