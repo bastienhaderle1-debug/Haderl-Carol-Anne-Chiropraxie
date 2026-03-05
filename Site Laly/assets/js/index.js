@@ -300,4 +300,69 @@
   });
 })();
 
+/* Body map locker interactions */
+(function(){
+  const locker = document.querySelector('.bodymap__locker');
+  if(!locker) return;
+
+  const buttons = [...locker.querySelectorAll('.bodymap__lockerBtn')];
+  const panel = locker.querySelector('[data-bodymap-locker-panel]');
+  const title = locker.querySelector('[data-bodymap-locker-title]');
+  const text = locker.querySelector('[data-bodymap-locker-text]');
+  if(!buttons.length || !panel || !title || !text) return;
+
+  let activeButton = null;
+
+  function setActive(button){
+    activeButton = button;
+
+    buttons.forEach((item) => {
+      const isCurrent = item === button;
+      item.classList.toggle('is-active', isCurrent);
+      item.setAttribute('aria-pressed', isCurrent ? 'true' : 'false');
+      item.setAttribute('aria-expanded', isCurrent ? 'true' : 'false');
+    });
+
+    if(!button){
+      panel.hidden = true;
+      panel.setAttribute('aria-hidden', 'true');
+      return;
+    }
+
+    title.textContent = button.dataset.title || button.textContent.trim();
+    text.textContent = button.dataset.text || '';
+    panel.hidden = false;
+    panel.setAttribute('aria-hidden', 'false');
+  }
+
+  buttons.forEach((button) => {
+    button.setAttribute('aria-controls', 'bodymap-locker-panel');
+    button.setAttribute('aria-pressed', 'false');
+    button.setAttribute('aria-expanded', 'false');
+
+    button.addEventListener('click', (e) => {
+      e.stopPropagation();
+
+      if(activeButton === button){
+        setActive(null);
+        return;
+      }
+
+      setActive(button);
+    });
+  });
+
+  document.addEventListener('click', (e) => {
+    if(locker.contains(e.target)) return;
+    if(!activeButton) return;
+    setActive(null);
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if(e.key !== 'Escape') return;
+    if(!activeButton) return;
+    setActive(null);
+  });
+})();
+
 

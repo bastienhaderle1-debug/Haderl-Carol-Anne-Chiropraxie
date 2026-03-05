@@ -604,20 +604,90 @@
 }
 
 .bodymap__tag--migraines{ top:11%; right:30%; }
-.bodymap__tag--vertiges{ top:16%; right:18%; }
 .bodymap__tag--cervicale{ top:16%; left:-7%; max-width:300px; }
 .bodymap__tag--epaule{ top:24%; right:9%; max-width:300px; }
-.bodymap__tag--dorsalgie{ top:27%; left:-7%; max-width:300px; }
-.bodymap__tag--raideur{ top:30%; right:10%; max-width:300px; }
 .bodymap__tag--lombalgie{ top:36%; left:-4%; }
-.bodymap__tag--tendinite{ top:36%; right:15%; }
 .bodymap__tag--carpien{ top:44%; left:5%; }
-.bodymap__tag--hanche{ top:46%; right:5%; }
-.bodymap__tag--genoux{ top:59%; left:18%; }
+.bodymap__tag--genoux{ top:59%; left:14%; max-width:220px; }
 .bodymap__tag--sciatique{ top:55%; right:16%; }
-.bodymap__tag--sport{ top:63%; right:13%; }
-.bodymap__tag--mobilite{ top:66%; left:10%; }
-.bodymap__tag--cheville{ top:73%; right:28%; }
+
+.bodymap__locker{
+  width:min(920px, 100%);
+  margin:10px auto 0;
+  padding:18px 20px;
+  background:rgba(255, 255, 255, .68);
+  border:1px solid rgba(20, 54, 44, .14);
+  border-radius:16px;
+  box-shadow:0 12px 28px rgba(20, 44, 36, .08);
+}
+
+.bodymap__lockerTitle{
+  margin:0 0 12px;
+  font-family:var(--ff-title);
+  color:var(--c-text);
+  font-size:22px;
+  line-height:1.2;
+}
+
+.bodymap__lockerList{
+  margin:0;
+  padding:0;
+  list-style:none;
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+}
+
+.bodymap__lockerItem{
+  margin:0;
+}
+
+.bodymap__lockerBtn{
+  border:none;
+  padding:7px 12px;
+  border-radius:999px;
+  background:rgba(30, 107, 58, .10);
+  border:1px solid rgba(30, 107, 58, .20);
+  color:#2b4d41;
+  font-family:var(--ff-body);
+  font-size:14px;
+  line-height:1.35;
+  font-weight:700;
+  cursor:pointer;
+  transition:background .18s ease, border-color .18s ease, color .18s ease, transform .18s ease;
+}
+
+.bodymap__lockerBtn:hover,
+.bodymap__lockerBtn:focus-visible{
+  background:rgba(30, 107, 58, .16);
+  border-color:rgba(30, 107, 58, .36);
+  transform:translateY(-1px);
+  outline:none;
+}
+
+.bodymap__lockerBtn.is-active{
+  background:rgba(30, 107, 58, .24);
+  border-color:rgba(30, 107, 58, .46);
+  color:#17352d;
+}
+
+.bodymap__lockerPanel{
+  margin-top:14px;
+  padding:14px 16px;
+  background:rgba(255, 255, 255, .94);
+  border:1px solid rgba(20, 54, 44, .14);
+  border-radius:12px;
+}
+
+.bodymap__lockerPanel .bodymap__panelTitle{
+  margin:8px 0 8px;
+  font-size:20px;
+}
+
+.bodymap__lockerPanel .bodymap__panelText{
+  font-size:14px;
+  line-height:1.55;
+}
 
 .bodymap__tagPopup{
   position:absolute;
@@ -712,6 +782,16 @@
   .bodymap__layout{
     grid-template-columns:1fr;
     gap:16px;
+  }
+
+  .bodymap__locker{
+    padding:14px;
+    border-radius:14px;
+  }
+
+  .bodymap__lockerTitle{
+    font-size:20px;
+    margin-bottom:10px;
   }
 
   .bodymap__panelTitle{
