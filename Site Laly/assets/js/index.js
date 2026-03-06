@@ -306,6 +306,7 @@
   if(!locker) return;
 
   const buttons = [...locker.querySelectorAll('.bodymap__lockerBtn')];
+  const panelHome = locker;
   const panel = locker.querySelector('[data-bodymap-locker-panel]');
   const title = locker.querySelector('[data-bodymap-locker-title]');
   const text = locker.querySelector('[data-bodymap-locker-text]');
@@ -326,7 +327,15 @@
     if(!button){
       panel.hidden = true;
       panel.setAttribute('aria-hidden', 'true');
+      if(panel.parentElement !== panelHome){
+        panelHome.appendChild(panel);
+      }
       return;
+    }
+
+    const parentItem = button.closest('.bodymap__lockerItem');
+    if(parentItem && panel.parentElement !== parentItem){
+      parentItem.appendChild(panel);
     }
 
     title.textContent = button.dataset.title || button.textContent.trim();

@@ -547,9 +547,9 @@
 
 .bodymap__layout{
   display:grid;
-  grid-template-columns:1fr;
-  gap:0;
-  align-items:start;
+  grid-template-columns:minmax(0, .93fr) minmax(0, 1.07fr);
+  gap:22px;
+  align-items:stretch;
 }
 
 .bodymap__figure{
@@ -632,8 +632,8 @@
 .bodymap__tag--sciatique{ top:55%; right:16%; }
 
 .bodymap__locker{
-  width:min(920px, 100%);
-  margin:10px auto 0;
+  width:100%;
+  margin:0;
   padding:18px 20px;
   background:rgba(255, 255, 255, .68);
   border:1px solid rgba(20, 54, 44, .14);
@@ -790,6 +790,63 @@
   text-align:center;
 }
 
+@media (min-width:521px){
+  .bodymap__figure{
+    width:84%;
+    max-width:550px;
+    margin:0 auto;
+  }
+
+  .bodymap__locker{
+    display:grid;
+    grid-template-rows:auto auto auto;
+    gap:8px;
+    align-self:center;
+    padding:21px 24px;
+  }
+
+  .bodymap__lockerList{
+    display:grid;
+    grid-template-columns:1fr;
+    grid-auto-rows:minmax(40px, auto);
+    gap:7px;
+    align-content:start;
+  }
+
+  .bodymap__lockerBtn{
+    width:100%;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    text-align:left;
+    min-height:42px;
+    height:auto;
+    padding:10px 13px;
+    border-radius:10px;
+    background:rgba(255, 255, 255, .92);
+    font-size:14px;
+  }
+
+  .bodymap__lockerBtn::after{
+    content:"+";
+    margin-left:10px;
+    font-size:17px;
+    line-height:1;
+    color:#2b4d41;
+    opacity:.8;
+  }
+
+  .bodymap__lockerBtn.is-active::after{
+    content:"-";
+  }
+
+  .bodymap__lockerPanel{
+    margin-top:4px;
+    min-height:0;
+    padding:12px;
+  }
+}
+
 @media (max-width:980px){
   .bodymap{
     padding:62px 0 56px;
@@ -800,12 +857,12 @@
   }
 
   .bodymap__layout{
-    grid-template-columns:1fr;
+    grid-template-columns:minmax(0, .9fr) minmax(0, 1.1fr);
     gap:16px;
   }
 
   .bodymap__locker{
-    padding:14px;
+    padding:16px;
     border-radius:14px;
   }
 
@@ -819,7 +876,7 @@
   }
 
   .bodymap__figure{
-    width:min(620px, 100%);
+    width:min(490px, 84%);
     padding:4px 0 0;
     transform:none;
   }
@@ -853,6 +910,11 @@
 }
 
 @media (max-width:520px){
+  .bodymap__layout{
+    grid-template-columns:1fr;
+    gap:14px;
+  }
+
   .bodymap__title{
     font-size:30px;
   }
