@@ -244,6 +244,7 @@
 
   tags.forEach((tag, index) => {
     createPopup(tag, index);
+    const popup = popups.get(tag);
 
     tag.addEventListener('mouseenter', () => {
       if(lockedTag) return;
@@ -255,9 +256,15 @@
       setActive(tag);
     });
 
-    tag.addEventListener('mouseleave', () => {
-      if(lockedTag) setActive(lockedTag);
-      else setActive(null);
+    tag.addEventListener('mouseleave', (e) => {
+      if(lockedTag){
+        setActive(lockedTag);
+        return;
+      }
+
+      // Keep the popup visible when moving the pointer from tag to popup.
+      if(popup && e.relatedTarget instanceof Node && popup.contains(e.relatedTarget)) return;
+      setActive(null);
     });
 
     tag.addEventListener('blur', () => {
@@ -276,6 +283,19 @@
       lockedTag = tag;
       setActive(tag);
     });
+
+    if(popup){
+      popup.addEventListener('mouseenter', () => {
+        if(lockedTag) return;
+        setActive(tag);
+      });
+
+      popup.addEventListener('mouseleave', (e) => {
+        if(lockedTag) return;
+        if(e.relatedTarget instanceof Node && tag.contains(e.relatedTarget)) return;
+        setActive(null);
+      });
+    }
   });
 
   document.addEventListener('click', (e) => {
