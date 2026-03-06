@@ -561,7 +561,7 @@
 
 .bodymap__layout{
   display:grid;
-  grid-template-columns:minmax(0, .93fr) minmax(0, 1.07fr);
+  grid-template-columns:minmax(0, .86fr) minmax(0, 1.14fr);
   gap:22px;
   align-items:stretch;
 }
@@ -786,17 +786,36 @@
 
 @media (min-width:521px){
   .bodymap__figure{
-    width:84%;
-    max-width:550px;
+    width:70%;
+    max-width:460px;
     margin:0 auto;
   }
+
+  .bodymap__image{
+    width:100%;
+  }
+
+  .bodymap__tag{
+    font-size:clamp(13px, 1.05vw, 22px);
+    max-width:220px;
+    line-height:1.15;
+  }
+
+  .bodymap__tag--migraines{ top:12%; right:24%; }
+  .bodymap__tag--cervicale{ top:20%; left:18%; max-width:240px; }
+  .bodymap__tag--epaule{ top:24%; right:19%; max-width:220px; }
+  .bodymap__tag--lombalgie{ top:40%; left:27%; }
+  .bodymap__tag--carpien{ top:46%; left:69%; }
+  .bodymap__tag--genoux{ top:60%; left:15%; max-width:180px; }
+  .bodymap__tag--sciatique{ top:56%; right:18%; }
 
   .bodymap__locker{
     display:grid;
     grid-template-rows:auto auto auto;
     gap:8px;
-    align-self:center;
-    padding:21px 24px;
+    align-self:stretch;
+    height:100%;
+    padding:24px 28px;
   }
 
   .bodymap__lockerList{
@@ -851,12 +870,12 @@
   }
 
   .bodymap__layout{
-    grid-template-columns:minmax(0, .9fr) minmax(0, 1.1fr);
+    grid-template-columns:minmax(0, .84fr) minmax(0, 1.16fr);
     gap:16px;
   }
 
   .bodymap__locker{
-    padding:16px;
+    padding:18px;
     border-radius:14px;
   }
 
@@ -870,7 +889,7 @@
   }
 
   .bodymap__figure{
-    width:min(490px, 84%);
+    width:min(420px, 70%);
     padding:4px 0 0;
     transform:none;
   }
@@ -878,6 +897,19 @@
   .bodymap__image{
     border-radius:14px;
   }
+
+  .bodymap__tag{
+    font-size:clamp(12px, 1.8vw, 18px);
+    max-width:180px;
+  }
+
+  .bodymap__tag--migraines{ top:11%; right:23%; }
+  .bodymap__tag--cervicale{ top:19%; left:14%; max-width:210px; }
+  .bodymap__tag--epaule{ top:23%; right:14%; max-width:190px; }
+  .bodymap__tag--lombalgie{ top:39%; left:23%; }
+  .bodymap__tag--carpien{ top:45%; left:66%; }
+  .bodymap__tag--genoux{ top:60%; left:10%; max-width:160px; }
+  .bodymap__tag--sciatique{ top:56%; right:14%; }
 
   .bodymap__tagPopup{
     width:min(300px, 62vw);
