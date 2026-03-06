@@ -801,13 +801,13 @@
     line-height:1.15;
   }
 
-  .bodymap__tag--migraines{ top:12%; right:24%; }
-  .bodymap__tag--cervicale{ top:20%; left:18%; max-width:240px; }
-  .bodymap__tag--epaule{ top:24%; right:19%; max-width:220px; }
-  .bodymap__tag--lombalgie{ top:40%; left:27%; }
-  .bodymap__tag--carpien{ top:46%; left:69%; }
-  .bodymap__tag--genoux{ top:60%; left:15%; max-width:180px; }
-  .bodymap__tag--sciatique{ top:56%; right:18%; }
+  .bodymap__tag--migraines{ top:11%; right:20%; }
+  .bodymap__tag--cervicale{ top:19%; left:0%; max-width:240px; }
+  .bodymap__tag--epaule{ top:18%; right:13%; max-width:220px; }
+  .bodymap__tag--lombalgie{ top:39%; left:55%; }
+  .bodymap__tag--carpien{ top:46%; left:78%; }
+  .bodymap__tag--genoux{ top:62%; left:10%; max-width:180px; }
+  .bodymap__tag--sciatique{ top:53%; right:16%; }
 
   .bodymap__locker{
     display:grid;
