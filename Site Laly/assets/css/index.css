@@ -263,8 +263,8 @@
   width:44px;
   height:44px;
   border-radius:999px;
-  border:1px solid rgba(0,0,0,.10);
-  background:#fff;
+  border:1px solid rgba(0,0,0,.22);
+  background:transparent;
   cursor:pointer;
 }
 
@@ -506,7 +506,7 @@
 }
 
 .avis__nav{
-  box-shadow:0 10px 26px rgba(18,33,28,.14);
+  box-shadow:none;
 }
 
 .map-wrapper{
