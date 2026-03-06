@@ -416,6 +416,11 @@
   line-height:1.5;
 }
 
+@media (max-width:980px){
+  .seance__step{ align-items:center; }
+  .seance__badge{ align-self:center; }
+}
+
 @media (max-width:768px){
   .seance{ padding:52px 0; }
   .seance__title{ font-size:30px; }
