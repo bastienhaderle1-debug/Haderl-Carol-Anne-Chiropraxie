@@ -96,6 +96,20 @@
   overflow:hidden;
 }
 
+@media (min-width:1024px){
+  .hero{
+    height:calc(100dvh - 140px);
+    min-height:0;
+  }
+
+  .hero__bg{
+    background-size:auto, cover;
+    background-position:center, center 32%;
+    background-repeat:no-repeat, no-repeat;
+    transform:none;
+  }
+}
+
 .hero-badge{
   position:absolute;
   left:clamp(16px, 5vw, 70px);
@@ -512,7 +526,7 @@
 /* Body map interactive section */
 .bodymap{
   padding:72px 0 64px;
-  background:linear-gradient(180deg, #f4f1ee 0%, #eeebe7 100%);
+  background:var(--c-bg);
   border-top:1px solid rgba(20, 54, 44, .08);
   border-bottom:1px solid rgba(20, 54, 44, .08);
   overflow-x:clip;
