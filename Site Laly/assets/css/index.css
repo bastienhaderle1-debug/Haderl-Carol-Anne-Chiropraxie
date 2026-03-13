@@ -325,10 +325,17 @@
   width:44px;
   height:44px;
   border-radius:999px;
-  border:1px solid rgba(22,53,45,.14);
-  background:rgba(255,255,255,.82);
+  border:1px solid rgba(255,255,255,.62);
+  background:rgba(255,255,255,.14);
+  color:rgba(24,48,40,.82);
   cursor:pointer;
-  box-shadow:0 12px 28px rgba(22,53,45,.10);
+  box-shadow:
+    0 12px 28px rgba(22,53,45,.08),
+    inset 0 1px 0 rgba(255,255,255,.48),
+    0 0 0 1px rgba(22,53,45,.05);
+  backdrop-filter:blur(14px) saturate(1.15);
+  -webkit-backdrop-filter:blur(14px) saturate(1.15);
+  transition:background .2s ease, border-color .2s ease, box-shadow .2s ease, transform .2s ease, color .2s ease;
 }
 
 .avis__nav--prev{ left:-12px; }
@@ -1274,6 +1281,7 @@
   margin:0;
   color:#42534d;
   line-height:1.8;
+  flex:1 1 auto;
 }
 
 .avis__name{
@@ -1288,8 +1296,13 @@
 }
 
 .avis__nav:hover{
-  background:#fff;
-  border-color:rgba(23,54,45,.24);
+  background:rgba(255,255,255,.20);
+  border-color:rgba(255,255,255,.74);
+  color:rgba(24,48,40,.96);
+  box-shadow:
+    0 16px 32px rgba(22,53,45,.10),
+    inset 0 1px 0 rgba(255,255,255,.56),
+    0 0 0 1px rgba(22,53,45,.06);
 }
 
 .map-section__cta a{
@@ -1333,6 +1346,246 @@
 
   .avis__quote{
     font-size:24px;
+  }
+}
+
+/* Global page harmonization */
+.avis,
+.map-section,
+.bodymap{
+  background:transparent;
+}
+
+.avis__card{
+  background:linear-gradient(180deg, rgba(255,255,255,.96), rgba(255,251,244,.94));
+}
+
+.map-wrapper,
+.bodymap__image,
+.bodymap__locker,
+.bodymap__lockerPanel{
+  border:1px solid rgba(23,54,45,.08);
+}
+
+.bodymap__locker{
+  background:linear-gradient(180deg, rgba(255,255,255,.82), rgba(255,251,244,.76));
+}
+
+.map-section__cta{
+  margin-top:34px;
+}
+
+@media (max-width:768px){
+  .contact-band{
+    padding:12px 0;
+  }
+
+  .contact-band__inner{
+    width:min(100% - 24px, 560px);
+  }
+
+  .contact-item{
+    min-height:48px;
+    padding:12px 14px;
+    border-radius:18px;
+  }
+
+  .hero{
+    min-height:auto;
+    aspect-ratio:10 / 14;
+  }
+
+  .hero__image{
+    object-position:center 26%;
+    transform:none;
+  }
+
+  .hero__media::after{
+    background:
+      linear-gradient(180deg, rgba(16,34,31,.18) 0%, rgba(16,34,31,.12) 28%, rgba(16,34,31,.50) 100%);
+  }
+
+  .hero-badge{
+    left:12px;
+    right:12px;
+    bottom:14px;
+    width:auto;
+    padding:18px 16px 14px;
+    border-radius:22px;
+  }
+
+  .hero-badge__kicker{
+    margin-bottom:8px;
+    font-size:11px;
+    letter-spacing:.14em;
+  }
+
+  .hero-badge__title{
+    font-size:clamp(28px, 8.4vw, 38px);
+    margin-bottom:8px;
+  }
+
+  .hero-badge__text{
+    margin-bottom:14px;
+    font-size:13.5px;
+    line-height:1.55;
+  }
+
+  .hero-badge__actions{
+    gap:10px;
+    padding-top:0;
+  }
+
+  .hero-badge__btn,
+  .hero-badge__link{
+    min-height:46px;
+    font-size:13px;
+  }
+
+  .hero-contact-panel{
+    border-radius:18px;
+    padding:18px 16px;
+  }
+
+  .bodymap,
+  .avis,
+  .map-section{
+    padding-top:56px;
+    padding-bottom:56px;
+  }
+
+  .bodymap__inner,
+  .avis__inner,
+  .map-section__cta,
+  .map-wrapper{
+    width:min(100% - 24px, 560px);
+  }
+
+  .bodymap__head{
+    margin-bottom:24px;
+  }
+
+  .bodymap__title,
+  .avis__title,
+  .map-section__title{
+    font-size:clamp(28px, 7.2vw, 34px);
+  }
+
+  .bodymap__layout{
+    gap:18px;
+  }
+
+  .bodymap__figure{
+    width:min(360px, 82%);
+  }
+
+  .bodymap__image{
+    width:100%;
+    border-radius:18px;
+  }
+
+  .bodymap__locker{
+    padding:16px;
+    border-radius:18px;
+  }
+
+  .bodymap__lockerTitle{
+    font-size:21px;
+  }
+
+  .bodymap__lockerBtn{
+    min-height:42px;
+    justify-content:center;
+  }
+
+  .avis__wrap{
+    padding-inline:0;
+  }
+
+  .avis__card{
+    padding:24px 20px;
+    border-radius:20px;
+  }
+
+  .avis__quote{
+    font-size:22px;
+    line-height:1.02;
+  }
+
+  .avis__text{
+    font-size:14px;
+    line-height:1.72;
+  }
+
+  .avis__stars{
+    margin-bottom:12px;
+    font-size:12px;
+  }
+
+  .avis__name{
+    margin-top:18px;
+    padding-top:12px;
+    font-size:12px;
+    letter-spacing:.12em;
+  }
+
+  .avis__nav{
+    width:40px;
+    height:40px;
+  }
+
+  .map-wrapper{
+    border-radius:24px;
+  }
+
+  .map-wrapper iframe{
+    height:360px;
+  }
+
+  .map-section__cta{
+    margin-top:24px;
+  }
+
+  .map-section__cta a{
+    width:100%;
+    padding:0 18px;
+    text-align:center;
+    font-size:12.5px;
+    letter-spacing:.10em;
+  }
+}
+
+@media (max-width:420px){
+  .hero{
+    aspect-ratio:10 / 15;
+  }
+
+  .hero-badge{
+    padding:16px 14px 12px;
+  }
+
+  .hero-badge__title{
+    font-size:27px;
+  }
+
+  .contact-item{
+    padding:11px 12px;
+  }
+
+  .bodymap__figure{
+    width:min(320px, 88%);
+  }
+
+  .bodymap__lockerPanel{
+    padding:14px;
+  }
+
+  .avis__card{
+    padding:22px 18px;
+  }
+
+  .map-wrapper iframe{
+    height:320px;
   }
 }
 

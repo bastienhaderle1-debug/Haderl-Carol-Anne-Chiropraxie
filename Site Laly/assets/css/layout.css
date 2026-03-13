@@ -4,9 +4,20 @@ body{
   color:var(--c-text);
   line-height:1.7;
   background:
-    radial-gradient(circle at 12% -10%, rgba(31,153,167,.14), transparent 34%),
-    radial-gradient(circle at 100% 0%, rgba(28,91,69,.10), transparent 36%),
-    linear-gradient(180deg, #fcfaf6 0%, #f5f2eb 42%, #f7f4ee 100%);
+    radial-gradient(circle at 12% -10%, rgba(200,163,106,.12), transparent 28%),
+    radial-gradient(circle at 100% 0%, rgba(31,153,167,.08), transparent 30%),
+    linear-gradient(180deg, #fcfaf6 0%, #f6f2ea 46%, #f5f0e8 100%);
+}
+
+body::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  background:
+    linear-gradient(180deg, rgba(255,255,255,.36), rgba(255,255,255,0) 24%),
+    radial-gradient(circle at 50% 0%, rgba(255,255,255,.22), transparent 52%);
+  z-index:0;
 }
 
 h1,
@@ -169,6 +180,8 @@ h4{
 }
 
 .siteMain{
+  position:relative;
+  z-index:1;
   display:block;
   scroll-margin-top:120px;
 }
@@ -529,5 +542,111 @@ body.page-prestations .siteHeader__cta{
 
   .siteFooter{
     padding:28px 0 24px;
+  }
+}
+
+@media (max-width:768px){
+  body{
+    line-height:1.62;
+  }
+
+  body.home,
+  body.page-chiropraxie{
+    padding-top:132px;
+  }
+
+  .siteHeader{
+    background:linear-gradient(180deg, rgba(255,253,249,.96), rgba(255,249,241,.90));
+    box-shadow:0 10px 26px rgba(16,30,26,.06);
+  }
+
+  .siteHeader__inner{
+    width:min(100% - 24px, 560px);
+    padding:10px 0 8px;
+    row-gap:8px;
+  }
+
+  .siteHeader__brand{
+    gap:10px;
+  }
+
+  .siteHeader__logo{
+    width:48px;
+  }
+
+  .siteHeader__brandName{
+    font-size:17px;
+  }
+
+  .siteHeader__brandRole{
+    font-size:11px;
+    letter-spacing:.04em;
+  }
+
+  .siteHeader__cta{
+    min-height:46px;
+    font-size:13px;
+    letter-spacing:.01em;
+    box-shadow:0 12px 24px rgba(31,153,167,.22);
+  }
+
+  .siteHeader__burger{
+    width:42px;
+    height:42px;
+    border-radius:12px;
+  }
+
+  .siteNav{
+    left:12px;
+    right:12px;
+    top:calc(100% + 10px);
+    padding:10px;
+    border-radius:16px;
+  }
+
+  .siteNav a{
+    min-height:46px;
+    display:flex;
+    align-items:center;
+  }
+
+  .siteMain{
+    scroll-margin-top:104px;
+  }
+
+  .siteFooter__inner{
+    width:min(100% - 24px, 560px);
+    gap:10px 14px;
+  }
+
+  .siteFooter__copy{
+    font-size:13px;
+    max-width:none;
+  }
+
+  .siteFooter__contact{
+    min-height:42px;
+    padding:9px 12px;
+    font-size:12.5px;
+  }
+}
+
+@media (max-width:420px){
+  body.home,
+  body.page-chiropraxie{
+    padding-top:126px;
+  }
+
+  .siteHeader__brandName{
+    font-size:16px;
+  }
+
+  .siteHeader__brandRole{
+    font-size:10.5px;
+  }
+
+  .siteHeader__cta{
+    min-height:44px;
+    font-size:12.5px;
   }
 }

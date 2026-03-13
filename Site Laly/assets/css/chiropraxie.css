@@ -569,3 +569,161 @@
     margin-top:12px;
   }
 }
+
+/* Global page harmonization */
+.seance,
+.chiro-poster,
+.chiro-methodes{
+  background:transparent;
+}
+
+.seance__card,
+.chiro-methodes--profil .chiro-methodes__profileText{
+  background:linear-gradient(180deg, rgba(255,255,255,.96), rgba(255,251,244,.94));
+}
+
+.chiro-poster__inner{
+  background:
+    linear-gradient(180deg, rgba(255,255,255,.52), rgba(255,255,255,.26)),
+    linear-gradient(135deg, rgba(255,252,246,.96), rgba(250,245,238,.96));
+}
+
+@media (max-width:768px){
+  .seance,
+  .chiro-poster,
+  .chiro-methodes{
+    padding-top:56px;
+    padding-bottom:56px;
+  }
+
+  .seance__inner,
+  .chiro-methodes__inner{
+    width:min(100% - 24px, 560px);
+  }
+
+  .seance__head{
+    margin-bottom:24px;
+  }
+
+  .seance__title,
+  .chiro-methodes__title{
+    font-size:clamp(30px, 8vw, 38px);
+  }
+
+  .seance__subtitle{
+    font-size:14px;
+    line-height:1.6;
+  }
+
+  .seance__steps{
+    gap:16px;
+    margin-top:22px;
+  }
+
+  .seance__step{
+    grid-template-columns:40px 1fr;
+    gap:12px;
+    align-items:start;
+  }
+
+  .seance__badge{
+    width:40px;
+    height:40px;
+    font-size:13px;
+  }
+
+  .seance__card{
+    padding:16px 14px 14px;
+    border-radius:18px;
+  }
+
+  .seance__name{
+    font-size:19px;
+  }
+
+  .seance__text{
+    font-size:14px;
+    line-height:1.65;
+  }
+
+  .seance__list{
+    font-size:13px;
+    line-height:1.58;
+  }
+
+  .chiro-poster{
+    padding-inline:12px;
+  }
+
+  .chiro-poster__inner{
+    padding:34px 18px;
+    border-radius:22px;
+  }
+
+  .chiro-poster__title{
+    font-size:clamp(34px, 10vw, 46px);
+  }
+
+  .chiro-poster__line{
+    margin:14px auto 18px;
+  }
+
+  .chiro-poster__text{
+    font-size:14.5px;
+    line-height:1.78;
+  }
+
+  .chiro-poster__focus{
+    margin-top:18px !important;
+    padding:14px;
+    border-radius:14px;
+  }
+
+  .chiro-methodes__title{
+    margin-bottom:24px;
+  }
+
+  .chiro-methodes--profil .chiro-methodes__profile{
+    gap:18px;
+  }
+
+  .chiro-methodes--profil .chiro-methodes__photoWrap,
+  .chiro-methodes--profil .chiro-methodes__profileText{
+    border-radius:20px;
+  }
+
+  .chiro-methodes--profil .chiro-methodes__photo{
+    min-height:260px;
+    max-height:340px;
+    object-position:center 22%;
+  }
+
+  .chiro-methodes--profil .chiro-methodes__profileText{
+    padding:20px 16px 20px;
+    font-size:14px;
+    line-height:1.7;
+  }
+}
+
+@media (max-width:420px){
+  .seance__inner,
+  .chiro-methodes__inner{
+    width:min(100% - 20px, 520px);
+  }
+
+  .seance__card{
+    padding:15px 13px 13px;
+  }
+
+  .chiro-poster__inner{
+    padding:30px 14px;
+  }
+
+  .chiro-poster__title{
+    font-size:32px;
+  }
+
+  .chiro-methodes--profil .chiro-methodes__profileText{
+    padding:18px 14px 18px;
+  }
+}
