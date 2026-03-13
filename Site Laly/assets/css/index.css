@@ -671,11 +671,11 @@
   background:rgba(255,255,255,.42);
   color:#24433a;
   font-family:var(--ff-body);
-  font-size:clamp(13px, 1.14vw, 18px);
+  font-size:clamp(11px, 1.15vw + 2px, 14px);
   font-weight:700;
-  line-height:1.2;
+  line-height:1.15;
   letter-spacing:.01em;
-  padding:5px 7px;
+  padding:clamp(4px, .55vw, 5px) clamp(6px, .7vw, 7px);
   width:fit-content;
   max-width:none;
   white-space:nowrap;
@@ -707,13 +707,13 @@
   text-decoration:none;
 }
 
-.bodymap__tag--migraines{ top:10%; right:23%; }
-.bodymap__tag--cervicale{ top:18%; left:12%; max-width:100px; white-space:normal; }
-.bodymap__tag--epaule{ top:19%; right:8%; max-width:240px; }
-.bodymap__tag--lombalgie{ top:38%; right:20%; }
+.bodymap__tag--migraines{ top:10%; right:19%; }
+.bodymap__tag--cervicale{ top:18%; left:14%; max-width:clamp(88px, 17vw, 100px); white-space:normal; }
+.bodymap__tag--epaule{ top:20%; right:9%; max-width:clamp(180px, 30vw, 240px); }
+.bodymap__tag--lombalgie{ top:38%; right:19%; }
 .bodymap__tag--carpien{ top:43%; left:8%; }
-.bodymap__tag--genoux{ top:62%; left:10%; max-width:116px; white-space:normal; }
-.bodymap__tag--sciatique{ top:55%; right:14%; }
+.bodymap__tag--genoux{ top:62%; left:12%; max-width:clamp(96px, 18vw, 116px); white-space:normal; }
+.bodymap__tag--sciatique{ top:55%; right:12%; }
 
 .bodymap__locker{
   width:100%;
@@ -885,20 +885,6 @@
     width:100%;
   }
 
-  .bodymap__tag{
-    font-size:clamp(12px, 1.08vw, 14px);
-    max-width:none;
-    line-height:1.15;
-  }
-
-  .bodymap__tag--migraines{ top:10%; right:19%; }
-  .bodymap__tag--cervicale{ top:18%; left:14%; max-width:94px; white-space:normal; }
-  .bodymap__tag--epaule{ top:20%; right:9%; max-width:220px; }
-  .bodymap__tag--lombalgie{ top:38%; right:19%; }
-  .bodymap__tag--carpien{ top:43%; left:7%; }
-  .bodymap__tag--genoux{ top:62%; left:12%; max-width:108px; white-space:normal; }
-  .bodymap__tag--sciatique{ top:55%; right:12%; }
-
   .bodymap__locker{
     display:grid;
     grid-template-rows:auto auto auto;
@@ -987,19 +973,6 @@
   .bodymap__image{
     border-radius:14px;
   }
-
-  .bodymap__tag{
-    font-size:clamp(11px, .9vw, 12px);
-    max-width:none;
-  }
-
-  .bodymap__tag--migraines{ top:10%; right:24%; }
-  .bodymap__tag--cervicale{ top:18%; left:10%; max-width:90px; white-space:normal; }
-  .bodymap__tag--epaule{ top:19%; right:8%; max-width:190px; }
-  .bodymap__tag--lombalgie{ top:39%; right:14%; }
-  .bodymap__tag--carpien{ top:44%; left:8%; }
-  .bodymap__tag--genoux{ top:62%; left:9%; max-width:102px; white-space:normal; }
-  .bodymap__tag--sciatique{ top:55%; right:9%; }
 
   .bodymap__tagPopup{
     width:min(300px, 62vw);
@@ -1528,6 +1501,12 @@
     text-align:center;
     font-size:12.5px;
     letter-spacing:.10em;
+  }
+}
+
+@media (max-width:640px){
+  .hero-badge__actions{
+    display:none;
   }
 }
 
