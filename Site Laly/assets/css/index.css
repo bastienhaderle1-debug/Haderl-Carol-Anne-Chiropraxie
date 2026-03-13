@@ -155,13 +155,13 @@
   left:clamp(16px, 5vw, 70px);
   bottom:clamp(18px, 7vh, 70px);
   width:min(560px, calc(100% - 32px));
-  background:linear-gradient(180deg, rgba(255,252,248,.78), rgba(255,255,255,.56));
-  border:1px solid rgba(255,255,255,.44);
+  background:linear-gradient(180deg, rgba(255,252,248,.62), rgba(255,255,255,.38));
+  border:1px solid rgba(255,255,255,.30);
   border-radius:28px;
   padding:28px 28px 22px;
-  box-shadow:0 30px 80px rgba(8,18,17,.18);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
+  box-shadow:0 24px 64px rgba(8,18,17,.14);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
 }
 
 .hero-badge__kicker{
@@ -325,13 +325,13 @@
   width:44px;
   height:44px;
   border-radius:999px;
-  border:1px solid rgba(255,255,255,.62);
-  background:rgba(255,255,255,.14);
+  border:1px solid rgba(255,255,255,.54);
+  background:rgba(255,255,255,.09);
   color:rgba(24,48,40,.82);
   cursor:pointer;
   box-shadow:
-    0 12px 28px rgba(22,53,45,.08),
-    inset 0 1px 0 rgba(255,255,255,.48),
+    0 10px 24px rgba(22,53,45,.06),
+    inset 0 1px 0 rgba(255,255,255,.42),
     0 0 0 1px rgba(22,53,45,.05);
   backdrop-filter:blur(14px) saturate(1.15);
   -webkit-backdrop-filter:blur(14px) saturate(1.15);
@@ -1296,12 +1296,12 @@
 }
 
 .avis__nav:hover{
-  background:rgba(255,255,255,.20);
-  border-color:rgba(255,255,255,.74);
+  background:rgba(255,255,255,.14);
+  border-color:rgba(255,255,255,.64);
   color:rgba(24,48,40,.96);
   box-shadow:
-    0 16px 32px rgba(22,53,45,.10),
-    inset 0 1px 0 rgba(255,255,255,.56),
+    0 14px 28px rgba(22,53,45,.08),
+    inset 0 1px 0 rgba(255,255,255,.48),
     0 0 0 1px rgba(22,53,45,.06);
 }
 
