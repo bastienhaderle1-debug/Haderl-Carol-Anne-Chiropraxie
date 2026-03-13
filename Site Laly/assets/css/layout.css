@@ -467,3 +467,67 @@ body.page-prestations .siteHeader__cta{
     box-shadow:0 14px 34px rgba(0,0,0,.14);
   }
 }
+
+/* UI finish */
+.siteHeader::after{
+  content:"";
+  position:absolute;
+  inset:auto 0 0;
+  height:1px;
+  background:linear-gradient(90deg, transparent, rgba(200,163,106,.38), transparent);
+  pointer-events:none;
+}
+
+.siteHeader__brand{
+  transition:transform .2s ease, opacity .2s ease;
+}
+
+.siteHeader__brand:hover{
+  transform:translateY(-1px);
+}
+
+.siteHeader__brandName{
+  line-height:.92;
+}
+
+.siteNav a{
+  position:relative;
+}
+
+.siteNav a.is-active,
+.siteNav a[aria-current="page"]{
+  box-shadow:0 10px 22px rgba(28,91,69,.20);
+}
+
+.siteHeader__cta{
+  border:1px solid rgba(255,255,255,.24);
+}
+
+.siteHeader__cta:hover{
+  box-shadow:0 18px 36px rgba(42,167,184,.30);
+}
+
+.siteFooter__copy{
+  max-width:32ch;
+  color:rgba(255,255,255,.86);
+  line-height:1.6;
+}
+
+.siteFooter__contact{
+  backdrop-filter:blur(8px);
+  -webkit-backdrop-filter:blur(8px);
+}
+
+.siteFooter__contact .icon{
+  opacity:.92;
+}
+
+@media (max-width:768px){
+  .siteNav a{
+    font-size:15px;
+  }
+
+  .siteFooter{
+    padding:28px 0 24px;
+  }
+}

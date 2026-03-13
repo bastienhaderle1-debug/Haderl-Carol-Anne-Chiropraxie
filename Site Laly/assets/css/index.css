@@ -586,8 +586,6 @@
 .bodymap{
   padding:72px 0 64px;
   background:var(--c-bg);
-  border-top:1px solid rgba(20, 54, 44, .08);
-  border-bottom:1px solid rgba(20, 54, 44, .08);
   overflow-x:clip;
 }
 
@@ -1093,8 +1091,7 @@
   position:relative;
   padding:88px 0 76px;
   background:
-    radial-gradient(circle at 0% 0%, rgba(31,153,167,.08), transparent 28%),
-    radial-gradient(circle at 100% 100%, rgba(200,163,106,.10), transparent 30%),
+    radial-gradient(circle at top center, rgba(200,163,106,.10), transparent 32%),
     var(--c-bg);
 }
 
@@ -1175,6 +1172,167 @@
   .bodymap__locker{
     padding:18px;
     border-radius:18px;
+  }
+}
+
+/* UI finish */
+.hero-badge{
+  overflow:hidden;
+}
+
+.hero-badge::before{
+  content:"";
+  position:absolute;
+  inset:0 auto auto 28px;
+  width:110px;
+  height:1px;
+  background:linear-gradient(90deg, rgba(200,163,106,.85), rgba(200,163,106,0));
+  opacity:.9;
+}
+
+.hero-badge__actions{
+  padding-top:4px;
+}
+
+.hero-badge__btn,
+.hero-badge__link{
+  min-width:172px;
+}
+
+.hero-badge__btn{
+  border:1px solid rgba(255,255,255,.24);
+}
+
+.contact-item span{
+  line-height:1.35;
+}
+
+.bodymap__title,
+.avis__title,
+.map-section__title{
+  text-wrap:balance;
+}
+
+.bodymap__title::after,
+.avis__title::after,
+.map-section__title::after{
+  content:"";
+  display:block;
+  width:72px;
+  height:2px;
+  margin:16px auto 0;
+  border-radius:999px;
+  background:linear-gradient(90deg, rgba(200,163,106,0), rgba(200,163,106,.9), rgba(31,153,167,.5), rgba(31,153,167,0));
+}
+
+.bodymap__tag{
+  text-shadow:0 1px 0 rgba(255,255,255,.55);
+}
+
+.bodymap__tag.is-active{
+  color:var(--c-primary);
+  text-decoration:underline;
+  text-decoration-thickness:2px;
+  text-underline-offset:6px;
+}
+
+.bodymap__lockerTitle{
+  font-size:24px;
+  letter-spacing:.01em;
+}
+
+.bodymap__lockerPanel{
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.65);
+}
+
+.avis__head{
+  max-width:640px;
+  margin-inline:auto;
+}
+
+.avis__card{
+  display:flex;
+  flex-direction:column;
+  min-height:100%;
+}
+
+.avis__stars{
+  margin-bottom:16px;
+  color:var(--c-highlight);
+  letter-spacing:.28em;
+  font-size:14px;
+}
+
+.avis__quote{
+  margin:0 0 12px;
+  font-size:30px;
+  line-height:1;
+  letter-spacing:.01em;
+}
+
+.avis__text{
+  margin:0;
+  color:#42534d;
+  line-height:1.8;
+}
+
+.avis__name{
+  margin:22px 0 0;
+  padding-top:14px;
+  border-top:1px solid rgba(23,54,45,.10);
+  color:var(--c-primary);
+  font-size:13px;
+  font-weight:800;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+}
+
+.avis__nav:hover{
+  background:#fff;
+  border-color:rgba(23,54,45,.24);
+}
+
+.map-section__cta a{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-height:48px;
+  padding:0 22px;
+  border:1px solid rgba(23,54,45,.12);
+  border-radius:999px;
+  background:rgba(255,255,255,.74);
+  box-shadow:0 12px 28px rgba(22,53,45,.08);
+}
+
+.map-section__cta a:hover{
+  background:#fff;
+  box-shadow:0 16px 34px rgba(22,53,45,.12);
+}
+
+@media (max-width:768px){
+  .hero-badge::before{
+    inset:0 auto auto 20px;
+    width:88px;
+  }
+
+  .hero-badge__actions{
+    width:100%;
+  }
+
+  .hero-badge__btn,
+  .hero-badge__link{
+    flex:1 1 100%;
+    min-width:0;
+  }
+
+  .bodymap__title::after,
+  .avis__title::after,
+  .map-section__title::after{
+    margin-top:12px;
+  }
+
+  .avis__quote{
+    font-size:24px;
   }
 }
 

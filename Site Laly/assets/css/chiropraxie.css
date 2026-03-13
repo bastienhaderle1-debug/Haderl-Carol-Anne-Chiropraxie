@@ -495,3 +495,77 @@
     border-radius:22px;
   }
 }
+
+/* UI finish */
+.seance__head,
+.chiro-methodes__inner > .chiro-methodes__title{
+  max-width:760px;
+  margin-left:auto;
+  margin-right:auto;
+}
+
+.seance__title::after,
+.chiro-methodes__title::after,
+.chiro-poster__title::after{
+  content:"";
+  display:block;
+  width:78px;
+  height:2px;
+  margin:16px auto 0;
+  border-radius:999px;
+  background:linear-gradient(90deg, rgba(200,163,106,0), rgba(200,163,106,.88), rgba(31,153,167,.45), rgba(31,153,167,0));
+}
+
+.seance__card,
+.chiro-methodes--profil .chiro-methodes__photoWrap,
+.chiro-methodes--profil .chiro-methodes__profileText{
+  overflow:hidden;
+}
+
+.seance__card::before,
+.chiro-methodes--profil .chiro-methodes__profileText::before{
+  content:"";
+  display:block;
+  height:3px;
+  margin:-22px -22px 18px;
+  background:linear-gradient(90deg, rgba(200,163,106,.85), rgba(31,153,167,.55));
+}
+
+.seance__text strong,
+.chiro-poster__text strong,
+.chiro-methodes--profil .chiro-methodes__profileText strong{
+  color:var(--c-primary);
+}
+
+.chiro-poster__inner{
+  box-shadow:0 26px 62px rgba(22,53,45,.12);
+}
+
+.chiro-poster__text{
+  line-height:1.95;
+}
+
+.chiro-methodes--profil .chiro-methodes__photo{
+  object-position:center 28%;
+}
+
+.chiro-methodes--profil .chiro-methodes__profileText{
+  position:relative;
+}
+
+.seance__card{
+  box-shadow:0 22px 56px rgba(22,53,45,.11);
+}
+
+@media (max-width:768px){
+  .seance__card::before,
+  .chiro-methodes--profil .chiro-methodes__profileText::before{
+    margin:-18px -16px 16px;
+  }
+
+  .seance__title::after,
+  .chiro-methodes__title::after,
+  .chiro-poster__title::after{
+    margin-top:12px;
+  }
+}
