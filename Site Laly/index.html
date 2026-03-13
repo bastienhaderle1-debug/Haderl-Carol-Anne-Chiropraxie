@@ -6,13 +6,25 @@
 
   <title>Cabinet de chiropraxie &agrave; Limoges</title>
   <meta name="description" content="Cabinet de chiropraxie &agrave; Limoges. Prise en charge personnalis&eacute;e, douce et pr&eacute;cise. Prenez rendez-vous." />
+  <meta name="robots" content="index,follow" />
+  <meta name="theme-color" content="#1E6B3A" />
+  <meta property="og:locale" content="fr_FR" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Cabinet de chiropraxie &agrave; Limoges" />
+  <meta property="og:description" content="Prise en charge personnalis&eacute;e, douce et pr&eacute;cise &agrave; Limoges." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+  <link rel="preload" as="image" href="assets/img/hero.jpg" fetchpriority="high">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
 
   <!-- LocalBusiness schema -->
   <script type="application/ld+json">
   {
     "@context":"https://schema.org",
     "@type":"LocalBusiness",
-    "name":"Cabinet Carol-Anne Haderl&eacute;",
+    "name":"Cabinet Carol-Anne Haderl\u00e9",
     "address":{
       "@type":"PostalAddress",
       "streetAddress":"1 Rue Encombe Vineuse",
@@ -20,8 +32,7 @@
       "addressLocality":"Limoges",
       "addressCountry":"FR"
     },
-    "telephone":"+33781602221",
-    "url":"https://TON-DOMAINE.fr"
+    "telephone":"+33781602221"
   }
   </script>
 
@@ -32,25 +43,26 @@
   <link rel="stylesheet" href="assets/css/globals.css" />
   <link rel="stylesheet" href="assets/css/layout.css" />
   <link rel="stylesheet" href="assets/css/index.css" />
-  <link rel="stylesheet" href="assets/css/chiropraxie.css" />
 
   <!-- JS header (burger) -->
+  <script src="assets/js/site.js" defer></script>
   <script src="assets/js/header.js" defer></script>
 </head>
 
 <body class="home">
+  <a class="siteSkipLink" href="#main-content">Aller au contenu principal</a>
 
   <!-- HEADER -->
   <header class="siteHeader">
     <div class="siteHeader__inner">
 
-      <a class="siteHeader__brand" href="index.html" style="display:flex;align-items:center;gap:12px;text-decoration:none;">
-        <img src="assets/img/logo.png" alt="Logo Cabinet" style="width:64px;height:auto;display:block;">
-        <span style="display:flex;flex-direction:column;line-height:1.1;">
-          <strong style="font-family:var(--ff-title);font-size:22px;color:var(--c-primary);font-weight:800;">
+      <a class="siteHeader__brand" href="index.html" aria-label="Cabinet Carol-Anne Haderl&eacute; - Retour &agrave; l'accueil">
+        <img class="siteHeader__logo" src="assets/img/logo.png" alt="Logo Cabinet" width="165" height="123" decoding="async">
+        <span class="siteHeader__brandText">
+          <strong class="siteHeader__brandName">
             Carol-Anne Haderl&eacute;
           </strong>
-          <span style="font-family:var(--ff-body);font-size:13px;color:var(--c-muted);font-weight:600;">
+          <span class="siteHeader__brandRole">
             Chiropracteure &agrave; Limoges
           </span>
         </span>
@@ -66,7 +78,7 @@
       </button>
 
       <nav class="siteNav" id="mobileNav" aria-label="Navigation principale">
-        <a class="is-active" href="index.html">Accueil</a>
+        <a class="is-active" href="index.html" aria-current="page">Accueil</a>
         <a href="chiropraxie.html">La Chiropraxie | &Agrave; quoi s'attendre ?</a>
         <a href="prestations.html">Voir les prestations</a>
       </nav>
@@ -171,7 +183,7 @@
   </div>
 </section>
 
-  <main>
+  <main class="siteMain" id="main-content" tabindex="-1">
 
     <!-- ZONES TRAITEES INTERACTIVES -->
     <section class="bodymap" id="zones-traitees" aria-labelledby="bodymap-title-main">
@@ -186,7 +198,11 @@
             <img
               class="bodymap__image"
               src="assets/img/schema-corps.jpg"
-              alt="Sch&eacute;ma du corps avec zones de douleurs fr&eacute;quentes" />
+              alt="Sch&eacute;ma du corps avec zones de douleurs fr&eacute;quentes"
+              width="1024"
+              height="1536"
+              loading="lazy"
+              decoding="async" />
             <button class="bodymap__tag bodymap__tag--migraines" type="button"
                     data-title="Migraine"
                     data-text="Le travail cervical et cr&acirc;nio-mandibulaire peut r&eacute;duire certaines tensions m&eacute;caniques associ&eacute;es aux migraines et c&eacute;phal&eacute;es.">
@@ -377,7 +393,7 @@
       </div>
 
       <div class="map-section__cta">
-        <a href="https://www.google.com/maps/dir/?api=1&destination=1+rue+Encombe+Vineuse+87000+Limoges"
+        <a href="https://www.google.com/maps/dir/?api=1&destination=1+rue+Encombe+Vineuse+87100+Limoges"
            target="_blank" rel="noopener">
           CLIQUEZ ICI POUR VENIR AU CABINET
         </a>
@@ -386,9 +402,9 @@
 
   </main>
 
-    <footer class="siteFooter">
+  <footer class="siteFooter">
     <div class="siteFooter__inner">
-      <p class="siteFooter__copy">&copy; <span id="year"></span> Cabinet Carol-Anne Haderl&eacute;</p>
+      <p class="siteFooter__copy">&copy; <span data-current-year></span> Cabinet Carol-Anne Haderl&eacute;</p>
 
       <div class="siteFooter__contacts" aria-label="Coordonnees">
         <a class="siteFooter__contact" href="mailto:carolanne.chiropraxie@gmail.com">
@@ -411,10 +427,6 @@
       </div>
     </div>
   </footer>
-
-  <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
-  </script>
 
   <script src="assets/js/index.js" defer></script>
 </body>

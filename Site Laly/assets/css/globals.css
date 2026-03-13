@@ -26,14 +26,81 @@
   --ff-body:"Montserrat", sans-serif;
 }
 
-/* reset simple */
-*{ box-sizing:border-box; }
-html,body{ margin:0; padding:0; }
-html{ scroll-behavior:smooth; }
-img{ max-width:100%; height:auto; display:block; }
-a{ color:inherit; }
+/* Basic reset */
+*,
+*::before,
+*::after{
+  box-sizing:border-box;
+}
+
+html,
+body{
+  margin:0;
+  padding:0;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  min-width:320px;
+}
+
+img{
+  max-width:100%;
+  height:auto;
+  display:block;
+}
+
+a{
+  color:inherit;
+}
+
+button,
+input,
+select,
+textarea{
+  font:inherit;
+}
+
+[hidden]{
+  display:none !important;
+}
 
 *::selection{
   background:rgba(42,167,184,.22);
   color:#0d2d24;
+}
+
+:focus-visible{
+  outline:2px solid var(--c-accent);
+  outline-offset:3px;
+  box-shadow:var(--shadow-focus);
+}
+
+.visually-hidden{
+  position:absolute;
+  width:1px;
+  height:1px;
+  padding:0;
+  margin:-1px;
+  overflow:hidden;
+  clip:rect(0, 0, 0, 0);
+  white-space:nowrap;
+  border:0;
+}
+
+@media (prefers-reduced-motion: reduce){
+  html{
+    scroll-behavior:auto;
+  }
+
+  *,
+  *::before,
+  *::after{
+    animation-duration:.01ms !important;
+    animation-iteration-count:1 !important;
+    transition-duration:.01ms !important;
+  }
 }

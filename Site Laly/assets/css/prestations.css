@@ -171,6 +171,7 @@
   color:var(--c-muted);
   font-weight:700;
   font-family:var(--ff-body);
+  font-size:14px;
 }
 
 .summaryCard__strong{

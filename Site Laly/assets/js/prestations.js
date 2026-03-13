@@ -21,7 +21,9 @@
     items.forEach(it => {
       it.classList.remove('is-open');
       const btn = it.querySelector('.service__top');
+      const body = it.querySelector('.service__body');
       if(btn) btn.setAttribute('aria-expanded','false');
+      if(body) body.hidden = true;
     });
   }
 
@@ -29,7 +31,9 @@
     closeAll();
     it.classList.add('is-open');
     const btn = it.querySelector('.service__top');
+    const body = it.querySelector('.service__body');
     if(btn) btn.setAttribute('aria-expanded','true');
+    if(body) body.hidden = false;
 
     const name = it.querySelector('.service__name')?.textContent?.trim() || '';
     const meta = it.querySelector('.service__meta')?.textContent?.replace(/\s+/g,' ').trim() || '';
@@ -41,7 +45,9 @@
 
   items.forEach(it => {
     const btn = it.querySelector('.service__top');
+    const body = it.querySelector('.service__body');
     if(!btn) return;
+    if(body) body.hidden = true;
     btn.addEventListener('click', () => openItem(it));
   });
 

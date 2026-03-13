@@ -10,6 +10,8 @@
   const dotsWrap = wrap.querySelector('.avis__dots');
   const prevBtn = wrap.querySelector('.avis__nav--prev');
   const nextBtn = wrap.querySelector('.avis__nav--next');
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+  let rafId = 0;
 
   if (!viewport || cards.length === 0 || !dotsWrap) return;
 
@@ -33,7 +35,10 @@
   }
 
   function scrollToIndex(i) {
-    viewport.scrollTo({ left: cardCenterLeft(cards[i]), behavior: 'smooth' });
+    viewport.scrollTo({
+      left: cardCenterLeft(cards[i]),
+      behavior: prefersReducedMotion.matches ? 'auto' : 'smooth'
+    });
   }
 
   function getActiveIndex() {
@@ -64,24 +69,15 @@
     scrollToIndex(Math.min(cards.length - 1, i + 1));
   });
 
-  viewport.addEventListener('scroll', () => requestAnimationFrame(updateDots));
+  viewport.addEventListener('scroll', () => {
+    if (rafId) return;
+    rafId = requestAnimationFrame(() => {
+      rafId = 0;
+      updateDots();
+    });
+  }, { passive: true });
 
   updateDots();
-})();
-
-/* Tracking clics tel / booking */
-(function(){
-  function track(name, data){
-    console.log("[track]", name, data || {});
-  }
-
-  document.addEventListener("click", (e) => {
-    const a = e.target.closest("a");
-    if(!a) return;
-
-    if(a.href.startsWith("tel:")) track("click_call", { href: a.href });
-    if(a.href.includes("fresha.com")) track("click_booking", { href: a.href });
-  });
 })();
 
 /* HERO CONTACT POPUP */
