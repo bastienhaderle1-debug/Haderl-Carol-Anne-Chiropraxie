@@ -1436,6 +1436,14 @@
     padding-top:0;
   }
 
+  .hero-badge__btn{
+    display:none;
+  }
+
+  .hero-badge__link{
+    display:none;
+  }
+
   .hero-badge__btn,
   .hero-badge__link{
     min-height:46px;
@@ -1588,4 +1596,3 @@
     height:320px;
   }
 }
-
