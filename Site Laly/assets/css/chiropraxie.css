@@ -107,6 +107,11 @@
   box-shadow:0 20px 52px rgba(22,53,45,.12);
 }
 
+.chiro-methodes--profil .chiro-methodes__photoWrap picture{
+  display:block;
+  height:100%;
+}
+
 .chiro-methodes--profil .chiro-methodes__photo{
   display:block;
   width:100%;

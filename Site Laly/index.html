@@ -16,7 +16,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
-  <link rel="preload" as="image" href="assets/img/hero.jpg" fetchpriority="high">
+  <link rel="preload" as="image" href="assets/img/hero.webp" type="image/webp" fetchpriority="high">
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
 
   <!-- LocalBusiness schema -->
@@ -195,14 +195,17 @@
 
         <div class="bodymap__layout" data-bodymap>
           <div class="bodymap__figure">
-            <img
-              class="bodymap__image"
-              src="assets/img/schema-corps.jpg"
-              alt="Schéma du corps avec zones de douleurs fréquentes"
-              width="1024"
-              height="1536"
-              loading="lazy"
-              decoding="async" />
+            <picture>
+              <source srcset="assets/img/schema-corps.webp" type="image/webp">
+              <img
+                class="bodymap__image"
+                src="assets/img/schema-corps.jpg"
+                alt="Schéma du corps avec zones de douleurs fréquentes"
+                width="1024"
+                height="1536"
+                loading="lazy"
+                decoding="async" />
+            </picture>
             <button class="bodymap__tag bodymap__tag--migraines" type="button"
                     data-title="Migraine"
                     data-text="Le travail cervical et crânio-mandibulaire peut réduire certaines tensions mécaniques associées aux migraines et céphalées.">
