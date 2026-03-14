@@ -592,25 +592,25 @@
 /* Body map interactive section */
 .bodymap{
   position:relative;
-  padding:88px 0 76px;
+  padding:68px 0 58px;
   background:transparent;
   overflow-x:clip;
 }
 
 .bodymap__inner{
-  width:min(1180px, calc(100% - 48px));
+  width:min(1700px, calc(100% - 36px));
   margin:0 auto;
 }
 
 .bodymap__head{
   text-align:center;
-  margin-bottom:36px;
+  margin-bottom:24px;
 }
 
 .bodymap__title{
   margin:0;
   font-family:var(--ff-title);
-  font-size:clamp(32px, 5vw, 46px);
+  font-size:clamp(29px, 4.2vw, 40px);
   color:var(--c-text);
   letter-spacing:.01em;
   max-width:12ch;
@@ -628,17 +628,23 @@
 
 .bodymap__layout{
   display:grid;
-  grid-template-columns:minmax(0, .94fr) minmax(0, 1.06fr);
-  gap:20px;
+  grid-template-columns:repeat(2, minmax(0, 1fr));
+  max-width:1400px;
+  margin:0 auto;
+  justify-content:center;
+  gap:28px;
   align-items:start;
 }
 
 .bodymap__figure{
-  width:min(710px, 100%);
+  width:100%;
+  max-width:670px;
   margin:0 auto;
   align-self:start;
-  padding:20px 16px 22px;
-  border-radius:28px;
+  display:flex;
+  justify-content:center;
+  padding:12px 12px 14px;
+  border-radius:20px;
   background:
     radial-gradient(circle at top, rgba(255,255,255,.52), transparent 44%),
     linear-gradient(180deg, #edf7f3 0%, #e5f1ef 100%);
@@ -650,20 +656,26 @@
   position:relative;
   width:100%;
   container-type:inline-size;
+  max-width:540px;
+  margin:0 auto;
 }
 
 .bodymap__figure picture{
   display:block;
+  overflow:hidden;
+  border-radius:16px;
 }
 
 .bodymap__image{
   width:100%;
   margin:0;
   display:block;
-  aspect-ratio:46 / 100;
+  aspect-ratio:46 / 58;
   object-fit:cover;
-  object-position:center 40%;
-  border-radius:22px;
+  object-position:center 46%;
+  transform:scale(1.03);
+  transform-origin:center top;
+  border-radius:16px;
   box-shadow:0 30px 72px rgba(20, 44, 36, .12);
   border:1px solid rgba(23,54,45,.08);
 }
@@ -713,13 +725,13 @@
   text-decoration:none;
 }
 
-.bodymap__tag--migraines{ top:10%; right:19%; }
-.bodymap__tag--cervicale{ top:18%; left:14%; max-width:clamp(74px, 21cqi, 100px); white-space:normal; }
-.bodymap__tag--epaule{ top:20%; right:9%; max-width:clamp(118px, 38cqi, 240px); }
-.bodymap__tag--lombalgie{ top:38%; right:19%; }
-.bodymap__tag--carpien{ top:43%; left:8%; }
-.bodymap__tag--genoux{ top:62%; left:12%; max-width:clamp(78px, 23cqi, 116px); white-space:normal; }
-.bodymap__tag--sciatique{ top:55%; right:12%; }
+.bodymap__tag--migraines{ top:4%; right:30%; }
+.bodymap__tag--cervicale{ top:12%; left:27%; max-width:clamp(74px, 21cqi, 100px); white-space:normal; }
+.bodymap__tag--epaule{ top:15%; right:20%; max-width:clamp(118px, 38cqi, 240px); }
+.bodymap__tag--lombalgie{ top:37%; right:29%; }
+.bodymap__tag--carpien{ top:43%; left:18%; }
+.bodymap__tag--genoux{ top:65%; left:18%; max-width:clamp(78px, 23cqi, 116px); white-space:normal; }
+.bodymap__tag--sciatique{ top:55%; right:27%; }
 
 @container (min-width:360px){
   .bodymap__tag{
@@ -763,17 +775,18 @@
 
 .bodymap__locker{
   width:100%;
+  max-width:670px;
   margin:0;
   align-self:start;
-  padding:22px 24px;
+  padding:24px 26px;
   background:linear-gradient(180deg, rgba(255,255,255,.82), rgba(255,251,244,.76));
   border:1px solid rgba(23,54,45,.08);
-  border-radius:22px;
+  border-radius:20px;
   box-shadow:0 18px 42px rgba(20, 44, 36, .09);
 }
 
 .bodymap__lockerTitle{
-  margin:0 0 12px;
+  margin:0 0 10px;
   font-family:var(--ff-title);
   color:var(--c-text);
   font-size:22px;
@@ -786,7 +799,7 @@
   list-style:none;
   display:flex;
   flex-wrap:wrap;
-  gap:10px;
+  gap:8px;
 }
 
 .bodymap__lockerItem{
@@ -823,8 +836,8 @@
 }
 
 .bodymap__lockerPanel{
-  margin-top:14px;
-  padding:14px 16px;
+  margin-top:12px;
+  padding:12px 14px;
   background:rgba(255, 255, 255, .94);
   border:1px solid rgba(20, 54, 44, .14);
   border-radius:12px;
@@ -912,7 +925,7 @@
 }
 
 .bodymap__note{
-  margin:22px auto 0;
+  margin:16px auto 0;
   max-width:980px;
   font-family:var(--ff-body);
   font-size:14px;
@@ -921,31 +934,49 @@
   text-align:center;
 }
 
-@media (min-width:521px){
-  .bodymap__figure{
-    width:100%;
-    max-width:500px;
-    margin:0 auto;
+@media (min-width:1024px){
+  .bodymap__layout{
+    grid-template-columns:repeat(2, minmax(0, 744px));
+    gap:32px;
   }
 
-  .bodymap__image{
+  .bodymap__figure,
+  .bodymap__locker{
     width:100%;
+    max-width:744px;
+    min-height:760px;
+  }
+
+  .bodymap__figure{
+    padding:14px 14px 16px;
+  }
+
+  .bodymap__canvas{
+    max-width:560px;
   }
 
   .bodymap__locker{
     display:grid;
+    grid-template-rows:auto 1fr auto;
+    gap:10px;
+    padding:28px 30px;
+  }
+}
+
+@media (min-width:521px){
+  .bodymap__locker{
+    display:grid;
     grid-template-rows:auto auto auto;
     gap:8px;
-    align-self:stretch;
-    height:100%;
-    padding:24px 28px;
+    align-self:start;
+    padding:22px 24px;
   }
 
   .bodymap__lockerList{
     display:grid;
     grid-template-columns:1fr;
     grid-auto-rows:minmax(40px, auto);
-    gap:7px;
+    gap:8px;
     align-content:start;
   }
 
@@ -979,31 +1010,39 @@
   .bodymap__lockerPanel{
     margin-top:4px;
     min-height:0;
-    padding:12px;
+    padding:12px 14px;
   }
 }
 
-@media (max-width:980px){
+@media (max-width:1023px){
   .bodymap{
-    padding:62px 0 56px;
+    padding:54px 0 48px;
   }
 
   .bodymap__inner{
-    width:min(980px, calc(100% - 30px));
+    width:min(920px, calc(100% - 36px));
   }
 
   .bodymap__layout{
-    grid-template-columns:minmax(0, .92fr) minmax(0, 1.08fr);
+    grid-template-columns:1fr;
     gap:14px;
+    justify-items:center;
+  }
+
+  .bodymap__figure,
+  .bodymap__locker{
+    width:min(100%, 480px);
+    max-width:none;
+    margin-inline:auto;
   }
 
   .bodymap__locker{
-    padding:18px;
-    border-radius:14px;
+    padding:16px 18px;
+    border-radius:16px;
   }
 
   .bodymap__lockerTitle{
-    font-size:20px;
+    font-size:22px;
     margin-bottom:10px;
   }
 
@@ -1012,13 +1051,26 @@
   }
 
   .bodymap__figure{
-    width:min(460px, 100%);
-    padding:14px 10px 16px;
+    padding:9px 9px 11px;
     transform:none;
   }
 
   .bodymap__image{
-    border-radius:14px;
+    border-radius:16px;
+  }
+
+  .bodymap__lockerList{
+    gap:6px;
+  }
+
+  .bodymap__lockerBtn{
+    min-height:44px;
+    font-size:14px;
+  }
+
+  .bodymap__panelText{
+    font-size:14px;
+    line-height:1.62;
   }
 
   .bodymap__tagPopup{
@@ -1376,7 +1428,7 @@
   }
 
   .contact-band__inner{
-    width:min(100% - 24px, 560px);
+    width:min(calc(100% - 24px), 560px);
   }
 
   .contact-item{
@@ -1442,22 +1494,26 @@
     padding:18px 16px;
   }
 
-  .bodymap,
-  .avis,
-  .map-section{
+  .bodymap{
     padding-top:56px;
     padding-bottom:56px;
+  }
+
+  .avis,
+  .map-section{
+    padding-top:64px;
+    padding-bottom:64px;
   }
 
   .bodymap__inner,
   .avis__inner,
   .map-section__cta,
   .map-wrapper{
-    width:min(100% - 24px, 560px);
+    width:min(calc(100% - 24px), 560px);
   }
 
   .bodymap__head{
-    margin-bottom:24px;
+    margin-bottom:18px;
   }
 
   .bodymap__title,
@@ -1467,12 +1523,22 @@
   }
 
   .bodymap__layout{
-    gap:18px;
+    gap:14px;
   }
 
   .bodymap__figure{
-    width:min(360px, 100%);
-    padding:12px 9px 14px;
+    width:min(340px, 100%);
+    padding:10px 10px 12px;
+  }
+
+  .bodymap__canvas{
+    max-width:300px;
+  }
+
+  .bodymap__tag{
+    font-size:clamp(8px, 2.2cqi, 11px);
+    border-radius:clamp(6px, 1.9cqi, 8px);
+    padding:clamp(2px, .7cqi, 3px) clamp(4px, 1.05cqi, 5px);
   }
 
   .bodymap__image{
@@ -1481,8 +1547,8 @@
   }
 
   .bodymap__locker{
-    padding:16px;
-    border-radius:18px;
+    padding:14px;
+    border-radius:16px;
   }
 
   .bodymap__lockerTitle{
@@ -1579,6 +1645,10 @@
     padding:10px 8px 12px;
   }
 
+  .bodymap__canvas{
+    max-width:290px;
+  }
+
   .bodymap__lockerPanel{
     padding:14px;
   }
@@ -1589,5 +1659,274 @@
 
   .map-wrapper iframe{
     height:320px;
+  }
+}
+
+/* Tablet adjustments */
+@media (min-width:769px) and (max-width:1023px){
+  .contact-band__inner{
+    width:min(calc(100% - 48px), 920px);
+    gap:12px;
+  }
+
+  .contact-item{
+    padding:10px 12px;
+    font-size:13px;
+  }
+
+  .hero{
+    min-height:auto;
+    aspect-ratio:16 / 11;
+  }
+
+  .hero__image{
+    object-position:center 24%;
+  }
+
+  .hero__media::after{
+    background:
+      linear-gradient(90deg, rgba(16,34,31,.44) 0%, rgba(16,34,31,.18) 46%, rgba(16,34,31,.04) 100%),
+      linear-gradient(180deg, rgba(15,32,29,.10) 0%, rgba(15,32,29,.24) 100%);
+  }
+
+  .hero-badge{
+    left:24px;
+    right:auto;
+    bottom:24px;
+    width:min(500px, calc(100% - 48px));
+    padding:24px 22px 20px;
+    border-radius:24px;
+  }
+
+  .hero-badge__title{
+    max-width:11ch;
+    font-size:clamp(36px, 5vw, 46px);
+  }
+
+  .hero-badge__text{
+    max-width:36ch;
+    font-size:15px;
+    line-height:1.68;
+  }
+
+  .hero-badge__actions{
+    gap:10px;
+  }
+
+  .hero-badge__btn,
+  .hero-badge__link{
+    flex:1 1 calc(50% - 5px);
+    min-width:0;
+  }
+
+  .avis__card{
+    flex:0 0 100%;
+    padding:30px 26px;
+  }
+
+  .bodymap__inner,
+  .avis__inner,
+  .map-section__cta,
+  .map-wrapper{
+    width:min(calc(100% - 48px), 860px);
+  }
+
+  .bodymap,
+  .avis,
+  .map-section{
+    padding-top:56px;
+    padding-bottom:56px;
+  }
+
+  .bodymap__head{
+    margin-bottom:20px;
+  }
+
+  .bodymap__title,
+  .avis__title,
+  .map-section__title{
+    font-size:clamp(32px, 4.8vw, 40px);
+  }
+
+  .bodymap__subtitle{
+    max-width:58ch;
+    font-size:15px;
+    line-height:1.72;
+  }
+
+  .bodymap__figure,
+  .bodymap__locker{
+    width:min(100%, 520px);
+    max-width:none;
+  }
+
+  .bodymap__figure{
+    width:min(100%, 500px);
+    padding:12px 12px 14px;
+  }
+
+  .bodymap__canvas{
+    max-width:450px;
+  }
+
+  .bodymap__tag{
+    font-size:clamp(9px, 1.65cqi, 12px);
+    border-radius:clamp(7px, 1.9cqi, 9px);
+    padding:clamp(3px, .75cqi, 4px) clamp(5px, 1.1cqi, 6px);
+  }
+
+  .bodymap__locker{
+    padding:18px 18px 16px;
+    border-radius:18px;
+  }
+
+  .bodymap__lockerTitle{
+    font-size:23px;
+  }
+
+  .bodymap__lockerBtn{
+    min-height:46px;
+    padding:11px 14px;
+    font-size:15px;
+  }
+
+  .bodymap__panelTitle{
+    font-size:25px;
+  }
+
+  .bodymap__panelText{
+    font-size:15px;
+    line-height:1.68;
+  }
+
+  .bodymap__note{
+    max-width:760px;
+    font-size:14px;
+  }
+
+  .avis__quote{
+    font-size:26px;
+  }
+
+  .avis__text{
+    font-size:15px;
+    line-height:1.76;
+  }
+
+  .map-wrapper{
+    border-radius:28px;
+  }
+
+  .map-wrapper iframe{
+    height:420px;
+  }
+}
+
+@media (min-width:1024px){
+  .bodymap__layout{
+    grid-template-columns:repeat(2, minmax(0, 680px));
+    max-width:1392px;
+    gap:32px;
+  }
+
+  .bodymap__figure,
+  .bodymap__locker{
+    width:100%;
+    max-width:680px;
+    min-height:760px;
+    box-sizing:border-box;
+  }
+
+  .bodymap__figure{
+    padding:22px 22px 24px;
+  }
+
+  .bodymap__canvas{
+    max-width:540px;
+  }
+
+  .bodymap__locker{
+    display:grid;
+    grid-template-rows:auto 1fr auto;
+    gap:10px;
+    padding:22px 22px 24px;
+  }
+}
+
+@media (min-width:1024px) and (max-width:1439px){
+  .bodymap__layout{
+    grid-template-columns:1fr;
+    max-width:760px;
+    gap:22px;
+    justify-items:center;
+  }
+
+  .bodymap__figure,
+  .bodymap__locker{
+    width:min(100%, 680px);
+    max-width:none;
+    min-height:0;
+    margin-inline:auto;
+  }
+
+  .bodymap__figure{
+    padding:14px 14px 16px;
+  }
+
+  .bodymap__canvas{
+    max-width:min(100%, 520px);
+  }
+
+  .bodymap__locker{
+    gap:8px;
+    padding:22px 22px 24px;
+  }
+
+  .bodymap__lockerList{
+    gap:7px;
+  }
+
+  .bodymap__lockerBtn{
+    min-height:44px;
+    padding:10px 13px;
+    font-size:14px;
+  }
+}
+
+@media (max-width:1439px){
+  .bodymap__figure,
+  .bodymap__locker{
+    box-sizing:border-box;
+  }
+
+  .bodymap__locker{
+    display:block;
+    min-height:0;
+  }
+
+  .bodymap__lockerList{
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+    align-content:flex-start;
+  }
+
+  .bodymap__lockerBtn{
+    width:auto;
+    min-height:40px;
+    justify-content:flex-start;
+    padding:8px 13px;
+    border-radius:999px;
+    background:rgba(30, 107, 58, .10);
+    border:1px solid rgba(30, 107, 58, .20);
+    font-size:14px;
+  }
+
+  .bodymap__lockerBtn::after{
+    content:none;
+  }
+
+  .bodymap__lockerPanel{
+    margin-top:12px;
   }
 }

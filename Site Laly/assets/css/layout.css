@@ -650,3 +650,33 @@ body.page-prestations .siteHeader__cta{
     font-size:12.5px;
   }
 }
+
+/* Tablet adjustments */
+@media (min-width:769px) and (max-width:1023px){
+  .siteHeader__brandName{
+    font-size:20px;
+  }
+
+  .siteHeader__brandRole{
+    font-size:11px;
+  }
+
+  .siteNav a{
+    font-size:13px;
+    padding:8px 12px;
+  }
+
+  .siteHeader__cta{
+    font-size:13px;
+    padding:10px 16px;
+  }
+
+  .siteFooter__inner{
+    font-size:13px;
+  }
+
+  .siteFooter__contact{
+    font-size:12px;
+    padding:8px 12px;
+  }
+}

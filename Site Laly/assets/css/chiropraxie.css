@@ -727,3 +727,30 @@
     padding:18px 14px 18px;
   }
 }
+
+/* Tablet adjustments */
+@media (min-width:769px) and (max-width:1023px){
+  .chiro-poster__title{
+    font-size:42px;
+  }
+
+  .chiro-poster__text{
+    font-size:16px;
+  }
+
+  .seance__title{
+    font-size:38px;
+  }
+
+  .seance__card{
+    padding:24px 20px;
+  }
+
+  .chiro-methodes__title{
+    font-size:40px;
+  }
+
+  .chiro-methodes--profil .chiro-methodes__profileText{
+    font-size:15px;
+  }
+}
