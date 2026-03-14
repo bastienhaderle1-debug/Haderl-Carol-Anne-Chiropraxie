@@ -628,15 +628,15 @@
 
 .bodymap__layout{
   display:grid;
-  grid-template-columns:minmax(0, .86fr) minmax(0, 1.14fr);
-  gap:22px;
-  align-items:stretch;
+  grid-template-columns:minmax(0, .94fr) minmax(0, 1.06fr);
+  gap:20px;
+  align-items:start;
 }
 
 .bodymap__figure{
-  position:relative;
   width:min(710px, 100%);
   margin:0 auto;
+  align-self:start;
   padding:20px 16px 22px;
   border-radius:28px;
   background:
@@ -646,13 +646,19 @@
   transform:none;
 }
 
+.bodymap__canvas{
+  position:relative;
+  width:100%;
+  container-type:inline-size;
+}
+
 .bodymap__figure picture{
   display:block;
 }
 
 .bodymap__image{
-  width:84%;
-  margin:0 auto;
+  width:100%;
+  margin:0;
   display:block;
   aspect-ratio:46 / 100;
   object-fit:cover;
@@ -667,57 +673,98 @@
   display:inline-flex;
   align-items:center;
   border:1px solid transparent;
-  border-radius:10px;
-  background:rgba(255,255,255,.42);
+  border-radius:clamp(7px, 2.2cqi, 10px);
+  background:rgba(255,255,255,.24);
   color:#24433a;
   font-family:var(--ff-body);
-  font-size:clamp(11px, 1.15vw + 2px, 14px);
+  font-size:clamp(8px, 2.7cqi, 14px);
   font-weight:700;
   line-height:1.15;
   letter-spacing:.01em;
-  padding:clamp(4px, .55vw, 5px) clamp(6px, .7vw, 7px);
+  padding:clamp(2px, 1.05cqi, 5px) clamp(4px, 1.5cqi, 7px);
   width:fit-content;
   max-width:none;
   white-space:nowrap;
   overflow-wrap:normal;
   word-break:normal;
-  box-shadow:0 3px 8px rgba(20,44,36,.03);
-  backdrop-filter:blur(6px);
-  -webkit-backdrop-filter:blur(6px);
+  box-shadow:0 2px 6px rgba(20,44,36,.025);
+  backdrop-filter:blur(3px);
+  -webkit-backdrop-filter:blur(3px);
   cursor:pointer;
   transition:transform .18s ease, color .18s ease, opacity .18s ease, background .18s ease, border-color .18s ease, box-shadow .18s ease;
   text-align:left;
-  text-shadow:0 1px 0 rgba(255,255,255,.55);
+  text-shadow:0 1px 0 rgba(255,255,255,.35);
 }
 
 .bodymap__tag:hover,
 .bodymap__tag:focus-visible{
   transform:translateY(-1px);
   opacity:1;
-  background:rgba(255,255,255,.42);
+  background:rgba(255,255,255,.32);
   border-color:transparent;
   outline:none;
 }
 
 .bodymap__tag.is-active{
   color:var(--c-primary);
-  background:rgba(255,255,255,.50);
+  background:rgba(255,255,255,.38);
   border-color:transparent;
-  box-shadow:0 5px 12px rgba(20,44,36,.045);
+  box-shadow:0 4px 10px rgba(20,44,36,.04);
   text-decoration:none;
 }
 
 .bodymap__tag--migraines{ top:10%; right:19%; }
-.bodymap__tag--cervicale{ top:18%; left:14%; max-width:clamp(88px, 17vw, 100px); white-space:normal; }
-.bodymap__tag--epaule{ top:20%; right:9%; max-width:clamp(180px, 30vw, 240px); }
+.bodymap__tag--cervicale{ top:18%; left:14%; max-width:clamp(74px, 21cqi, 100px); white-space:normal; }
+.bodymap__tag--epaule{ top:20%; right:9%; max-width:clamp(118px, 38cqi, 240px); }
 .bodymap__tag--lombalgie{ top:38%; right:19%; }
 .bodymap__tag--carpien{ top:43%; left:8%; }
-.bodymap__tag--genoux{ top:62%; left:12%; max-width:clamp(96px, 18vw, 116px); white-space:normal; }
+.bodymap__tag--genoux{ top:62%; left:12%; max-width:clamp(78px, 23cqi, 116px); white-space:normal; }
 .bodymap__tag--sciatique{ top:55%; right:12%; }
+
+@container (min-width:360px){
+  .bodymap__tag{
+    font-size:clamp(9px, 2.85cqi, 13px);
+    border-radius:clamp(7px, 2.2cqi, 9px);
+    padding:clamp(3px, .95cqi, 4px) clamp(5px, 1.3cqi, 6px);
+  }
+
+  .bodymap__tag--cervicale{
+    max-width:clamp(82px, 22cqi, 96px);
+  }
+
+  .bodymap__tag--epaule{
+    max-width:clamp(134px, 39cqi, 210px);
+  }
+
+  .bodymap__tag--genoux{
+    max-width:clamp(84px, 24cqi, 108px);
+  }
+}
+
+@container (min-width:430px){
+  .bodymap__tag{
+    font-size:clamp(11px, 3.05cqi, 14px);
+    border-radius:clamp(8px, 2.4cqi, 10px);
+    padding:clamp(4px, 1.05cqi, 5px) clamp(6px, 1.5cqi, 7px);
+  }
+
+  .bodymap__tag--cervicale{
+    max-width:clamp(88px, 24cqi, 100px);
+  }
+
+  .bodymap__tag--epaule{
+    max-width:clamp(148px, 42cqi, 240px);
+  }
+
+  .bodymap__tag--genoux{
+    max-width:clamp(88px, 25cqi, 116px);
+  }
+}
 
 .bodymap__locker{
   width:100%;
   margin:0;
+  align-self:start;
   padding:22px 24px;
   background:linear-gradient(180deg, rgba(255,255,255,.82), rgba(255,251,244,.76));
   border:1px solid rgba(23,54,45,.08);
@@ -796,12 +843,12 @@
 .bodymap__tagPopup{
   position:absolute;
   z-index:25;
-  width:min(320px, 42vw);
+  width:min(250px, 32vw);
   background:rgba(255, 255, 255, .96);
   border:1px solid rgba(20, 54, 44, .12);
   border-radius:14px;
   box-shadow:0 18px 36px rgba(20, 44, 36, .14);
-  padding:12px 38px 12px 14px;
+  padding:12px 34px 12px 13px;
   transform:translateY(-50%);
 }
 
@@ -876,8 +923,8 @@
 
 @media (min-width:521px){
   .bodymap__figure{
-    width:70%;
-    max-width:460px;
+    width:100%;
+    max-width:500px;
     margin:0 auto;
   }
 
@@ -946,8 +993,8 @@
   }
 
   .bodymap__layout{
-    grid-template-columns:minmax(0, .84fr) minmax(0, 1.16fr);
-    gap:16px;
+    grid-template-columns:minmax(0, .92fr) minmax(0, 1.08fr);
+    gap:14px;
   }
 
   .bodymap__locker{
@@ -965,7 +1012,7 @@
   }
 
   .bodymap__figure{
-    width:min(420px, 70%);
+    width:min(460px, 100%);
     padding:14px 10px 16px;
     transform:none;
   }
@@ -975,8 +1022,8 @@
   }
 
   .bodymap__tagPopup{
-    width:min(300px, 62vw);
-    padding:10px 34px 10px 12px;
+    width:min(236px, 42vw);
+    padding:10px 30px 10px 12px;
   }
 
   .bodymap__tagPopup .bodymap__panelTitle{
@@ -1002,25 +1049,6 @@
 
   .bodymap__subtitle{
     font-size:14px;
-  }
-
-  .bodymap__tag{
-    font-size:clamp(9px, 2.25vw, 11px);
-    border-radius:clamp(7px, 1.8vw, 9px);
-    padding:clamp(3px, .85vw, 4px) clamp(5px, 1.2vw, 6px);
-    box-shadow:0 2px 6px rgba(20,44,36,.025);
-  }
-
-  .bodymap__tag--cervicale{
-    max-width:88px;
-  }
-
-  .bodymap__tag--epaule{
-    max-width:180px;
-  }
-
-  .bodymap__tag--genoux{
-    max-width:96px;
   }
 
   .bodymap__tagPopup{
@@ -1443,7 +1471,7 @@
   }
 
   .bodymap__figure{
-    width:min(360px, 82%);
+    width:min(360px, 100%);
     padding:12px 9px 14px;
   }
 
@@ -1547,7 +1575,7 @@
   }
 
   .bodymap__figure{
-    width:min(320px, 88%);
+    width:min(320px, 100%);
     padding:10px 8px 12px;
   }
 

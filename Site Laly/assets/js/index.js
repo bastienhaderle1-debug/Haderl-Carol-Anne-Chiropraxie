@@ -128,9 +128,9 @@
   const root = document.querySelector('[data-bodymap]');
   if(!root) return;
 
-  const figure = root.querySelector('.bodymap__figure');
+  const canvas = root.querySelector('.bodymap__canvas');
   const tags = [...root.querySelectorAll('.bodymap__tag')];
-  if(!figure || !tags.length) return;
+  if(!canvas || !tags.length) return;
 
   const popups = new Map();
   let activeTag = null;
@@ -148,25 +148,25 @@
   function placePopup(tag, popup){
     const gap = window.matchMedia('(max-width:520px)').matches ? 8 : 12;
     const edge = 8;
-    const figureRect = figure.getBoundingClientRect();
+    const canvasRect = canvas.getBoundingClientRect();
     const tagRect = tag.getBoundingClientRect();
-    const isRightSide = (tagRect.left + tagRect.width / 2) >= (figureRect.left + figureRect.width / 2);
+    const isRightSide = (tagRect.left + tagRect.width / 2) >= (canvasRect.left + canvasRect.width / 2);
     const popupWidth = popup.offsetWidth;
     const popupHeight = popup.offsetHeight;
 
     let left = isRightSide
-      ? (tagRect.left - figureRect.left - popupWidth - gap)
-      : (tagRect.right - figureRect.left + gap);
+      ? (tagRect.left - canvasRect.left - popupWidth - gap)
+      : (tagRect.right - canvasRect.left + gap);
 
-    const minLeft = edge - figureRect.left;
-    const maxLeft = window.innerWidth - edge - figureRect.left - popupWidth;
+    const minLeft = edge - canvasRect.left;
+    const maxLeft = window.innerWidth - edge - canvasRect.left - popupWidth;
     if(maxLeft >= minLeft){
       left = Math.min(Math.max(left, minLeft), maxLeft);
     }
 
-    let top = (tagRect.top - figureRect.top) + (tagRect.height / 2);
-    const minTop = (edge + popupHeight / 2) - figureRect.top;
-    const maxTop = (window.innerHeight - edge - popupHeight / 2) - figureRect.top;
+    let top = (tagRect.top - canvasRect.top) + (tagRect.height / 2);
+    const minTop = (edge + popupHeight / 2) - canvasRect.top;
+    const maxTop = (window.innerHeight - edge - popupHeight / 2) - canvasRect.top;
     if(maxTop >= minTop){
       top = Math.min(Math.max(top, minTop), maxTop);
     }
