@@ -342,8 +342,7 @@
 .avis__nav--next{ right:-12px; }
 
 @media (max-width:720px){
-  .avis__nav--prev{ left:8px; }
-  .avis__nav--next{ right:8px; }
+  .avis__nav{ display:none; }
 }
 
 /* DOTS */
@@ -587,6 +586,28 @@
 
 .map-section__cta a:hover{
   opacity:.72;
+}
+
+@supports (content-visibility:auto){
+  .bodymap{
+    content-visibility:auto;
+    contain-intrinsic-size:1400px;
+  }
+
+  .avis{
+    content-visibility:auto;
+    contain-intrinsic-size:760px;
+  }
+
+  .map-section{
+    content-visibility:auto;
+    contain-intrinsic-size:900px;
+  }
+
+  .siteFooter{
+    content-visibility:auto;
+    contain-intrinsic-size:260px;
+  }
 }
 
 /* Body map interactive section */
