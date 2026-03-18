@@ -139,6 +139,53 @@
   margin-bottom:0;
 }
 
+.chiro-methodes__eyebrow{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  margin:0 0 18px !important;
+  color:var(--c-primary);
+  font-size:12px;
+  font-weight:800;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+}
+
+.chiro-methodes__eyebrow::before{
+  content:"";
+  width:34px;
+  height:1px;
+  background:linear-gradient(90deg, rgba(200,163,106,.95), rgba(31,153,167,.45));
+}
+
+.chiro-methodes__lead{
+  margin-bottom:18px !important;
+  color:var(--c-text);
+  font-size:18px;
+  line-height:1.8;
+}
+
+.chiro-methodes__values{
+  margin-top:24px;
+  padding:18px 20px;
+  border:1px solid rgba(23,54,45,.08);
+  border-radius:18px;
+  background:linear-gradient(135deg, rgba(255,255,255,.78), rgba(248,243,234,.92));
+  box-shadow:0 14px 32px rgba(22,53,45,.06);
+}
+
+.chiro-methodes__valuesTitle{
+  margin:0 0 10px;
+  color:var(--c-primary);
+  font-family:var(--ff-title);
+  font-size:24px;
+  font-weight:600;
+}
+
+.chiro-methodes__values p{
+  margin:0;
+}
+
 /* Session */
 .seance{
   background:var(--c-bg);
@@ -494,6 +541,21 @@
     padding:24px 18px 24px;
     border-radius:22px;
   }
+
+  .chiro-methodes__lead{
+    font-size:16px;
+    line-height:1.75;
+  }
+
+  .chiro-methodes__values{
+    margin-top:20px;
+    padding:16px;
+    border-radius:16px;
+  }
+
+  .chiro-methodes__valuesTitle{
+    font-size:21px;
+  }
 }
 
 /* UI finish */
@@ -702,6 +764,25 @@
     padding:20px 16px 20px;
     font-size:14px;
     line-height:1.7;
+  }
+
+  .chiro-methodes__eyebrow{
+    margin-bottom:14px !important;
+    font-size:11px;
+    letter-spacing:.16em;
+  }
+
+  .chiro-methodes__lead{
+    font-size:15px;
+  }
+
+  .chiro-methodes__values{
+    margin-top:18px;
+    padding:14px;
+  }
+
+  .chiro-methodes__valuesTitle{
+    font-size:19px;
   }
 }
 
