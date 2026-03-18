@@ -104,11 +104,22 @@
   </header>
 
   <!-- HERO -->
-  <section class="hero" aria-label="Introduction">
-    <picture class="hero__media" aria-hidden="true">
-      <source srcset="assets/img/hero.webp" type="image/webp">
-      <img class="hero__image" src="assets/img/hero.jpg" alt="" width="1536" height="1024" fetchpriority="high" decoding="async">
-    </picture>
+  <section class="hero" aria-label="Introduction" data-hero-slider>
+    <div class="hero__media" aria-hidden="true">
+      <picture class="hero__slide is-active">
+        <source srcset="assets/img/hero.webp" type="image/webp">
+        <img class="hero__image" src="assets/img/hero.jpg" alt="" width="1536" height="1024" fetchpriority="high" decoding="async">
+      </picture>
+
+      <picture class="hero__slide">
+        <img class="hero__image" src="https://picsum.photos/1536/1024?random=17" alt="" width="1536" height="1024" loading="lazy" decoding="async" referrerpolicy="no-referrer">
+      </picture>
+    </div>
+
+    <div class="hero__dots" aria-label="Navigation du diaporama">
+      <button class="hero__dot is-active" type="button" aria-label="Afficher l'image 1" aria-pressed="true"></button>
+      <button class="hero__dot" type="button" aria-label="Afficher l'image 2" aria-pressed="false"></button>
+    </div>
 
     <div class="hero-badge">
       <p class="hero-badge__kicker">CABINET DE CHIROPRAXIE</p>
