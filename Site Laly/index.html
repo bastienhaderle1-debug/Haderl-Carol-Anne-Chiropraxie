@@ -69,7 +69,10 @@
     <div class="siteHeader__inner">
 
       <a class="siteHeader__brand" href="index.html" aria-label="Cabinet Carol-Anne Haderlé - Retour à l'accueil">
-        <img class="siteHeader__logo" src="assets/img/logo.png" alt="Logo Cabinet" width="165" height="123" decoding="async">
+        <picture>
+          <source type="image/webp" srcset="assets/img/logo-96.webp 96w, assets/img/logo.webp 165w" sizes="(max-width: 520px) 48px, (max-width: 700px) 52px, 68px">
+          <img class="siteHeader__logo" src="assets/img/logo.png" srcset="assets/img/logo-96.png 96w, assets/img/logo.png 165w" sizes="(max-width: 520px) 48px, (max-width: 700px) 52px, 68px" alt="Logo Cabinet" width="165" height="123" decoding="async">
+        </picture>
         <span class="siteHeader__brandText">
           <strong class="siteHeader__brandName">
             Carol-Anne Haderlé
@@ -112,7 +115,8 @@
       </picture>
 
       <picture class="hero__slide">
-        <img class="hero__image" src="https://picsum.photos/1536/1024?random=17" alt="" width="1536" height="1024" loading="lazy" decoding="async" referrerpolicy="no-referrer">
+        <source srcset="assets/img/hero-alt.webp" type="image/webp">
+        <img class="hero__image" src="assets/img/hero-alt.jpg" alt="" width="1536" height="1024" loading="lazy" decoding="async">
       </picture>
     </div>
 
@@ -223,10 +227,12 @@
           <div class="bodymap__figure">
             <div class="bodymap__canvas">
               <picture>
-              <source srcset="assets/img/schema-corps.webp" type="image/webp">
+              <source type="image/webp" srcset="assets/img/schema-corps-600.webp 600w, assets/img/schema-corps-900.webp 900w, assets/img/schema-corps.webp 1024w" sizes="(max-width: 420px) 344px, (max-width: 768px) 360px, (max-width: 1023px) 500px, 540px">
               <img
                 class="bodymap__image"
-                src="assets/img/schema-corps.jpg"
+                src="assets/img/schema-corps-600.jpg"
+                srcset="assets/img/schema-corps-600.jpg 600w, assets/img/schema-corps-900.jpg 900w, assets/img/schema-corps.jpg 1024w"
+                sizes="(max-width: 420px) 344px, (max-width: 768px) 360px, (max-width: 1023px) 500px, 540px"
                 alt="Schéma du corps avec zones de douleurs fréquentes"
                 width="1024"
                 height="1536"
