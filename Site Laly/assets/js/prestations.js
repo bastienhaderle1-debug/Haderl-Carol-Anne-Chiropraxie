@@ -51,5 +51,5 @@
     btn.addEventListener('click', () => openItem(it));
   });
 
-  if(items[0]) openItem(items[0]);
+  closeAll();
 })();
