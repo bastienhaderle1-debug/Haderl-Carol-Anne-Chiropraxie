@@ -1634,8 +1634,8 @@
   .bodymap__image{
     width:100%;
     border-radius:18px;
-    transform:scale(1.13);
-    object-position:center 44%;
+    transform:scale(1.05);
+    object-position:center 50%;
   }
 
   .bodymap__locker{
@@ -1760,8 +1760,8 @@
   .bodymap__tag--genoux{ top:71%; }
 
   .bodymap__image{
-    transform:scale(1.14);
-    object-position:center 43%;
+    transform:scale(1.01);
+    object-position:center 52%;
   }
 
   .bodymap__lockerPanel{
