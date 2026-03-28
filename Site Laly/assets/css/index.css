@@ -411,6 +411,10 @@
   .avis__nav{ display:none; }
 }
 
+@media (hover:none), (pointer:coarse), (any-pointer:coarse){
+  .avis__nav{ display:none; }
+}
+
 /* DOTS */
 .avis__dots{
   display:flex;
