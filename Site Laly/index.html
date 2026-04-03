@@ -13,11 +13,9 @@
   <meta property="og:title" content="Cabinet de chiropraxie à Bujaleuf" />
   <meta property="og:description" content="Prise en charge personnalisée, douce et précise à Bujaleuf." />
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preload" as="image" href="assets/img/hero-chiro-1.jpg" fetchpriority="high">
-  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" onload="this.onload=null;this.rel='stylesheet'">
-  <noscript><link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet"></noscript>
+  <link rel="preload" href="assets/fonts/manrope-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" as="image" href="assets/img/hero-chiro-1-1280.webp" imagesrcset="assets/img/hero-chiro-1-768.webp 768w, assets/img/hero-chiro-1-1280.webp 1280w, assets/img/hero-chiro-1.webp 1536w" imagesizes="100vw" fetchpriority="high" type="image/webp">
+  <link rel="stylesheet" href="assets/css/fonts.css" />
 
   <!-- LocalBusiness schema -->
   <script type="application/ld+json">
@@ -245,15 +243,27 @@
   <section class="hero" aria-label="Introduction" data-hero-slider>
     <div class="hero__media" aria-hidden="true">
       <picture class="hero__slide is-active">
-        <img class="hero__image" src="assets/img/hero-chiro-1.jpg" alt="" width="1536" height="1024" fetchpriority="high" decoding="async">
+        <source
+          type="image/webp"
+          srcset="assets/img/hero-chiro-1-768.webp 768w, assets/img/hero-chiro-1-1280.webp 1280w, assets/img/hero-chiro-1.webp 1536w"
+          sizes="100vw">
+        <img class="hero__image" src="assets/img/hero-chiro-1-1280.jpg" srcset="assets/img/hero-chiro-1-768.jpg 768w, assets/img/hero-chiro-1-1280.jpg 1280w, assets/img/hero-chiro-1.jpg 1536w" sizes="100vw" alt="" width="1536" height="1024" fetchpriority="high" decoding="async">
       </picture>
 
       <picture class="hero__slide">
-        <img class="hero__image" src="assets/img/hero-chiro-2.jpg" alt="" width="1536" height="1024" loading="lazy" decoding="async">
+        <source
+          type="image/webp"
+          srcset="assets/img/hero-chiro-2-768.webp 768w, assets/img/hero-chiro-2-1280.webp 1280w, assets/img/hero-chiro-2.webp 1536w"
+          sizes="100vw">
+        <img class="hero__image" src="assets/img/hero-chiro-2-1280.jpg" srcset="assets/img/hero-chiro-2-768.jpg 768w, assets/img/hero-chiro-2-1280.jpg 1280w, assets/img/hero-chiro-2.jpg 1536w" sizes="100vw" alt="" width="1536" height="1024" loading="lazy" decoding="async">
       </picture>
 
       <picture class="hero__slide">
-        <img class="hero__image" src="assets/img/hero-chiro-3.jpg" alt="" width="1536" height="1024" loading="lazy" decoding="async">
+        <source
+          type="image/webp"
+          srcset="assets/img/hero-chiro-3-768.webp 768w, assets/img/hero-chiro-3-1280.webp 1280w, assets/img/hero-chiro-3.webp 1536w"
+          sizes="100vw">
+        <img class="hero__image" src="assets/img/hero-chiro-3-1280.jpg" srcset="assets/img/hero-chiro-3-768.jpg 768w, assets/img/hero-chiro-3-1280.jpg 1280w, assets/img/hero-chiro-3.jpg 1536w" sizes="100vw" alt="" width="1536" height="1024" loading="lazy" decoding="async">
       </picture>
     </div>
 

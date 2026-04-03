@@ -13,11 +13,8 @@
   <meta property="og:title" content="La Chiropraxie à Bujaleuf" />
   <meta property="og:description" content="Comprendre le déroulement d’une séance et l’approche du cabinet." />
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" onload="this.onload=null;this.rel='stylesheet'">
-  <noscript><link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet"></noscript>
-
+  <link rel="preload" href="assets/fonts/manrope-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="assets/css/fonts.css" />
   <link rel="stylesheet" href="assets/css/globals.css" />
   <link rel="stylesheet" href="assets/css/layout.css" />
   <link rel="stylesheet" href="assets/css/chiropraxie.css" />
@@ -187,7 +184,13 @@
 
         <div class="chiro-methodes__profile">
           <figure class="chiro-methodes__photoWrap">
-            <img class="chiro-methodes__photo" src="assets/img/carol-anne-presentation.jpg" alt="Portrait de Carol-Anne Haderle" width="1124" height="1514" loading="lazy" decoding="async">
+            <picture>
+              <source
+                type="image/webp"
+                srcset="assets/img/carol-anne-presentation-480.webp 480w, assets/img/carol-anne-presentation-720.webp 720w, assets/img/carol-anne-presentation.webp 1124w"
+                sizes="(max-width: 600px) calc(100vw - 24px), (max-width: 980px) 560px, 340px">
+              <img class="chiro-methodes__photo" src="assets/img/carol-anne-presentation-720.jpg" srcset="assets/img/carol-anne-presentation-480.jpg 480w, assets/img/carol-anne-presentation-720.jpg 720w, assets/img/carol-anne-presentation.jpg 1124w" sizes="(max-width: 600px) calc(100vw - 24px), (max-width: 980px) 560px, 340px" alt="Portrait de Carol-Anne Haderle" width="1124" height="1514" loading="lazy" decoding="async">
+            </picture>
           </figure>
 
           <div class="chiro-methodes__profileText">
