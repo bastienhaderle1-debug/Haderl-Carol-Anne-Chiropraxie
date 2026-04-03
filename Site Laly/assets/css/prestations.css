@@ -76,6 +76,7 @@
 }
 
 .service__name{
+  display:block;
   margin:0;
   font-family:var(--ff-title);
   font-size:18px;

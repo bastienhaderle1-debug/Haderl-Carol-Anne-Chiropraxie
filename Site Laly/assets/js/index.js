@@ -59,10 +59,15 @@ function scheduleFrame(callback) {
 
   if (!widgets.length) return;
 
-  function closeWidget(entry) {
+  function closeWidget(entry, { restoreFocus = false } = {}) {
     entry.panel.classList.remove('is-open');
-    entry.panel.setAttribute('aria-hidden', 'true');
+    entry.panel.hidden = true;
+    entry.panel.inert = true;
     entry.trigger.setAttribute('aria-expanded', 'false');
+
+    if (restoreFocus) {
+      entry.trigger.focus();
+    }
   }
 
   function closeAll(exceptEntry = null) {
@@ -74,12 +79,17 @@ function scheduleFrame(callback) {
 
   function openWidget(entry) {
     closeAll(entry);
+    entry.panel.hidden = false;
+    entry.panel.inert = false;
     entry.panel.classList.add('is-open');
-    entry.panel.setAttribute('aria-hidden', 'false');
     entry.trigger.setAttribute('aria-expanded', 'true');
   }
 
   widgets.forEach((entry) => {
+    entry.panel.hidden = true;
+    entry.panel.inert = true;
+    entry.trigger.setAttribute('aria-expanded', 'false');
+
     entry.trigger.addEventListener('click', (event) => {
       event.preventDefault();
 
@@ -93,7 +103,7 @@ function scheduleFrame(callback) {
 
     entry.closeBtn?.addEventListener('click', (event) => {
       event.preventDefault();
-      closeWidget(entry);
+      closeWidget(entry, { restoreFocus: true });
     });
   });
 
@@ -107,7 +117,12 @@ function scheduleFrame(callback) {
 
   document.addEventListener('keydown', (event) => {
     if (event.key !== 'Escape') return;
-    closeAll();
+
+    const openEntry = widgets.find((entry) => entry.panel.classList.contains('is-open'));
+    if (!openEntry) return;
+
+    closeWidget(openEntry, { restoreFocus: true });
+    closeAll(openEntry);
   });
 })();
 
@@ -132,6 +147,7 @@ function initAvisCarousel() {
     button.className = 'avis__dot';
     button.type = 'button';
     button.setAttribute('aria-label', `Aller a l'avis ${index + 1}`);
+    button.setAttribute('aria-pressed', 'false');
     button.addEventListener('click', () => scrollToIndex(index));
     dotsWrap.appendChild(button);
     return button;
@@ -173,7 +189,11 @@ function initAvisCarousel() {
 
   function updateDots() {
     const activeIndex = getActiveIndex();
-    dots.forEach((dot, index) => dot.classList.toggle('is-active', index === activeIndex));
+    dots.forEach((dot, index) => {
+      const isActive = index === activeIndex;
+      dot.classList.toggle('is-active', isActive);
+      dot.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+    });
   }
 
   const refreshCarousel = scheduleFrame(() => {

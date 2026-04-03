@@ -141,6 +141,78 @@
       overflow-wrap: anywhere;
     }
 
+    .hero__dots{
+      gap: 12px;
+    }
+
+    .hero__dot{
+      position: relative;
+      display: grid;
+      place-items: center;
+      width: 44px;
+      height: 44px;
+      padding: 0;
+      border: 0;
+      border-radius: 999px;
+      background: transparent;
+      box-shadow: none;
+    }
+
+    .hero__dot::before{
+      content: "";
+      width: 11px;
+      height: 11px;
+      border: 1px solid rgba(255, 255, 255, .72);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, .34);
+      box-shadow: 0 8px 18px rgba(8, 18, 17, .16);
+      transition: transform .2s ease, background .2s ease, border-color .2s ease;
+    }
+
+    .hero__dot:hover::before{
+      transform: scale(1.08);
+    }
+
+    .hero__dot.is-active::before{
+      background: var(--c-accent);
+      border-color: var(--c-accent);
+    }
+
+    .avis__dots{
+      gap: 12px;
+    }
+
+    .avis__dot{
+      position: relative;
+      display: grid;
+      place-items: center;
+      width: 36px;
+      height: 36px;
+      padding: 0;
+      border: 0;
+      border-radius: 999px;
+      background: transparent;
+    }
+
+    .avis__dot::before{
+      content: "";
+      width: 10px;
+      height: 10px;
+      border: 1px solid rgba(0, 0, 0, .2);
+      border-radius: 999px;
+      background: #fff;
+      transition: transform .2s ease, background .2s ease, border-color .2s ease;
+    }
+
+    .avis__dot:hover::before{
+      transform: scale(1.08);
+    }
+
+    .avis__dot.is-active::before{
+      background: var(--c-accent);
+      border-color: var(--c-accent);
+    }
+
     @media (max-width: 768px){
       .hero-badge__title{
         max-width: 18ch;
@@ -172,6 +244,15 @@
       .floating-contact__panel{
         width: min(288px, calc(100vw - 24px));
       }
+
+      .hero__dots{
+        gap: 8px;
+      }
+
+      .hero__dot{
+        width: 40px;
+        height: 40px;
+      }
     }
   </style>
 
@@ -201,7 +282,7 @@
   <header class="siteHeader">
     <div class="siteHeader__inner">
 
-      <a class="siteHeader__brand" href="index.html" aria-label="Cabinet Carol-Anne Haderlé - Retour à l'accueil">
+      <a class="siteHeader__brand" href="index.html">
         <picture>
           <source type="image/webp" srcset="assets/img/logo-68.webp 68w, assets/img/logo-136.webp 136w, assets/img/logo.webp 165w" sizes="(max-width: 520px) 48px, (max-width: 700px) 52px, 68px">
           <img class="siteHeader__logo" src="assets/img/logo-68.png" srcset="assets/img/logo-68.png 68w, assets/img/logo.png 165w" sizes="(max-width: 520px) 48px, (max-width: 700px) 52px, 68px" alt="Logo Cabinet" width="165" height="123" decoding="async">
@@ -267,7 +348,7 @@
       </picture>
     </div>
 
-    <div class="hero__dots" aria-label="Navigation du diaporama">
+    <div class="hero__dots" role="group" aria-label="Navigation du diaporama">
       <button class="hero__dot is-active" type="button" aria-label="Afficher l'image 1" aria-pressed="true"></button>
       <button class="hero__dot" type="button" aria-label="Afficher l'image 2" aria-pressed="false"></button>
       <button class="hero__dot" type="button" aria-label="Afficher l'image 3" aria-pressed="false"></button>
@@ -287,11 +368,12 @@
           class="hero-badge__link hero-contact-trigger js-contact-trigger"
           type="button"
           aria-expanded="false"
+          aria-haspopup="dialog"
           aria-controls="heroContactPanel">
           Contact
         </button>
 
-        <div class="hero-contact-panel js-contact-panel" id="heroContactPanel" aria-hidden="true">
+        <div class="hero-contact-panel js-contact-panel" id="heroContactPanel" role="dialog" aria-label="Coordonnées du cabinet" hidden inert>
           <button class="hero-contact-close js-contact-close" type="button" aria-label="Fermer">&times;</button>
 
           <div class="hero-contact-content">
@@ -430,8 +512,8 @@
             </button>
             </div>
           </div>
-          <div class="bodymap__locker" aria-label="Autres motifs de consultation">
-            <p class="bodymap__lockerTitle">Ou encore</p>
+          <section class="bodymap__locker" aria-labelledby="bodymap-locker-title">
+            <p class="bodymap__lockerTitle" id="bodymap-locker-title">Ou encore</p>
             <ul class="bodymap__lockerList">
               <li class="bodymap__lockerItem">
                 <button class="bodymap__lockerBtn" type="button"
@@ -509,7 +591,7 @@
               <h3 class="bodymap__panelTitle" data-bodymap-locker-title>Sélectionnez un motif</h3>
               <p class="bodymap__panelText" data-bodymap-locker-text>Cliquez sur un élément du casier pour afficher les informations.</p>
             </div>
-          </div>
+          </section>
         </div>
       </div>
     </section>
@@ -521,7 +603,7 @@
           <h2 class="avis__title" id="avis-title">Vos avis</h2>
         </header>
 
-        <div class="avis__wrap" aria-label="Carrousel d'avis">
+        <div class="avis__wrap">
           <button class="avis__nav avis__nav--prev" type="button" aria-label="Avis précédent">‹</button>
           <button class="avis__nav avis__nav--next" type="button" aria-label="Avis suivant">›</button>
 
@@ -561,7 +643,7 @@
             </div>
           </div>
 
-          <div class="avis__dots" aria-label="Navigation des avis"></div>
+          <div class="avis__dots" role="group" aria-label="Navigation des avis"></div>
         </div>
       </div>
     </section>
@@ -571,6 +653,7 @@
       <div class="map-wrapper">
         <iframe
           src="https://www.google.com/maps?q=62+route+de+Saint+Leonard+Bujaleuf&output=embed"
+          title="Localisation du cabinet sur Google Maps"
           loading="lazy"
           allowfullscreen
           referrerpolicy="no-referrer-when-downgrade">
@@ -591,7 +674,7 @@
     <div class="siteFooter__inner">
       <p class="siteFooter__copy">© <span data-current-year></span> Cabinet Carol-Anne Haderlé</p>
 
-      <div class="siteFooter__contacts" aria-label="Coordonnees">
+      <div class="siteFooter__contacts">
         <a class="siteFooter__contact" href="mailto:carolanne.chiropraxie@gmail.com">
           <svg class="icon" aria-hidden="true"><use href="#icon-envelope"></use></svg>
           <span>carolanne.chiropraxie@gmail.com</span>
@@ -618,12 +701,13 @@
       class="floating-contact__trigger js-contact-trigger"
       type="button"
       aria-expanded="false"
+      aria-haspopup="dialog"
       aria-controls="floatingContactPanel">
       <svg class="icon" aria-hidden="true"><use href="#icon-phone"></use></svg>
       <span>Contact</span>
     </button>
 
-    <div class="floating-contact__panel js-contact-panel" id="floatingContactPanel" aria-hidden="true">
+    <div class="floating-contact__panel js-contact-panel" id="floatingContactPanel" role="dialog" aria-label="Coordonnées du cabinet" hidden inert>
       <button class="floating-contact__close js-contact-close" type="button" aria-label="Fermer">&times;</button>
 
       <div class="floating-contact__content">
