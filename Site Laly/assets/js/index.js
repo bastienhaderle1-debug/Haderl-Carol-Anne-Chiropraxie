@@ -48,51 +48,66 @@ function scheduleFrame(callback) {
   };
 }
 
-/* HERO CONTACT POPUP */
+/* CONTACT POPUPS */
 (function () {
-  const trigger = document.querySelector('.hero-contact-trigger');
-  const panel = document.querySelector('.hero-contact-panel');
-  const closeBtn = document.querySelector('.hero-contact-close');
+  const widgets = [...document.querySelectorAll('[data-contact-widget]')].map((widget) => ({
+    widget,
+    trigger: widget.querySelector('.js-contact-trigger'),
+    panel: widget.querySelector('.js-contact-panel'),
+    closeBtn: widget.querySelector('.js-contact-close')
+  })).filter(({ trigger, panel }) => trigger && panel);
 
-  if (!trigger || !panel) return;
+  if (!widgets.length) return;
 
-  function closePanel() {
-    panel.classList.remove('is-open');
-    panel.setAttribute('aria-hidden', 'true');
-    trigger.setAttribute('aria-expanded', 'false');
+  function closeWidget(entry) {
+    entry.panel.classList.remove('is-open');
+    entry.panel.setAttribute('aria-hidden', 'true');
+    entry.trigger.setAttribute('aria-expanded', 'false');
   }
 
-  function openPanel() {
-    panel.classList.add('is-open');
-    panel.setAttribute('aria-hidden', 'false');
-    trigger.setAttribute('aria-expanded', 'true');
+  function closeAll(exceptEntry = null) {
+    widgets.forEach((entry) => {
+      if (entry === exceptEntry) return;
+      closeWidget(entry);
+    });
   }
 
-  trigger.addEventListener('click', (event) => {
-    event.preventDefault();
+  function openWidget(entry) {
+    closeAll(entry);
+    entry.panel.classList.add('is-open');
+    entry.panel.setAttribute('aria-hidden', 'false');
+    entry.trigger.setAttribute('aria-expanded', 'true');
+  }
 
-    if (panel.classList.contains('is-open')) {
-      closePanel();
-      return;
-    }
+  widgets.forEach((entry) => {
+    entry.trigger.addEventListener('click', (event) => {
+      event.preventDefault();
 
-    openPanel();
-  });
+      if (entry.panel.classList.contains('is-open')) {
+        closeWidget(entry);
+        return;
+      }
 
-  closeBtn?.addEventListener('click', (event) => {
-    event.preventDefault();
-    closePanel();
+      openWidget(entry);
+    });
+
+    entry.closeBtn?.addEventListener('click', (event) => {
+      event.preventDefault();
+      closeWidget(entry);
+    });
   });
 
   document.addEventListener('click', (event) => {
-    if (!panel.classList.contains('is-open')) return;
-    if (event.target.closest('.hero-contact-panel')) return;
-    if (event.target.closest('.hero-contact-trigger')) return;
-    closePanel();
+    widgets.forEach((entry) => {
+      if (!entry.panel.classList.contains('is-open')) return;
+      if (entry.widget.contains(event.target)) return;
+      closeWidget(entry);
+    });
   });
 
   document.addEventListener('keydown', (event) => {
-    if (event.key === 'Escape') closePanel();
+    if (event.key !== 'Escape') return;
+    closeAll();
   });
 })();
 

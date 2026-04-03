@@ -15,7 +15,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preload" as="image" href="assets/img/hero.webp" type="image/webp" fetchpriority="high">
+  <link rel="preload" as="image" href="assets/img/hero-chiro-1.jpg" fetchpriority="high">
   <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" onload="this.onload=null;this.rel='stylesheet'">
   <noscript><link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet"></noscript>
 
@@ -39,9 +39,130 @@
   <!-- CSS -->
   <link rel="stylesheet" href="assets/css/home.css" />
   <style>
+    .floating-contact{
+      position: fixed;
+      right: 16px;
+      bottom: 20px;
+      z-index: 1250;
+      display: none;
+    }
+
+    .floating-contact__trigger{
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      min-height: 54px;
+      padding: 0 18px;
+      border: 0;
+      border-radius: 999px;
+      background: linear-gradient(135deg, #1c5b45 0%, #1f99a7 100%);
+      color: #fff;
+      font: 800 14px/1 "Manrope", sans-serif;
+      letter-spacing: .02em;
+      box-shadow: 0 18px 36px rgba(23, 63, 73, .26);
+      cursor: pointer;
+    }
+
+    .floating-contact__trigger .icon{
+      width: 18px;
+      height: 18px;
+    }
+
+    .floating-contact__panel{
+      position: absolute;
+      right: 0;
+      bottom: calc(100% + 12px);
+      width: min(300px, calc(100vw - 24px));
+      padding: 18px 16px 16px;
+      border: 1px solid rgba(23, 54, 45, .12);
+      border-radius: 22px;
+      background: rgba(255, 252, 247, .96);
+      box-shadow: 0 28px 72px rgba(0, 0, 0, .18);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(12px) scale(.98);
+      transition: opacity .22s ease, transform .22s ease;
+    }
+
+    .floating-contact__panel.is-open{
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateY(0) scale(1);
+    }
+
+    .floating-contact__close{
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      width: 30px;
+      height: 30px;
+      border: 0;
+      border-radius: 999px;
+      background: rgba(28, 91, 69, .1);
+      color: #1c5b45;
+      font-size: 18px;
+      line-height: 1;
+      cursor: pointer;
+    }
+
+    .floating-contact__content{
+      display: grid;
+      gap: 10px;
+    }
+
+    .floating-contact__content a{
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px 14px;
+      border: 1px solid rgba(23, 54, 45, .08);
+      border-radius: 16px;
+      background: rgba(255, 255, 255, .74);
+      color: #1e2d29;
+      text-decoration: none;
+      font: 700 13px/1.35 "Manrope", sans-serif;
+      box-shadow: 0 10px 24px rgba(20, 44, 36, .06);
+    }
+
+    .floating-contact__content a .icon{
+      width: 18px;
+      height: 18px;
+      color: #1c5b45;
+      flex: 0 0 auto;
+    }
+
+    @media (max-width: 768px){
+      .hero-badge__title{
+        max-width: 18ch;
+      }
+    }
+
     @media (max-width: 1023px){
       .contact-band{
         display:none;
+      }
+
+      .floating-contact{
+        display: block;
+      }
+    }
+
+    @media (max-width: 640px){
+      .floating-contact{
+        right: 12px;
+        bottom: 14px;
+      }
+
+      .floating-contact__trigger{
+        min-height: 50px;
+        padding: 0 16px;
+        font-size: 13px;
+      }
+
+      .floating-contact__panel{
+        width: min(288px, calc(100vw - 24px));
       }
     }
   </style>
@@ -114,19 +235,22 @@
   <section class="hero" aria-label="Introduction" data-hero-slider>
     <div class="hero__media" aria-hidden="true">
       <picture class="hero__slide is-active">
-        <source srcset="assets/img/hero.webp" type="image/webp">
-        <img class="hero__image" src="assets/img/hero.jpg" alt="" width="1536" height="1024" fetchpriority="high" decoding="async">
+        <img class="hero__image" src="assets/img/hero-chiro-1.jpg" alt="" width="1536" height="1024" fetchpriority="high" decoding="async">
       </picture>
 
       <picture class="hero__slide">
-        <source srcset="assets/img/hero-alt.webp" type="image/webp">
-        <img class="hero__image" src="assets/img/hero-alt.jpg" alt="" width="1536" height="1024" loading="lazy" decoding="async">
+        <img class="hero__image" src="assets/img/hero-chiro-2.jpg" alt="" width="1536" height="1024" loading="lazy" decoding="async">
+      </picture>
+
+      <picture class="hero__slide">
+        <img class="hero__image" src="assets/img/hero-chiro-3.jpg" alt="" width="1536" height="1024" loading="lazy" decoding="async">
       </picture>
     </div>
 
     <div class="hero__dots" aria-label="Navigation du diaporama">
       <button class="hero__dot is-active" type="button" aria-label="Afficher l'image 1" aria-pressed="true"></button>
       <button class="hero__dot" type="button" aria-label="Afficher l'image 2" aria-pressed="false"></button>
+      <button class="hero__dot" type="button" aria-label="Afficher l'image 3" aria-pressed="false"></button>
     </div>
 
     <div class="hero-badge">
@@ -136,19 +260,19 @@
         Prise en charge personnalisée • Non-invasive et spécifique • À Bujaleuf
       </p>
 
-      <div class="hero-badge__actions">
+      <div class="hero-badge__actions" data-contact-widget>
         <a class="hero-badge__btn" href="prestations.html">Prendre rendez-vous</a>
 
         <button
-          class="hero-badge__link hero-contact-trigger"
+          class="hero-badge__link hero-contact-trigger js-contact-trigger"
           type="button"
           aria-expanded="false"
           aria-controls="heroContactPanel">
           Contact
         </button>
 
-        <div class="hero-contact-panel" id="heroContactPanel" aria-hidden="true">
-          <button class="hero-contact-close" type="button" aria-label="Fermer">×</button>
+        <div class="hero-contact-panel js-contact-panel" id="heroContactPanel" aria-hidden="true">
+          <button class="hero-contact-close js-contact-close" type="button" aria-label="Fermer">&times;</button>
 
           <div class="hero-contact-content">
             <a href="tel:+33781602221">
@@ -468,6 +592,45 @@
       </div>
     </div>
   </footer>
+
+  <div class="floating-contact" data-contact-widget>
+    <button
+      class="floating-contact__trigger js-contact-trigger"
+      type="button"
+      aria-expanded="false"
+      aria-controls="floatingContactPanel">
+      <svg class="icon" aria-hidden="true"><use href="#icon-phone"></use></svg>
+      <span>Contact</span>
+    </button>
+
+    <div class="floating-contact__panel js-contact-panel" id="floatingContactPanel" aria-hidden="true">
+      <button class="floating-contact__close js-contact-close" type="button" aria-label="Fermer">&times;</button>
+
+      <div class="floating-contact__content">
+        <a href="tel:+33781602221">
+          <svg class="icon" aria-hidden="true"><use href="#icon-phone"></use></svg>
+          <span>07 81 60 22 21</span>
+        </a>
+
+        <a href="mailto:carolanne.chiropraxie@gmail.com">
+          <svg class="icon" aria-hidden="true"><use href="#icon-envelope"></use></svg>
+          <span>carolanne.chiropraxie@gmail.com</span>
+        </a>
+
+        <a href="https://www.google.com/maps/dir/?api=1&destination=62+route+de+Saint+Leonard+Bujaleuf"
+           target="_blank" rel="noopener">
+          <svg class="icon" aria-hidden="true"><use href="#icon-pin"></use></svg>
+          <span>Venir au cabinet</span>
+        </a>
+
+        <a href="https://www.instagram.com/carolanne.chiropraxie/"
+           target="_blank" rel="noopener">
+          <svg class="icon" aria-hidden="true"><use href="#icon-instagram"></use></svg>
+          <span>Instagram</span>
+        </a>
+      </div>
+    </div>
+  </div>
 
   <script src="assets/js/index.js" defer></script>
 </body>
