@@ -223,6 +223,7 @@
   margin:28px 0 0;
   padding:0;
   list-style:none;
+  counter-reset:seance-step;
 }
 
 .seance__step{
@@ -230,6 +231,7 @@
   grid-template-columns:46px 1fr;
   gap:14px;
   align-items:start;
+  counter-increment:seance-step;
 }
 
 .seance__badge{
@@ -608,7 +610,7 @@
 }
 
 .chiro-methodes--profil .chiro-methodes__photo{
-  object-position:center 28%;
+  object-position:center 56%;
 }
 
 .chiro-methodes--profil .chiro-methodes__profileText{
@@ -683,20 +685,35 @@
   }
 
   .seance__step{
-    grid-template-columns:40px 1fr;
-    gap:12px;
+    grid-template-columns:1fr;
+    gap:8px;
     align-items:start;
   }
 
   .seance__badge{
-    width:40px;
-    height:40px;
-    font-size:13px;
+    display:none;
   }
 
   .seance__card{
     padding:16px 14px 14px;
     border-radius:18px;
+  }
+
+  .seance__card::before{
+    content:"Étape " counter(seance-step);
+    display:inline-flex;
+    align-items:center;
+    min-height:28px;
+    margin-bottom:10px;
+    padding:0 10px;
+    border-radius:999px;
+    background:rgba(28,91,69,.09);
+    border:1px solid rgba(28,91,69,.12);
+    color:var(--c-primary);
+    font-size:11px;
+    font-weight:800;
+    letter-spacing:.08em;
+    text-transform:uppercase;
   }
 
   .seance__name{
@@ -756,8 +773,8 @@
 
   .chiro-methodes--profil .chiro-methodes__photo{
     min-height:260px;
-    max-height:340px;
-    object-position:center 22%;
+    max-height:380px;
+    object-position:center 58%;
   }
 
   .chiro-methodes--profil .chiro-methodes__profileText{
