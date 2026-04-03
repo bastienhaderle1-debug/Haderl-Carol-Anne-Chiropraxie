@@ -24,7 +24,7 @@
   --grad-hero:linear-gradient(135deg, #1c5b45 0%, #1f99a7 100%);
   --grad-surface:linear-gradient(180deg, rgba(255,255,255,.92) 0%, rgba(255,251,245,.9) 100%);
 
-  --ff-title:"Cormorant Garamond", serif;
+  --ff-title:"Bookman Old Style", "Book Antiqua", Georgia, serif;
   --ff-body:"Manrope", sans-serif;
 }
 

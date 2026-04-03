@@ -704,7 +704,8 @@
   font-size:clamp(29px, 4.2vw, 40px);
   color:var(--c-text);
   letter-spacing:.01em;
-  max-width:12ch;
+  max-width:none;
+  white-space:nowrap;
   margin-inline:auto;
 }
 
