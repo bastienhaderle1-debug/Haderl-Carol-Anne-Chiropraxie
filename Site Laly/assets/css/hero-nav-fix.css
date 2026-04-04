@@ -23,6 +23,20 @@
   box-shadow: 0 4px 10px rgba(8, 18, 17, 0.14);
 }
 
+.avis__dots {
+  gap: 8px;
+}
+
+.avis__dot {
+  width: 20px;
+  height: 20px;
+}
+
+.avis__dot::before {
+  width: 6px;
+  height: 6px;
+}
+
 @media (max-width: 640px) {
   .hero__media::after {
     background:
@@ -41,5 +55,19 @@
   .hero__dot::before {
     width: 6px;
     height: 6px;
+  }
+
+  .avis__dots {
+    gap: 7px;
+  }
+
+  .avis__dot {
+    width: 18px;
+    height: 18px;
+  }
+
+  .avis__dot::before {
+    width: 5px;
+    height: 5px;
   }
 }
