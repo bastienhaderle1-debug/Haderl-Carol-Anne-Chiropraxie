@@ -1,18 +1,20 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="fr">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <title>Cabinet de chiropraxie à Bujaleuf</title>
-  <meta name="description" content="Cabinet de chiropraxie à Bujaleuf. Prise en charge personnalisée, douce et précise. Prenez rendez-vous." />
+  <title>Chiropracteur proche de Peyrat-le-Château | Cabinet à Bujaleuf</title>
+  <meta name="description" content="Vous cherchez un chiropracteur proche de Peyrat-le-Château ? Le cabinet Carol-Anne Haderlé vous accueille à Bujaleuf sur rendez-vous pour une prise en charge douce et précise." />
   <meta name="robots" content="index,follow" />
   <meta name="google-site-verification" content="gKrpFN4nLu-nKXX74mPhYxNePAkkQWxK-2MVJ1E7urk" />
   <meta name="theme-color" content="#1E6B3A" />
   <meta property="og:locale" content="fr_FR" />
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="Cabinet de chiropraxie à Bujaleuf" />
-  <meta property="og:description" content="Prise en charge personnalisée, douce et précise à Bujaleuf." />
+  <meta property="og:title" content="Chiropracteur proche de Peyrat-le-Château | Cabinet à Bujaleuf" />
+  <meta property="og:description" content="Cabinet de chiropraxie à Bujaleuf, proche de Peyrat-le-Château." />
+  <meta property="og:url" content="https://carol-anne-chiropraxie.fr/chiropracteur-proche-peyrat-le-chateau.html" />
+  <link rel="canonical" href="https://carol-anne-chiropraxie.fr/chiropracteur-proche-peyrat-le-chateau.html" />
 
   <link rel="icon" href="favicon.ico" sizes="any">
   <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
@@ -33,6 +35,8 @@
       "addressLocality":"Bujaleuf",
       "addressCountry":"FR"
     },
+    "url":"https://carol-anne-chiropraxie.fr/chiropracteur-proche-peyrat-le-chateau.html",
+    "areaServed":"Peyrat-le-Château",
     "telephone":"+33781602221"
   }
   </script>
@@ -41,14 +45,26 @@
   <!-- CSS -->
   <link rel="stylesheet" href="assets/css/home.min.css" />
   <link rel="stylesheet" href="assets/css/hero-nav-fix.css" />
+  <link rel="stylesheet" href="assets/css/local-page.css" />
 
   <!-- JS header (burger) -->
   <script src="assets/js/site.min.js" defer></script>
   <script src="assets/js/header.min.js" defer></script>
 </head>
 
-<body class="home">
+<body class="home page-local">
   <a class="siteSkipLink" href="#main-content">Aller au contenu principal</a>
+  <div class="local-popup" data-local-popup hidden>
+    <div class="local-popup__backdrop" data-local-popup-backdrop></div>
+    <div class="local-popup__dialog" role="dialog" aria-modal="true" aria-labelledby="local-popup-title">
+      <button class="local-popup__close" type="button" aria-label="Fermer" data-local-popup-close>&times;</button>
+      <h2 class="local-popup__title" id="local-popup-title">Votre chiropracteure proche de Peyrat-le-Château</h2>
+      <div class="local-popup__actions">
+        <a class="local-popup__btn local-popup__btn--primary" href="prestations.html">Voir les prestations</a>
+        <a class="local-popup__btn local-popup__btn--ghost" href="https://www.google.com/maps/dir/?api=1&destination=62+route+de+Saint+Leonard+Bujaleuf" target="_blank" rel="noopener">Venir au cabinet</a>
+      </div>
+    </div>
+  </div>
   <svg class="visually-hidden" aria-hidden="true" focusable="false">
     <symbol id="icon-phone" viewBox="0 0 24 24">
       <path d="M6.6 10.8a15.5 15.5 0 0 0 6.6 6.6l2.2-2.2c.3-.3.8-.4 1.2-.3 1 .3 2 .4 3 .4.7 0 1.2.5 1.2 1.2V20c0 .7-.5 1.2-1.2 1.2C10.8 21.2 2.8 13.2 2.8 3.4c0-.7.5-1.2 1.2-1.2h3.5c.7 0 1.2.5 1.2 1.2 0 1 .1 2 .4 3 .1.4 0 .8-.3 1.2l-2.2 2.2Z"></path>
@@ -93,7 +109,7 @@
       </button>
 
       <nav class="siteNav" id="mobileNav" aria-label="Navigation principale">
-        <a class="is-active" href="index.html" aria-current="page">Accueil</a>
+        <a href="index.html">Accueil</a>
         <a href="chiropraxie.html">La Chiropraxie | À quoi s'attendre ?</a>
         <a href="prestations.html">Voir les prestations</a>
       </nav>
@@ -454,6 +470,17 @@
       </div>
     </section>
 
+  <section class="local-links" aria-labelledby="local-links-title">
+    <div class="local-links__inner">
+      <h2 class="local-links__title" id="local-links-title">Secteurs proches :</h2>
+      <ul class="local-links__list">
+          <li><span>Saint-Léonard-de-Noblat</span></li>
+          <li><span>Eymoutiers</span></li>
+          <li><span>Châteauneuf-la-Forêt</span></li>
+          <li><span>Panazol / Limoges Est</span></li>
+      </ul>
+    </div>
+  </section>
   </main>
 
   <footer class="siteFooter">
@@ -523,8 +550,10 @@
   </div>
 
   <script src="assets/js/index.min.js" defer></script>
+  <script src="assets/js/local-page.js" defer></script>
 </body>
 </html>
+
 
 
 
