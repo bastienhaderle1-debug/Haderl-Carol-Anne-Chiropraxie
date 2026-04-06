@@ -292,6 +292,18 @@
   display: inline;
 }
 
+.local-links__list a:hover,
+.local-links__list a:focus-visible {
+  color: var(--c-primary);
+  text-decoration: underline;
+  text-underline-offset: 0.18em;
+}
+
+.local-links__list a[aria-current="page"],
+.local-links__list span[aria-current="page"] {
+  color: var(--c-primary);
+}
+
 @media (max-width: 900px) {
   .local-intro__grid {
     grid-template-columns: 1fr;
