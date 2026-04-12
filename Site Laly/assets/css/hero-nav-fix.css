@@ -55,6 +55,7 @@
     width: min(469px, calc(100% - 32px));
     padding: 23px 23px 19px;
     border-radius: 23px;
+    overflow: visible;
   }
 
   .hero-badge__kicker {
@@ -78,12 +79,41 @@
 
   .hero-badge__actions {
     gap: 10px;
+    position: relative;
+    overflow: visible;
+    align-items: stretch;
   }
 
   .hero-badge__btn,
   .hero-badge__link {
     min-height: 42px;
     font-size: 12.5px;
+  }
+
+  .hero-contact-panel {
+    right: 0;
+    bottom: calc(100% + 12px);
+    width: min(360px, calc(100vw - 48px));
+    max-height: min(70vh, 420px);
+    padding: 20px 18px 18px;
+    overflow: auto;
+  }
+
+  .hero-contact-content {
+    display: grid;
+    gap: 10px;
+    padding-top: 18px;
+  }
+
+  .hero-contact-content a {
+    min-width: 0;
+    align-items: flex-start;
+  }
+
+  .hero-contact-content a span {
+    min-width: 0;
+    overflow-wrap: anywhere;
+    word-break: break-word;
   }
 }
 

@@ -58,11 +58,62 @@
       color: rgba(28, 91, 69, 0.78);
     }
 
+    .hero-badge__text strong {
+      font-weight: 900;
+      color: #000;
+    }
+
+    .map-location-switcher {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px;
+      margin: 0 0 18px;
+    }
+
+    .map-location-switcher__btn {
+      appearance: none;
+      border: 1px solid rgba(30, 107, 58, 0.22);
+      background: #fff;
+      color: #1e6b3a;
+      border-radius: 999px;
+      padding: 11px 18px;
+      font: inherit;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+    }
+
+    .map-location-switcher__btn:hover,
+    .map-location-switcher__btn:focus-visible {
+      border-color: #1e6b3a;
+      transform: translateY(-1px);
+      outline: none;
+    }
+
+    .map-location-switcher__btn.is-active {
+      background: #1e6b3a;
+      color: #fff;
+      border-color: #1e6b3a;
+      box-shadow: 0 10px 24px rgba(30, 107, 58, 0.16);
+    }
+
     @media (max-width: 768px) {
       .hero-badge__brand {
         margin-top: 5px;
         font-size: 11px;
         letter-spacing: 0.06em;
+      }
+
+      .map-location-switcher {
+        gap: 10px;
+        margin-bottom: 14px;
+      }
+
+      .map-location-switcher__btn {
+        width: 100%;
+        max-width: 320px;
+        padding: 10px 16px;
       }
     }
   </style>
@@ -187,51 +238,9 @@
       <p class="hero-badge__kicker">CABINET DE CHIROPRAXIE</p>
       <h1 class="hero-badge__title">Soulagez durablement vos douleurs</h1>
       <p class="hero-badge__text">
-        Prise en charge personnalisée • Non-invasive et spécifique • À Bujaleuf
+        Prise en charge personnalisée • Non-invasive et spécifique • <strong>À Bujaleuf et Saint-Pantaléon-de-Larche</strong>
         <span class="hero-badge__brand">Carol-Anne Haderlé</span>
       </p>
-
-      <div class="hero-badge__actions" data-contact-widget>
-        <a class="hero-badge__btn" href="prestations.html">Prendre rendez-vous</a>
-
-        <button
-          class="hero-badge__link hero-contact-trigger js-contact-trigger"
-          type="button"
-          aria-expanded="false"
-          aria-haspopup="dialog"
-          aria-controls="heroContactPanel">
-          Contact
-        </button>
-
-        <div class="hero-contact-panel js-contact-panel" id="heroContactPanel" role="dialog" aria-label="Coordonnées du cabinet" hidden inert>
-          <button class="hero-contact-close js-contact-close" type="button" aria-label="Fermer">&times;</button>
-
-          <div class="hero-contact-content">
-            <a href="tel:+33781602221">
-              <svg class="icon" aria-hidden="true"><use href="#icon-phone"></use></svg>
-              <span>07 81 60 22 21</span>
-            </a>
-
-            <a href="mailto:carolanne.chiropraxie@gmail.com">
-              <svg class="icon" aria-hidden="true"><use href="#icon-envelope"></use></svg>
-              <span>carolanne.chiropraxie@gmail.com</span>
-            </a>
-
-            <a href="https://www.google.com/maps/dir/?api=1&destination=62+route+de+Saint+Leonard+Bujaleuf"
-               target="_blank" rel="noopener">
-              <svg class="icon" aria-hidden="true"><use href="#icon-pin"></use></svg>
-              <span>Venir au cabinet</span>
-            </a>
-
-            <a href="https://www.instagram.com/carolanne.chiropraxie/"
-               target="_blank" rel="noopener">
-              <svg class="icon" aria-hidden="true"><use href="#icon-instagram"></use></svg>
-              <span>Instagram</span>
-            </a>
-          </div>
-        </div>
-
-      </div>
 
     </div>
   </section>
@@ -246,6 +255,13 @@
        target="_blank" rel="noopener">
       <svg class="icon" aria-hidden="true"><use href="#icon-pin"></use></svg>
       <span>62 route de Saint Leonard, Bujaleuf</span>
+    </a>
+
+    <a class="contact-item"
+       href="https://www.google.com/maps/dir/?api=1&destination=486+Avenue+Alexis+Jaubert+19600+Saint-Pantaleon-de-Larche"
+       target="_blank" rel="noopener">
+      <svg class="icon" aria-hidden="true"><use href="#icon-pin"></use></svg>
+      <span>486 Avenue Alexis Jaubert, 19600 Saint-Pantaléon-de-Larche</span>
     </a>
 
     <a class="contact-item"
@@ -480,8 +496,38 @@
 
     <!-- MAP -->
     <section class="map-section" id="acces">
+      <div class="map-location-switcher" role="tablist" aria-label="Choisir le cabinet à afficher sur la carte">
+        <button
+          class="map-location-switcher__btn is-active"
+          type="button"
+          role="tab"
+          aria-selected="true"
+          data-map-button
+          data-map-label="Bujaleuf"
+          data-map-src="https://www.google.com/maps?q=62+route+de+Saint+Leonard+Bujaleuf&output=embed"
+          data-map-link="https://www.google.com/maps/dir/?api=1&destination=62+route+de+Saint+Leonard+Bujaleuf"
+          data-map-title="Localisation du cabinet de Bujaleuf sur Google Maps"
+          data-map-cta="CLIQUEZ ICI POUR VENIR AU CABINET DE BUJALEUF">
+          Bujaleuf
+        </button>
+        <button
+          class="map-location-switcher__btn"
+          type="button"
+          role="tab"
+          aria-selected="false"
+          data-map-button
+          data-map-label="Saint-Pantaléon-de-Larche"
+          data-map-src="https://www.google.com/maps?q=486+Avenue+Alexis+Jaubert+19600+Saint-Pantaleon-de-Larche&output=embed"
+          data-map-link="https://www.google.com/maps/dir/?api=1&destination=486+Avenue+Alexis+Jaubert+19600+Saint-Pantaleon-de-Larche"
+          data-map-title="Localisation du cabinet de Saint-Pantaléon-de-Larche sur Google Maps"
+          data-map-cta="CLIQUEZ ICI POUR VENIR AU CABINET DE SAINT-PANTALEON-DE-LARCHE">
+          Saint-Pantaléon-de-Larche
+        </button>
+      </div>
+
       <div class="map-wrapper">
         <iframe
+          id="cabinetMapFrame"
           src="https://www.google.com/maps?q=62+route+de+Saint+Leonard+Bujaleuf&output=embed"
           title="Localisation du cabinet sur Google Maps"
           loading="lazy"
@@ -491,9 +537,9 @@
       </div>
 
       <div class="map-section__cta">
-        <a href="https://www.google.com/maps/dir/?api=1&destination=62+route+de+Saint+Leonard+Bujaleuf"
+        <a id="cabinetMapLink" href="https://www.google.com/maps/dir/?api=1&destination=62+route+de+Saint+Leonard+Bujaleuf"
            target="_blank" rel="noopener">
-          CLIQUEZ ICI POUR VENIR AU CABINET
+          CLIQUEZ ICI POUR VENIR AU CABINET DE BUJALEUF
         </a>
       </div>
     </section>
@@ -580,5 +626,32 @@
   </div>
 
   <script src="assets/js/index.min.js" defer></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      var mapButtons = document.querySelectorAll('[data-map-button]');
+      var mapFrame = document.getElementById('cabinetMapFrame');
+      var mapLink = document.getElementById('cabinetMapLink');
+
+      if (!mapButtons.length || !mapFrame || !mapLink) {
+        return;
+      }
+
+      mapButtons.forEach(function (button) {
+        button.addEventListener('click', function () {
+          mapButtons.forEach(function (item) {
+            item.classList.remove('is-active');
+            item.setAttribute('aria-selected', 'false');
+          });
+
+          button.classList.add('is-active');
+          button.setAttribute('aria-selected', 'true');
+          mapFrame.src = button.dataset.mapSrc || mapFrame.src;
+          mapFrame.title = button.dataset.mapTitle || mapFrame.title;
+          mapLink.href = button.dataset.mapLink || mapLink.href;
+          mapLink.textContent = button.dataset.mapCta || mapLink.textContent;
+        });
+      });
+    });
+  </script>
 </body>
 </html>

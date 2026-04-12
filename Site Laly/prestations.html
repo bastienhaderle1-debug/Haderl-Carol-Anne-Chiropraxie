@@ -23,6 +23,74 @@
   <link rel="stylesheet" href="assets/css/globals.min.css" />
   <link rel="stylesheet" href="assets/css/layout.min.css" />
   <link rel="stylesheet" href="assets/css/prestations.min.css" />
+  <style>
+    .summaryCard__location {
+      margin-top: 6px;
+    }
+
+    .summaryCard__locationTitle {
+      margin: 0 0 10px;
+      font-family: var(--ff-body);
+      color: var(--c-text);
+      font-size: 13px;
+      font-weight: 800;
+    }
+
+    .summaryCard__locationChoices {
+      display: grid;
+      gap: 10px;
+    }
+
+    .summaryCard__locationBtn {
+      appearance: none;
+      width: 100%;
+      border: 1px solid rgba(23,54,45,.12);
+      border-radius: 14px;
+      padding: 12px 14px;
+      background: rgba(255,255,255,.88);
+      color: var(--c-primary);
+      font: inherit;
+      font-weight: 800;
+      text-align: left;
+      cursor: pointer;
+      transition: border-color .2s ease, box-shadow .2s ease, transform .2s ease, background .2s ease;
+    }
+
+    .summaryCard__locationBtn small {
+      display: block;
+      margin-top: 4px;
+      color: var(--c-muted);
+      font-size: 12px;
+      font-weight: 600;
+    }
+
+    .summaryCard__locationBtn:hover,
+    .summaryCard__locationBtn:focus-visible {
+      border-color: rgba(31,153,167,.45);
+      box-shadow: 0 10px 22px rgba(31,153,167,.12);
+      transform: translateY(-1px);
+      outline: none;
+    }
+
+    .summaryCard__locationBtn.is-active {
+      border-color: rgba(31,153,167,.55);
+      background: rgba(31,153,167,.1);
+      box-shadow: 0 12px 26px rgba(31,153,167,.16);
+    }
+
+    .summaryCard__locationBtn:disabled {
+      cursor: not-allowed;
+      opacity: .55;
+      box-shadow: none;
+      transform: none;
+    }
+
+    .summaryCard__btn.is-disabled {
+      pointer-events: none;
+      opacity: .5;
+      box-shadow: none;
+    }
+  </style>
   <script src="assets/js/site.min.js" defer></script>
   <script src="assets/js/header.min.js" defer></script>
   <script src="assets/js/prestations.min.js" defer></script>
@@ -76,7 +144,6 @@
       </nav>
 
       <a class="siteHeader__cta"
-         data-booking-link
          href="https://www.fresha.com/book-now/carol-anne-nail-art-ba7022le/services?lid=2855806&amp;eid=2955831&amp;oiid=sv%3A26917561&amp;share=true&amp;pId=1210183"
          target="_blank" rel="noopener">
         Prendre rendez-vous
@@ -181,6 +248,22 @@
                 </div>
               </div>
 
+              <div class="summaryCard__divider"></div>
+
+              <div class="summaryCard__location" aria-label="Choix du cabinet">
+                <p class="summaryCard__locationTitle">Choisissez le cabinet</p>
+                <div class="summaryCard__locationChoices">
+                  <button class="summaryCard__locationBtn" type="button" data-location-option="bujaleuf" disabled>
+                    Bujaleuf
+                    <small>Prise de rendez-vous via Fresha</small>
+                  </button>
+                  <button class="summaryCard__locationBtn" type="button" data-location-option="saint-pantaleon" disabled>
+                    Saint-Pantaléon-de-Larche
+                    <small>Prise de rendez-vous via Doctolib</small>
+                  </button>
+                </div>
+              </div>
+
               <div class="summaryCard__actions">
                 <a class="summaryCard__btn"
                    data-booking-link
@@ -190,7 +273,7 @@
                    rel="noopener">
                   Prendre rendez-vous
                 </a>
-                <p class="summaryCard__hint" id="summary-booking-hint">Après sélection, cliquez sur “Prendre rendez-vous”.</p>
+                <p class="summaryCard__hint" id="summary-booking-hint">Choisissez d'abord une prestation, puis le cabinet souhaité.</p>
               </div>
             </div>
           </aside>
