@@ -17,7 +17,7 @@
   const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
   const mobileQuery = window.matchMedia('(max-width: 768px)');
   const intervalMs = 5000;
-  const mobileSlideOrder = [0, 3, 2];
+  const mobileSlideOrder = [0, 2, 3];
   let currentIndex = 0;
   let timerId = null;
   let activeSlideIndexes = [];

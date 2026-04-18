@@ -323,17 +323,17 @@
   }
 
   .hero__dots {
-    gap: 6px;
+    gap: 5px;
   }
 
   .hero__dot {
-    width: 17px;
-    height: 17px;
+    width: 13px;
+    height: 13px;
   }
 
   .hero__dot::before {
-    width: 5.5px;
-    height: 5.5px;
+    width: 4px;
+    height: 4px;
   }
 }
 
