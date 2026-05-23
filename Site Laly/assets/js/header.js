@@ -5,7 +5,7 @@
   const bookingTrigger = document.querySelector('.siteHeader__cta');
   const desktopQuery = window.matchMedia('(min-width:769px)');
   const bookingUrls = {
-    bujaleuf: 'https://www.fresha.com/book-now/carol-anne-nail-art-ba7022le/all-offer?share=true&pId=1210183',
+    bujaleuf: 'https://www.doctolib.fr/chiropracteur/bujaleuf/carol-anne-haderle?pid=practice-802873&source=profile',
     saintPantaleon: 'https://www.doctolib.fr/chiropracteur/varzay/venries-laura/booking/motive-categories?specialityId=191&telehealth=false&placeId=practice-713638&source=profile'
   };
 
@@ -33,16 +33,16 @@
     bookingDialog.hidden = true;
     bookingDialog.innerHTML = '' +
       '<button class="booking-dialog__close" type="button" aria-label="Fermer">&times;</button>' +
-      '<h2 class="booking-dialog__title" id="booking-dialog-title">Où voulez-vous prendre rendez-vous ?</h2>' +
-      '<p class="booking-dialog__text">Choisissez le cabinet pour être redirigé vers la bonne plateforme de réservation.</p>' +
+      '<h2 class="booking-dialog__title" id="booking-dialog-title">O&ugrave; voulez-vous prendre rendez-vous ?</h2>' +
+      '<p class="booking-dialog__text">Choisissez le cabinet pour &ecirc;tre redirig&eacute; vers la bonne plateforme de r&eacute;servation.</p>' +
       '<div class="booking-dialog__actions">' +
         '<a class="booking-dialog__choice" href="' + bookingUrls.bujaleuf + '" target="_blank" rel="noopener">' +
           'Bujaleuf' +
-          '<small>Réservation via Fresha</small>' +
+          '<small>R&eacute;servation via Doctolib</small>' +
         '</a>' +
         '<a class="booking-dialog__choice" href="' + bookingUrls.saintPantaleon + '" target="_blank" rel="noopener">' +
-          'Saint-Pantaléon-de-Larche' +
-          '<small>Réservation via Doctolib</small>' +
+          'Saint-Pantal&eacute;on-de-Larche' +
+          '<small>R&eacute;servation via Doctolib</small>' +
         '</a>' +
       '</div>';
 
@@ -87,14 +87,12 @@
     });
   }
 
-  // Ferme si clic en dehors
   document.addEventListener('click', (e) => {
     if(!header.classList.contains('is-menu-open')) return;
     if(e.target.closest('.siteHeader')) return;
     closeMenu();
   });
 
-  // Ferme au clic sur un lien
   nav.addEventListener('click', (e) => {
     if(e.target.closest('a')) closeMenu();
   });
@@ -111,7 +109,6 @@
     }
   });
 
-  // Ferme si on repasse en desktop
   window.addEventListener('resize', () => {
     if(desktopQuery.matches) closeMenu();
   });

@@ -31,7 +31,7 @@
       : selectedLocation === 'saint-pantaleon'
         ? saintPantaleonUrl
         : selectedLocation === 'bujaleuf'
-          ? (selectedService.dataset.freshaUrl || '')
+          ? (selectedService.dataset.bookingUrl || '')
           : '';
 
     updateBookingLinks(nextUrl);
@@ -49,13 +49,13 @@
 
     if(bookingHint){
       if(!selectedService){
-        bookingHint.textContent = "Choisissez d'abord une prestation, puis le cabinet souhaité.";
+        bookingHint.textContent = "Choisissez d'abord une prestation, puis le cabinet souhait\u00e9.";
       } else if(!selectedLocation){
-        bookingHint.textContent = 'Choisissez maintenant Bujaleuf ou Saint-Pantaléon-de-Larche.';
+        bookingHint.textContent = 'Choisissez maintenant Bujaleuf ou Saint-Pantal\u00e9on-de-Larche.';
       } else if(selectedLocation === 'saint-pantaleon'){
-        bookingHint.textContent = 'Le rendez-vous sera pris sur Doctolib pour Saint-Pantaléon-de-Larche.';
+        bookingHint.textContent = 'Le rendez-vous sera pris sur Doctolib pour Saint-Pantal\u00e9on-de-Larche.';
       } else {
-        bookingHint.textContent = 'Le rendez-vous sera pris sur Fresha pour Bujaleuf.';
+        bookingHint.textContent = 'Le rendez-vous sera pris sur Doctolib pour Bujaleuf.';
       }
     }
   }
