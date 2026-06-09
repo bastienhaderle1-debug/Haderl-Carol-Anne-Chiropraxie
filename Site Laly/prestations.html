@@ -90,6 +90,48 @@
       opacity: .5;
       box-shadow: none;
     }
+
+    .summaryCard__location.is-hidden {
+      display: none;
+    }
+
+    .summaryCard__callInfo {
+      margin-top: 10px;
+      padding: 14px 16px;
+      border: 1px solid rgba(31,153,167,.18);
+      border-radius: 16px;
+      background: rgba(31,153,167,.08);
+    }
+
+    .summaryCard__callLabel {
+      margin: 0 0 6px;
+      font-family: var(--ff-body);
+      color: var(--c-primary);
+      font-size: 13px;
+      font-weight: 800;
+    }
+
+    .summaryCard__callNumber {
+      margin: 0;
+      font-family: var(--ff-title);
+      color: var(--c-text);
+      font-size: 22px;
+      font-weight: 800;
+      letter-spacing: .03em;
+    }
+
+    .service__phoneLink,
+    .summaryCard__callLink {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .service__phoneLink:hover,
+    .service__phoneLink:focus-visible,
+    .summaryCard__callLink:hover,
+    .summaryCard__callLink:focus-visible {
+      text-decoration: underline;
+    }
   </style>
   <script src="assets/js/site.min.js" defer></script>
   <script src="assets/js/header.min.js" defer></script>
@@ -161,13 +203,13 @@
 
         <div class="prestations__grid">
           <div class="prestations__list" role="list" aria-label="Liste des prestations">
-            <article class="service" role="listitem" data-service="info" data-booking-url="https://www.doctolib.fr/chiropracteur/bujaleuf/carol-anne-haderle?pid=practice-802873&amp;source=profile">
+            <article class="service" role="listitem" data-service="info">
               <button class="service__top" type="button" aria-expanded="false" aria-controls="service-info-body">
                 <div class="service__main">
-                  <span class="service__name">Rdv d'information téléphonique</span>
-                  <p class="service__sub">Un premier échange gratuit pour répondre à vos questions et vous orienter.</p>
+                  <span class="service__name">Appelez pour des informations</span>
+                  <p class="service__sub">Un premier échange pour répondre à vos questions et vous orienter.</p>
                   <div class="service__meta">
-                    <span>15 min</span><span>•</span><span>gratuit</span>
+                    <a class="service__phoneLink" href="tel:+33781602221">07 81 60 22 21</a>
                   </div>
                 </div>
                 <span class="service__check" aria-hidden="true"></span>
@@ -273,6 +315,10 @@
                    rel="noopener">
                   Prendre rendez-vous
                 </a>
+                <div class="summaryCard__callInfo" id="summary-call-info" hidden>
+                  <p class="summaryCard__callLabel">Appelez pour des informations</p>
+                  <p class="summaryCard__callNumber"><a class="summaryCard__callLink" href="tel:+33781602221">07 81 60 22 21</a></p>
+                </div>
                 <p class="summaryCard__hint" id="summary-booking-hint">Choisissez d'abord une prestation, puis le cabinet souhaité.</p>
               </div>
             </div>
@@ -307,5 +353,61 @@
       </div>
     </div>
   </footer>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      var root = document.querySelector('.prestations');
+      if (!root) return;
+
+      var callService = root.querySelector('.service[data-service="info"]');
+      var locationBlock = root.querySelector('.summaryCard__location');
+      var bookingLink = root.querySelector('[data-booking-link]');
+      var bookingHint = root.querySelector('#summary-booking-hint');
+      var callInfo = root.querySelector('#summary-call-info');
+      var locationButtons = root.querySelectorAll('[data-location-option]');
+
+      function syncInfoServiceUI() {
+        var activeService = root.querySelector('.service.is-open');
+        var infoSelected = activeService === callService;
+
+        if (callInfo) {
+          callInfo.hidden = !infoSelected;
+        }
+
+        if (locationBlock) {
+          locationBlock.classList.toggle('is-hidden', infoSelected);
+        }
+
+        if (bookingLink) {
+          bookingLink.hidden = infoSelected;
+        }
+
+        if (infoSelected) {
+          locationButtons.forEach(function (button) {
+            button.disabled = true;
+            button.classList.remove('is-active');
+            button.setAttribute('aria-pressed', 'false');
+          });
+
+          if (bookingHint) {
+            bookingHint.textContent = 'Appelez le 07 81 60 22 21 pour obtenir des informations.';
+          }
+
+          return;
+        }
+
+        locationButtons.forEach(function (button) {
+          button.disabled = !activeService;
+        });
+      }
+
+      root.querySelectorAll('.service__top, [data-location-option]').forEach(function (trigger) {
+        trigger.addEventListener('click', function () {
+          window.setTimeout(syncInfoServiceUI, 0);
+        });
+      });
+
+      syncInfoServiceUI();
+    });
+  </script>
 </body>
 </html>
