@@ -7,12 +7,9 @@
   const sumService = root.querySelector('#sum-service');
   const sumMeta = root.querySelector('#sum-meta');
   const bookingHint = root.querySelector('#summary-booking-hint');
-  const locationButtons = [...root.querySelectorAll('[data-location-option]')];
   const bookingLinks = [...document.querySelectorAll('[data-booking-link]')];
   const defaultBookingUrl = bookingLinks[0]?.getAttribute('href') || '';
-  const saintPantaleonUrl = 'https://www.doctolib.fr/chiropracteur/varzay/venries-laura/booking/motive-categories?specialityId=191&telehealth=false&placeId=practice-713638&source=profile';
   let selectedService = null;
-  let selectedLocation = '';
 
   function updateBookingLinks(url){
     const nextUrl = (url || defaultBookingUrl || '').trim();
@@ -26,13 +23,7 @@
   }
 
   function updateBookingState(){
-    const nextUrl = !selectedService
-      ? ''
-      : selectedLocation === 'saint-pantaleon'
-        ? saintPantaleonUrl
-        : selectedLocation === 'bujaleuf'
-          ? (selectedService.dataset.bookingUrl || '')
-          : '';
+    const nextUrl = selectedService ? (selectedService.dataset.bookingUrl || '') : '';
 
     updateBookingLinks(nextUrl);
 
@@ -49,31 +40,11 @@
 
     if(bookingHint){
       if(!selectedService){
-        bookingHint.textContent = "Choisissez d'abord une prestation, puis le cabinet souhait\u00e9.";
-      } else if(!selectedLocation){
-        bookingHint.textContent = 'Choisissez maintenant Bujaleuf ou Saint-Pantal\u00e9on-de-Larche.';
-      } else if(selectedLocation === 'saint-pantaleon'){
-        bookingHint.textContent = 'Le rendez-vous sera pris sur Doctolib pour Saint-Pantal\u00e9on-de-Larche.';
+        bookingHint.textContent = "Choisissez d'abord une prestation.";
       } else {
         bookingHint.textContent = 'Le rendez-vous sera pris sur Doctolib pour Bujaleuf.';
       }
     }
-  }
-
-  function enableLocationButtons(){
-    locationButtons.forEach(button => {
-      button.disabled = false;
-    });
-  }
-
-  function setLocation(location){
-    selectedLocation = location;
-    locationButtons.forEach(button => {
-      const isActive = button.dataset.locationOption === location;
-      button.classList.toggle('is-active', isActive);
-      button.setAttribute('aria-pressed', isActive ? 'true' : 'false');
-    });
-    updateBookingState();
   }
 
   function closeAll(){
@@ -99,7 +70,6 @@
     selectedService = it;
     if(sumService) sumService.textContent = name;
     if(sumMeta) sumMeta.textContent = meta;
-    enableLocationButtons();
     updateBookingState();
   }
 
@@ -109,13 +79,6 @@
     if(!btn) return;
     if(body) body.hidden = true;
     btn.addEventListener('click', () => openItem(it));
-  });
-
-  locationButtons.forEach(button => {
-    button.addEventListener('click', () => {
-      if(!selectedService) return;
-      setLocation(button.dataset.locationOption || '');
-    });
   });
 
   bookingLinks.forEach(link => {
